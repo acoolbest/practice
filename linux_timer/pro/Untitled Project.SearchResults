@@ -1,0 +1,4 @@
+---- thread_proc Matches (3 in 2 files) ----
+CTimer.cpp (c:\users\luoxl\desktop\demo_1_minute):    pthread_create(&thread_timer, NULL, thread_proc, (void*)newtime);
+CTimer.cpp (c:\users\luoxl\desktop\demo_1_minute):void  *thread_proc(void *arg)
+CTimer.h (c:\users\luoxl\desktop\demo_1_minute):void *thread_proc(void *arg);

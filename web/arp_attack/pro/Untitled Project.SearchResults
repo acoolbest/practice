@@ -1,0 +1,53 @@
+---- ioctl Matches (6 in 3 files) ----
+Arp.c (z:\practice\web\arp_attack):	if(-1 == ioctl(sock_raw_fd, SIOCGIFINDEX, (char *)&ethreq))
+Arp.c (z:\practice\web\arp_attack):		perror("ioctl");
+Arp.h (z:\practice\web\arp_attack):#include <sys/ioctl.h>
+Attack.c (z:\practice\web\arp_attack):#include <sys/ioctl.h>
+Attack.c (z:\practice\web\arp_attack):	if(-1 == ioctl(sock_raw_fd0, SIOCGIFINDEX, (char *)&ethreq0))
+Attack.c (z:\practice\web\arp_attack):		perror("ioctl");
+---- eth Matches (49 in 3 files) ----
+Arp.c (z:\practice\web\arp_attack):	sock_raw_fd = socket(PF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+Arp.c (z:\practice\web\arp_attack):	struct ifreq ethreq;					//network interface addr
+Arp.c (z:\practice\web\arp_attack):	strncpy(ethreq.ifr_name, "eth0", IFNAMSIZ);//appointed name for network card
+Arp.c (z:\practice\web\arp_attack):	if(-1 == ioctl(sock_raw_fd, SIOCGIFINDEX, (char *)&ethreq))
+Arp.c (z:\practice\web\arp_attack):	sll.sll_ifindex = ethreq.ifr_ifindex;
+Arp.h (z:\practice\web\arp_attack):#include <netinet/ether.h>
+Attack.c (z:\practice\web\arp_attack):#include <linux/if_ether.h>
+Attack.c (z:\practice\web\arp_attack):#include <netinet/ether.h>
+Attack.c (z:\practice\web\arp_attack):#include <net/ethernet.h>
+Attack.c (z:\practice\web\arp_attack):struct ether_header
+Attack.c (z:\practice\web\arp_attack):	unsigned char ether_dhost[6];
+Attack.c (z:\practice\web\arp_attack):	unsigned char ether_shost[6];
+Attack.c (z:\practice\web\arp_attack):	unsigned short ether_type;
+Attack.c (z:\practice\web\arp_attack):void ethernet_protocol_callback(unsigned char *argument,\
+Attack.c (z:\practice\web\arp_attack):	struct ether_header *ethernet_protocol;
+Attack.c (z:\practice\web\arp_attack):	unsigned short ethernet_type;
+Attack.c (z:\practice\web\arp_attack):	ethernet_protocol = (struct ether_header *)packet_content;
+Attack.c (z:\practice\web\arp_attack):	p_mac_string = (unsigned char *)ethernet_protocol->ether_shost;
+Attack.c (z:\practice\web\arp_attack):/*	p_mac_string = (unsigned char *)ethernet_protocol->ether_dhost;
+Attack.c (z:\practice\web\arp_attack):	mac_deal(mac_buf, ethernet_protocol->ether_dhost);
+Attack.c (z:\practice\web\arp_attack):	ethernet_type = ntohs(ethernet_protocol->ether_type);
+Attack.c (z:\practice\web\arp_attack):	printf("Ethernet type is :%04x\n", ethernet_type);
+Attack.c (z:\practice\web\arp_attack):	switch(ethernet_type)
+Attack.c (z:\practice\web\arp_attack):			ip_header = (struct iphdr *)(ethernet_protocol + 1);
+Attack.c (z:\practice\web\arp_attack):	int sock_raw_fd0 = socket(PF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+Attack.c (z:\practice\web\arp_attack)://	int sock_raw_fd1 = socket(PF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+Attack.c (z:\practice\web\arp_attack):	struct ifreq ethreq0;						//network interface addr	
+Attack.c (z:\practice\web\arp_attack):	strncpy(ethreq0.ifr_name, "eth0", IFNAMSIZ);	//appointed name for network card
+Attack.c (z:\practice\web\arp_attack):	if(-1 == ioctl(sock_raw_fd0, SIOCGIFINDEX, (char *)&ethreq0))
+Attack.c (z:\practice\web\arp_attack):	sll0.sll_ifindex = ethreq0.ifr_ifindex;
+Attack.c (z:\practice\web\arp_attack):				perror("sendto_eth0");
+Attack.c (z:\practice\web\arp_attack):				perror("sendto_eth1");
+Attack.c (z:\practice\web\arp_attack):	lib_net = libnet_init(LIBNET_LINK_ADV, "eth0", err_buf);
+Attack.c (z:\practice\web\arp_attack):	lib_t = libnet_build_ethernet((u_int8_t *)dst_mac, (u_int8_t *)src_mac,\
+Attack.c (z:\practice\web\arp_attack):								ETHERTYPE_IP, NULL, 0, lib_net, 0);
+Attack.c (z:\practice\web\arp_attack)://	unsigned short ethernet_type = 0;
+Attack.c (z:\practice\web\arp_attack)://	struct ether_header *ethernet_protocol = NULL;
+Attack.c (z:\practice\web\arp_attack):	if(pcap_loop(pcap_handle, -1, ethernet_protocol_callback, NULL) < 0)
+---- eth0 Matches (4 in 2 files) ----
+Arp.c (z:\practice\web\arp_attack):	strncpy(ethreq.ifr_name, "eth0", IFNAMSIZ);//appointed name for network card
+Attack.c (z:\practice\web\arp_attack):	strncpy(ethreq0.ifr_name, "eth0", IFNAMSIZ);	//appointed name for network card
+Attack.c (z:\practice\web\arp_attack):				perror("sendto_eth0");
+Attack.c (z:\practice\web\arp_attack):	lib_net = libnet_init(LIBNET_LINK_ADV, "eth0", err_buf);
+---- eth1 Matches (1 in 1 files) ----
+Attack.c (z:\practice\web\arp_attack):				perror("sendto_eth1");

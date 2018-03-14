@@ -1,0 +1,2 @@
+/home/charge/share/charge_plus/update/src/CMakeFiles/updateservice.dir
+/home/charge/share/charge_plus/update/CMakeFiles/oss_c_sdk.dir

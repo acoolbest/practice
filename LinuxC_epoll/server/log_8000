@@ -1,0 +1,15 @@
+[27/07/17 16:20:13] LOG START
+[27/07/17 16:20:14] [g_net_update.c main 480] thpool_init success.
+[27/07/17 16:21:13] [g_net_update.c accept_thread 249] Epoll event[0] *****connected from 192.168.0.67*****, fd:21, current connect total = 1.
+[27/07/17 16:21:14] [g_net_update.c main 518] pool queque delete job number = 0.
+[27/07/17 16:21:26] [g_net_update.c main 546] Epoll get Event[0] fd = 21.
+[27/07/17 16:21:26] [g_net_update.c main 565] recv_length = 20, current fd = 21, current job queue job number = 0.
+[27/07/17 16:21:26] [g_net_update.c dumpInfo 354] dump info length = 20, 687474703a2f2f7777772e636d736f66742e636e
+[27/07/17 16:21:26] [g_net_update.c respons_stb_info 372] send data to stb over then close the socket(21), *****client addr(192.168.0.67)***** , thread_index = 0.
+[27/07/17 16:22:14] [g_net_update.c main 518] pool queque delete job number = 0.
+[27/07/17 16:23:09] [g_net_update.c accept_thread 249] Epoll event[0] *****connected from 192.168.0.67*****, fd:22, current connect total = 1.
+[27/07/17 16:23:09] [g_net_update.c main 546] Epoll get Event[0] fd = 22.
+[27/07/17 16:23:09] [g_net_update.c main 565] recv_length = 20, current fd = 22, current job queue job number = 0.
+[27/07/17 16:23:09] [g_net_update.c dumpInfo 354] dump info length = 20, 687474703a2f2f7777772e636d736f66742e636e
+[27/07/17 16:23:09] [g_net_update.c respons_stb_info 372] send data to stb over then close the socket(22), *****client addr(192.168.0.67)***** , thread_index = 2.
+[27/07/17 16:23:15] [g_net_update.c main 518] pool queque delete job number = 0.

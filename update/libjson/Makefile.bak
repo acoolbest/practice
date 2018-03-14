@@ -1,0 +1,23 @@
+CC = g++
+srcdir          ?= _internal/Source
+CFLAGS = -Wall  -Wno-write-strings -fpermissive
+INCLUDE = -I. 
+LDFLAGS =      -shared
+
+TARDIR = ../
+LIBRARY = libjson.so
+#LIBRARY = libjson.a
+OBJECTS = internalJSONNode.o JSONAllocator.o JSONChildren.o \
+		  JSONDebug.o JSONIterators.o JSONMemory.o JSONNode.o \
+		  JSONNode_Mutex.o JSONPreparse.o JSONStream.o JSONValidator.o \
+		  JSONWorker.o JSONWriter.o libjson.o 
+
+$(LIBRARY): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(LIBRARY) $(OBJECTS) $(LDFLAGS)
+	cp $(LIBRARY) ${TARDIR}
+
+%.o: $(srcdir)/%.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -fPIC -c $< -o $@
+
+clean:
+	rm -f *.o core.* $(LIBRARY)

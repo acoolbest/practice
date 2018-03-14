@@ -1,0 +1,17 @@
+{
+	"requestTimeInterva" : 10,
+	"verhttpRequestAdress" : "http://192.168.0.198:8088/get_version_oss",
+	"loghttpRequestAdress" : "http://192.168.0.198:8088/receive_log",
+	"sucesshttpRequestAdress" : "http://192.168.0.198:8088/success_phone",
+	"failhttpRequestAdress" : "http://192.168.0.198:8088/fail_phone",
+	"hearthttpRequestAdress" : "http://58.68.240.102:8088/heart_log",
+	"userName" : "sB6aY5Cx0rU4zEpv",
+	"passWord" : "TIqPJ3fNJUtzMO0Y7ICj8CUa96ZNNT",
+	"activeWebPath" : "../web",
+	"activeAppsPath" : "../apps",
+	"activeRunPath" : "../application",
+	"tryDownloadCount" : "15",
+	"releaseVersion" : "2.0.5-2",
+	"releaseDate" : "2016-08-24",
+	"xyCtrl" : "1"
+}

@@ -1,0 +1,1033 @@
+2016/09/02 10:41:36	charge process starting...
+
+2016/09/02 10:41:36	init exit signal model ----------> [START]
+
+2016/09/02 10:41:36	init exit signal model ----------> [OK]
+
+2016/09/02 10:41:36	init reset_board signal model ----------> [START]
+
+2016/09/02 10:41:36	init reset_board signal model ----------> [OK]
+
+2016/09/02 10:41:36	init log model ----------> [START]
+
+2016/09/02 10:41:36	init log model ----------> [OK]
+
+2016/09/02 10:41:36	init device data model ----------> [START]
+
+2016/09/02 10:41:36	init device data model ----------> [OK]
+
+2016/09/02 10:41:36	init power control model ----------> [START]
+
+
+2016/09/02 10:41:36	open serial port : /dev/ttyS0 success.
+
+2016/09/02 10:41:36	open serial port : /dev/ttyS1 success.
+
+2016/09/02 10:41:36	open serial port : /dev/ttyS2 success.
+
+2016/09/02 10:41:36	open serial port : /dev/ttyS3 success.
+
+2016/09/02 10:41:36	open serial port : /dev/ttyS4 success.
+
+2016/09/02 10:41:36	com_read_thread_func start in device fd 5.
+
+2016/09/02 10:41:36	com_read_thread_func start in device fd 6.
+
+2016/09/02 10:41:36	open serial port : /dev/ttyS5 success.
+
+2016/09/02 10:41:36	com_read_thread_func start in device fd 9.
+
+2016/09/02 10:41:36	com_read_thread_func start in device fd 7.
+
+2016/09/02 10:41:36	/dev/ttyS0 send cmd to  68 03 07 00 00 07 16
+2016/09/02 10:41:36	com_read_thread_func start in device fd 8.
+
+2016/09/02 10:41:36	com_read_thread_func start in device fd 10.
+
+2016/09/02 10:41:36	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:36	/dev/ttyS0 send cmd to  68 04 01 00 FF 0A 0A 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 03 07 01 00 08 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 04 01 01 FF 0A 0B 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 03 07 02 00 09 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 04 01 02 FF 0A 0C 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 03 07 03 00 0A 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 04 01 03 FF 0A 0D 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 03 07 04 00 0B 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 04 01 04 FF 0A 0E 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 03 07 05 00 0C 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 04 01 05 FF 0A 0F 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 03 07 06 00 0D 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 04 01 06 FF 0A 10 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 03 07 07 00 0E 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	/dev/ttyS0 send cmd to  68 04 01 07 FF 0A 11 16
+2016/09/02 10:41:37	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:41:37	init board status job done!
+
+2016/09/02 10:41:37	COMDLL: all root hub is OK.
+
+2016/09/02 10:41:38	COMDLL: board type: 1, board num: 8000269, get board device usb port count from com0 now.
+
+2016/09/02 10:41:38	/dev/ttyS0 send cmd to  68 02 06 00 06 16
+2016/09/02 10:41:38	/dev/ttyS0 rev[OK]:(Hex)  68 02 06 02 08 16
+2016/09/02 10:41:38	COMDLL: board type: 1, board num: 8000269, get board device usb port count is 8 from com0.
+
+2016/09/02 10:41:38	COMDLL: all child hub is OK.
+
+2016/09/02 10:41:38	init power control model ----------> [OK]
+
+
+2016/09/02 10:41:38	init android model ----------> [START]
+
+2016/09/02 10:41:41	init android model ----------> [OK]
+
+2016/09/02 10:41:41	init ios model ----------> [START]
+
+2016/09/02 10:41:41	init ios model ----------> [OK]
+
+2016/09/02 10:41:41	init usb model ----------> [START]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 046d, pid: c31c ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 8087, pid: 8000 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 1d6b, pid: 0003 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 17ef, pid: 6019 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 8087, pid: 8008 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:41:42	init usb model ----------> [OK]
+
+2016/09/02 10:41:42	init all model ----------> [OK]
+
+2016/09/02 10:41:42	run power model ----------> [START]
+
+2016/09/02 10:41:42	run power model ----------> [OK]
+
+2016/09/02 10:41:42	run android model ----------> [START]
+
+2016/09/02 10:41:42	run android model ----------> [OK]
+
+2016/09/02 10:41:42	run ios model ----------> [START]
+
+2016/09/02 10:41:42	run ios model ----------> [OK]
+
+2016/09/02 10:41:42	listen board hub thread ----------> [START]
+
+2016/09/02 10:41:42	run usb model ----------> [START]
+
+2016/09/02 10:41:42	listen android work thread ----------> [START]
+
+2016/09/02 10:41:42	run usb model ----------> [OK]
+
+2016/09/02 10:41:42	listen ios work thread ----------> [START]
+
+2016/09/02 10:41:42	process usb action thread ----------> [START]
+
+2016/09/02 10:41:42	run heartbeat model ----------> [START]
+
+2016/09/02 10:41:42	listen usb work thread ----------> [START]
+
+2016/09/02 10:41:42	run heartbeat model ----------> [OK]
+
+2016/09/02 10:41:42	run all model ----------> [OK]
+
+2016/09/02 10:41:42	waiting for exit signal ----------> [START]
+
+2016/09/02 10:41:42	net_traffic path is /home/charge/share/practice/charge_plus/application/net_traffic.sh
+2016/09/02 10:41:42	heartbeat thread ----------> [START]
+
+2016/09/02 10:41:42	Send heartbeat info to service, terminal: ceshiji, version: 2.0.5-2, net_traffic: 0, url: http://58.68.240.102:8088/heart_log ----------> [OK]
+
+2016/09/02 10:42:13	charge process starting...
+
+2016/09/02 10:42:13	init exit signal model ----------> [START]
+
+2016/09/02 10:42:13	init exit signal model ----------> [OK]
+
+2016/09/02 10:42:13	init reset_board signal model ----------> [START]
+
+2016/09/02 10:42:13	init reset_board signal model ----------> [OK]
+
+2016/09/02 10:42:13	init log model ----------> [START]
+
+2016/09/02 10:42:13	init log model ----------> [OK]
+
+2016/09/02 10:42:13	init device data model ----------> [START]
+
+2016/09/02 10:42:13	init device data model ----------> [OK]
+
+2016/09/02 10:42:13	init power control model ----------> [START]
+
+
+2016/09/02 10:42:13	open serial port : /dev/ttyS0 success.
+
+2016/09/02 10:42:13	open serial port : /dev/ttyS1 success.
+
+2016/09/02 10:42:13	open serial port : /dev/ttyS2 success.
+
+2016/09/02 10:42:13	open serial port : /dev/ttyS3 success.
+
+2016/09/02 10:42:13	open serial port : /dev/ttyS4 success.
+
+2016/09/02 10:42:13	com_read_thread_func start in device fd 5.
+
+2016/09/02 10:42:13	open serial port : /dev/ttyS5 success.
+
+2016/09/02 10:42:13	com_read_thread_func start in device fd 6.
+
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 03 07 00 00 07 16
+2016/09/02 10:42:13	com_read_thread_func start in device fd 7.
+
+2016/09/02 10:42:13	com_read_thread_func start in device fd 9.
+
+2016/09/02 10:42:13	com_read_thread_func start in device fd 8.
+
+2016/09/02 10:42:13	com_read_thread_func start in device fd 10.
+
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 04 01 00 FF 0A 0A 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 03 07 01 00 08 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 04 01 01 FF 0A 0B 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 03 07 02 00 09 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 04 01 02 FF 0A 0C 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 03 07 03 00 0A 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 04 01 03 FF 0A 0D 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 03 07 04 00 0B 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 04 01 04 FF 0A 0E 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 03 07 05 00 0C 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 04 01 05 FF 0A 0F 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 03 07 06 00 0D 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 04 01 06 FF 0A 10 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 03 07 07 00 0E 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	/dev/ttyS0 send cmd to  68 04 01 07 FF 0A 11 16
+2016/09/02 10:42:13	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:13	init board status job done!
+
+2016/09/02 10:42:14	COMDLL: all root hub is OK.
+
+2016/09/02 10:42:15	COMDLL: board type: 1, board num: 8000269, get board device usb port count from com0 now.
+
+2016/09/02 10:42:15	/dev/ttyS0 send cmd to  68 02 06 00 06 16
+2016/09/02 10:42:15	/dev/ttyS0 rev[OK]:(Hex)  68 02 06 02 08 16
+2016/09/02 10:42:15	COMDLL: board type: 1, board num: 8000269, get board device usb port count is 8 from com0.
+
+2016/09/02 10:42:15	COMDLL: all child hub is OK.
+
+2016/09/02 10:42:15	init power control model ----------> [OK]
+
+
+2016/09/02 10:42:15	init android model ----------> [START]
+
+2016/09/02 10:42:18	init android model ----------> [OK]
+
+2016/09/02 10:42:18	init ios model ----------> [START]
+
+2016/09/02 10:42:18	init ios model ----------> [OK]
+
+2016/09/02 10:42:18	init usb model ----------> [START]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 046d, pid: c31c ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 8087, pid: 8000 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 1d6b, pid: 0003 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 17ef, pid: 6019 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 8087, pid: 8008 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:18	init usb model ----------> [OK]
+
+2016/09/02 10:42:18	init all model ----------> [OK]
+
+2016/09/02 10:42:18	run power model ----------> [START]
+
+2016/09/02 10:42:18	run power model ----------> [OK]
+
+2016/09/02 10:42:18	run android model ----------> [START]
+
+2016/09/02 10:42:18	run android model ----------> [OK]
+
+2016/09/02 10:42:18	run ios model ----------> [START]
+
+2016/09/02 10:42:18	listen board hub thread ----------> [START]
+
+2016/09/02 10:42:18	run ios model ----------> [OK]
+
+2016/09/02 10:42:18	run usb model ----------> [START]
+
+2016/09/02 10:42:18	listen android work thread ----------> [START]
+
+2016/09/02 10:42:18	run usb model ----------> [OK]
+
+2016/09/02 10:42:18	run heartbeat model ----------> [START]
+
+2016/09/02 10:42:18	listen ios work thread ----------> [START]
+
+2016/09/02 10:42:18	process usb action thread ----------> [START]
+
+2016/09/02 10:42:18	run heartbeat model ----------> [OK]
+
+2016/09/02 10:42:18	run all model ----------> [OK]
+
+2016/09/02 10:42:18	waiting for exit signal ----------> [START]
+
+2016/09/02 10:42:18	listen usb work thread ----------> [START]
+
+2016/09/02 10:42:18	net_traffic path is /home/charge/share/practice/charge_plus/application/net_traffic.sh
+2016/09/02 10:42:18	heartbeat thread ----------> [START]
+
+2016/09/02 10:42:18	Send heartbeat info to service, terminal: ceshiji, version: 2.0.5-2, net_traffic: 7942, url: http://58.68.240.102:8088/heart_log ----------> [OK]
+
+2016/09/02 10:42:49	charge process starting...
+
+2016/09/02 10:42:49	init exit signal model ----------> [START]
+
+2016/09/02 10:42:49	init exit signal model ----------> [OK]
+
+2016/09/02 10:42:49	init reset_board signal model ----------> [START]
+
+2016/09/02 10:42:49	init reset_board signal model ----------> [OK]
+
+2016/09/02 10:42:49	init log model ----------> [START]
+
+2016/09/02 10:42:49	init log model ----------> [OK]
+
+2016/09/02 10:42:49	init device data model ----------> [START]
+
+2016/09/02 10:42:49	init device data model ----------> [OK]
+
+2016/09/02 10:42:49	init power control model ----------> [START]
+
+
+2016/09/02 10:42:49	open serial port : /dev/ttyS0 success.
+
+2016/09/02 10:42:49	open serial port : /dev/ttyS1 success.
+
+2016/09/02 10:42:49	open serial port : /dev/ttyS2 success.
+
+2016/09/02 10:42:49	open serial port : /dev/ttyS3 success.
+
+2016/09/02 10:42:49	open serial port : /dev/ttyS4 success.
+
+2016/09/02 10:42:49	open serial port : /dev/ttyS5 success.
+
+2016/09/02 10:42:49	com_read_thread_func start in device fd 9.
+
+2016/09/02 10:42:49	com_read_thread_func start in device fd 8.
+
+2016/09/02 10:42:49	com_read_thread_func start in device fd 6.
+
+2016/09/02 10:42:49	com_read_thread_func start in device fd 5.
+
+2016/09/02 10:42:49	/dev/ttyS0 send cmd to  68 03 07 00 00 07 16
+2016/09/02 10:42:49	com_read_thread_func start in device fd 7.
+
+2016/09/02 10:42:49	com_read_thread_func start in device fd 10.
+
+2016/09/02 10:42:49	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:49	/dev/ttyS0 send cmd to  68 04 01 00 FF 0A 0A 16
+2016/09/02 10:42:49	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:49	/dev/ttyS0 send cmd to  68 03 07 01 00 08 16
+2016/09/02 10:42:49	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:49	/dev/ttyS0 send cmd to  68 04 01 01 FF 0A 0B 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 03 07 02 00 09 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 04 01 02 FF 0A 0C 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 03 07 03 00 0A 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 04 01 03 FF 0A 0D 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 03 07 04 00 0B 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 04 01 04 FF 0A 0E 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 03 07 05 00 0C 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 04 01 05 FF 0A 0F 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 03 07 06 00 0D 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 04 01 06 FF 0A 10 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 03 07 07 00 0E 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	/dev/ttyS0 send cmd to  68 04 01 07 FF 0A 11 16
+2016/09/02 10:42:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:42:50	init board status job done!
+
+2016/09/02 10:42:51	COMDLL: all root hub is OK.
+
+2016/09/02 10:42:52	COMDLL: board type: 1, board num: 8000269, get board device usb port count from com0 now.
+
+2016/09/02 10:42:52	/dev/ttyS0 send cmd to  68 02 06 00 06 16
+2016/09/02 10:42:52	/dev/ttyS0 rev[OK]:(Hex)  68 02 06 02 08 16
+2016/09/02 10:42:52	COMDLL: board type: 1, board num: 8000269, get board device usb port count is 8 from com0.
+
+2016/09/02 10:42:52	COMDLL: all child hub is OK.
+
+2016/09/02 10:42:52	init power control model ----------> [OK]
+
+
+2016/09/02 10:42:52	init android model ----------> [START]
+
+2016/09/02 10:42:55	init android model ----------> [OK]
+
+2016/09/02 10:42:55	init ios model ----------> [START]
+
+2016/09/02 10:42:55	init ios model ----------> [OK]
+
+2016/09/02 10:42:55	init usb model ----------> [START]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 046d, pid: c31c ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 8087, pid: 8000 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 1d6b, pid: 0003 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 17ef, pid: 6019 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 8087, pid: 8008 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 10:42:55	init usb model ----------> [OK]
+
+2016/09/02 10:42:55	init all model ----------> [OK]
+
+2016/09/02 10:42:55	run power model ----------> [START]
+
+2016/09/02 10:42:55	run power model ----------> [OK]
+
+2016/09/02 10:42:55	run android model ----------> [START]
+
+2016/09/02 10:42:55	run android model ----------> [OK]
+
+2016/09/02 10:42:55	run ios model ----------> [START]
+
+2016/09/02 10:42:55	run ios model ----------> [OK]
+
+2016/09/02 10:42:55	run usb model ----------> [START]
+
+2016/09/02 10:42:55	listen board hub thread ----------> [START]
+
+2016/09/02 10:42:55	listen android work thread ----------> [START]
+
+2016/09/02 10:42:55	listen ios work thread ----------> [START]
+
+2016/09/02 10:42:55	listen usb work thread ----------> [START]
+
+2016/09/02 10:42:55	run usb model ----------> [OK]
+
+2016/09/02 10:42:55	run heartbeat model ----------> [START]
+
+2016/09/02 10:42:55	process usb action thread ----------> [START]
+
+2016/09/02 10:42:55	run heartbeat model ----------> [OK]
+
+2016/09/02 10:42:55	run all model ----------> [OK]
+
+2016/09/02 10:42:55	waiting for exit signal ----------> [START]
+
+2016/09/02 10:42:55	net_traffic path is /home/charge/share/practice/charge_plus/application/net_traffic.sh
+2016/09/02 10:42:55	heartbeat thread ----------> [START]
+
+2016/09/02 10:42:55	Send heartbeat info to service, terminal: ceshiji, version: 2.0.5-2, net_traffic: 5197, url: http://58.68.240.102:8088/heart_log ----------> [OK]
+
+2016/09/02 10:44:08	[USB] new usb device action, vid: 17ef, pid: 7435 ----------> [FOUND]
+
+2016/09/02 10:44:08	[USB] current usb action list data:
+
+2016/09/02 10:44:08	vid: 17ef, pid: 7435, dev path: 41312, action: 1 0
+
+2016/09/02 10:44:09	[USB] usb device action, vid: 17ef, pid: 7435 ----------> [REMOVED]
+
+2016/09/02 10:44:09	[USB] usb action data was empty, because of the this time is unplug action, the last time is plug action. delete it from action list, vid: 17ef, pid: 7435, dev path: 41312 ----------> [OK]
+
+2016/09/02 10:44:09	[USB] current usb action list data:
+
+2016/09/02 10:44:12	[USB] new usb device action, vid: 17ef, pid: 7435 ----------> [FOUND]
+
+2016/09/02 10:44:12	[USB] current usb action list data:
+
+2016/09/02 10:44:12	vid: 17ef, pid: 7435, dev path: 41312, action: 1 0
+
+2016/09/02 10:44:13	[USB] process new usb device plugin action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 13, device id: YTDIBISGSK4HDMZP , vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:13	Send device info to service, dev type: 3, access: 0, vid: 17ef, pid: 7435, S/N: YTDIBISGSK4HDMZP url: http://192.168.0.198:8088/fail_phone ----------> [OK]
+
+2016/09/02 10:44:13	[USB] process new usb device plugin action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 13, device id: YTDIBISGSK4HDMZP , vid: 17ef, pid: 7435 ----------> [END]
+
+2016/09/02 10:44:15	[ANDROID] new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 13, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435 ----------> [FOUND]
+
+2016/09/02 10:44:15	[ANDROID] device power on, because of it's a android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 13, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: offline ----------> [START]
+
+2016/09/02 10:44:15	/dev/ttyS0 send cmd to  68 02 03 01 04 16
+2016/09/02 10:44:15	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:15	[ANDROID] device POWER ON, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:15	[ANDROID] install app work thread for the new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 13, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:15	[ANDROID] waiting for accept the trust dialog by user, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 13, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: offline ----------> [START]
+
+2016/09/02 10:44:15	[ANDROID] waiting for accept the trust dialog by user, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 13, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [END]
+
+2016/09/02 10:44:15	[ANDROID] get android detail information, serialno: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, brand: Lenovo, model: Lenovo A808t, state: device ----------> [OK]
+
+2016/09/02 10:44:15	Send device info to service, dev type: 1, access: 1, vid: 17ef, pid: 7435, S/N: YTDIBISGSK4HDMZP url: http://192.168.0.198:8088/receive_log ----------> [OK]
+
+2016/09/02 10:44:15	[ANDROID] device indicator light on, because of it's a access device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 13, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [START]
+
+2016/09/02 10:44:15	/dev/ttyS0 send cmd to  68 03 07 01 01 09 16
+2016/09/02 10:44:15	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:15	[ANDROID] Indicator light POWER ON, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:18	[ANDROID] set install location for android device, brand: Lenovo, model: Lenovo A808t ----------> [OK]
+
+2016/09/02 10:44:18	[ANDROID] installing all android app for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:19	[ANDROID] installing app name: 优信 for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:19	[ANDROID] file name: ../apps/d6df684b8b17c921646b2474fc2d7f45.apk file  ----------> [NOT FOUND]
+
+2016/09/02 10:44:19	[ANDROID] installing app name: 优信 for android device brand: Lenovo, model: Lenovo A808t ----------> [FAIL]
+
+2016/09/02 10:44:19	[ANDROID] installing app name: 途游斗地主 for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:19	[ANDROID] file name: ../apps/号外2.0.0_100084畅充.apk file  ----------> [NOT FOUND]
+
+2016/09/02 10:44:19	[ANDROID] installing app name: 途游斗地主 for android device brand: Lenovo, model: Lenovo A808t ----------> [FAIL]
+
+2016/09/02 10:44:19	[ANDROID] installing all android app for android device brand: Lenovo, model: Lenovo A808t ----------> [END]
+
+
+2016/09/02 10:44:19	[ANDROID] install app work thread for the new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 13, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [END]
+
+2016/09/02 10:44:21	[USB] usb device action, vid: 17ef, pid: 7435 ----------> [REMOVED]
+
+2016/09/02 10:44:21	[USB] current usb action list data:
+
+2016/09/02 10:44:21	vid: 17ef, pid: 7435, dev path: 41312, action: 2 0
+
+2016/09/02 10:44:21	[USB] process usb device unplug action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 13, vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:21	[USB] usb device was removed, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 13, vid: 17ef, pid: 7435 ----------> [POWER OFF]
+
+2016/09/02 10:44:21	/dev/ttyS0 send cmd to  68 04 01 01 FF 0A 0B 16
+2016/09/02 10:44:21	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:21	[USB] device POWER OFF, board type: 1, board num: 8000269, port: 1, NEXT PARAM(POWER ON: 10s, POWER OFF: 255s) ----------> [OK]
+
+2016/09/02 10:44:21	/dev/ttyS0 send cmd to  68 03 07 01 00 08 16
+2016/09/02 10:44:21	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:21	[USB] Indicator light POWER OFF, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:21	[USB] process usb device unplug action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 13, vid: 17ef, pid: 7435 ----------> [END]
+
+2016/09/02 10:44:24	[USB] new usb device action, vid: 17ef, pid: 7435 ----------> [FOUND]
+
+2016/09/02 10:44:24	[USB] current usb action list data:
+
+2016/09/02 10:44:24	vid: 17ef, pid: 7435, dev path: 41312, action: 1 0
+
+2016/09/02 10:44:24	[USB] process new usb device plugin action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 14, device id: YTDIBISGSK4HDMZP , vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:24	Send device info to service, dev type: 3, access: 0, vid: 17ef, pid: 7435, S/N: YTDIBISGSK4HDMZP url: http://192.168.0.198:8088/fail_phone ----------> [OK]
+
+2016/09/02 10:44:24	[USB] process new usb device plugin action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 14, device id: YTDIBISGSK4HDMZP , vid: 17ef, pid: 7435 ----------> [END]
+
+2016/09/02 10:44:26	[ANDROID] new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 14, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435 ----------> [FOUND]
+
+2016/09/02 10:44:26	[ANDROID] device power on, because of it's a android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 14, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: offline ----------> [START]
+
+2016/09/02 10:44:26	/dev/ttyS0 send cmd to  68 02 03 01 04 16
+2016/09/02 10:44:26	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:26	[ANDROID] device POWER ON, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:26	[ANDROID] install app work thread for the new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 14, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:26	[ANDROID] waiting for accept the trust dialog by user, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 14, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: offline ----------> [START]
+
+2016/09/02 10:44:29	[ANDROID] waiting for accept the trust dialog by user, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 14, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [END]
+
+2016/09/02 10:44:29	[ANDROID] get android detail information, serialno: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, brand: Lenovo, model: Lenovo A808t, state: device ----------> [OK]
+
+2016/09/02 10:44:29	Send device info to service, dev type: 1, access: 1, vid: 17ef, pid: 7435, S/N: YTDIBISGSK4HDMZP url: http://192.168.0.198:8088/receive_log ----------> [OK]
+
+2016/09/02 10:44:29	[ANDROID] device indicator light on, because of it's a access device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 14, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [START]
+
+2016/09/02 10:44:29	/dev/ttyS0 send cmd to  68 03 07 01 01 09 16
+2016/09/02 10:44:29	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:29	[ANDROID] Indicator light POWER ON, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:30	[ANDROID] set install location for android device, brand: Lenovo, model: Lenovo A808t ----------> [OK]
+
+2016/09/02 10:44:30	[ANDROID] installing all android app for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:31	[ANDROID] installing app name: 优信 for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:31	[ANDROID] file name: ../apps/d6df684b8b17c921646b2474fc2d7f45.apk file  ----------> [NOT FOUND]
+
+2016/09/02 10:44:31	[ANDROID] installing app name: 优信 for android device brand: Lenovo, model: Lenovo A808t ----------> [FAIL]
+
+2016/09/02 10:44:31	[ANDROID] installing app name: 途游斗地主 for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:31	[ANDROID] file name: ../apps/号外2.0.0_100084畅充.apk file  ----------> [NOT FOUND]
+
+2016/09/02 10:44:31	[ANDROID] installing app name: 途游斗地主 for android device brand: Lenovo, model: Lenovo A808t ----------> [FAIL]
+
+2016/09/02 10:44:31	[ANDROID] installing all android app for android device brand: Lenovo, model: Lenovo A808t ----------> [END]
+
+
+2016/09/02 10:44:31	[ANDROID] install app work thread for the new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 14, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [END]
+
+2016/09/02 10:44:33	[USB] usb device action, vid: 17ef, pid: 7435 ----------> [REMOVED]
+
+2016/09/02 10:44:33	[USB] current usb action list data:
+
+2016/09/02 10:44:33	vid: 17ef, pid: 7435, dev path: 41312, action: 2 0
+
+2016/09/02 10:44:33	[USB] process usb device unplug action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 14, vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:33	[USB] usb device was removed, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 14, vid: 17ef, pid: 7435 ----------> [POWER OFF]
+
+2016/09/02 10:44:33	/dev/ttyS0 send cmd to  68 04 01 01 FF 0A 0B 16
+2016/09/02 10:44:33	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:33	[USB] device POWER OFF, board type: 1, board num: 8000269, port: 1, NEXT PARAM(POWER ON: 10s, POWER OFF: 255s) ----------> [OK]
+
+2016/09/02 10:44:33	/dev/ttyS0 send cmd to  68 03 07 01 00 08 16
+2016/09/02 10:44:33	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:33	[USB] Indicator light POWER OFF, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:33	[USB] process usb device unplug action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 14, vid: 17ef, pid: 7435 ----------> [END]
+
+2016/09/02 10:44:36	[USB] new usb device action, vid: 17ef, pid: 7435 ----------> [FOUND]
+
+2016/09/02 10:44:36	[USB] current usb action list data:
+
+2016/09/02 10:44:36	vid: 17ef, pid: 7435, dev path: 41312, action: 1 0
+
+2016/09/02 10:44:36	[USB] process new usb device plugin action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 15, device id: YTDIBISGSK4HDMZP , vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:36	Send device info to service, dev type: 3, access: 0, vid: 17ef, pid: 7435, S/N: YTDIBISGSK4HDMZP url: http://192.168.0.198:8088/fail_phone ----------> [OK]
+
+2016/09/02 10:44:36	[USB] process new usb device plugin action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 15, device id: YTDIBISGSK4HDMZP , vid: 17ef, pid: 7435 ----------> [END]
+
+2016/09/02 10:44:38	[ANDROID] new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 15, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435 ----------> [FOUND]
+
+2016/09/02 10:44:38	[ANDROID] device power on, because of it's a android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 15, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [START]
+
+2016/09/02 10:44:38	/dev/ttyS0 send cmd to  68 02 03 01 04 16
+2016/09/02 10:44:38	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:38	[ANDROID] device POWER ON, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:38	[ANDROID] install app work thread for the new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 15, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:38	[ANDROID] get android detail information, serialno: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, brand: Lenovo, model: Lenovo A808t, state: device ----------> [OK]
+
+2016/09/02 10:44:39	Send device info to service, dev type: 1, access: 1, vid: 17ef, pid: 7435, S/N: YTDIBISGSK4HDMZP url: http://192.168.0.198:8088/receive_log ----------> [OK]
+
+2016/09/02 10:44:39	[ANDROID] device indicator light on, because of it's a access device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 15, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [START]
+
+2016/09/02 10:44:39	/dev/ttyS0 send cmd to  68 03 07 01 01 09 16
+2016/09/02 10:44:39	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:39	[ANDROID] Indicator light POWER ON, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:39	[ANDROID] set install location for android device, brand: Lenovo, model: Lenovo A808t ----------> [OK]
+
+2016/09/02 10:44:39	[ANDROID] installing all android app for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:40	[ANDROID] installing app name: 优信 for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:40	[ANDROID] file name: ../apps/d6df684b8b17c921646b2474fc2d7f45.apk file  ----------> [NOT FOUND]
+
+2016/09/02 10:44:40	[ANDROID] installing app name: 优信 for android device brand: Lenovo, model: Lenovo A808t ----------> [FAIL]
+
+2016/09/02 10:44:40	[ANDROID] installing app name: 途游斗地主 for android device brand: Lenovo, model: Lenovo A808t ----------> [START]
+
+2016/09/02 10:44:40	[ANDROID] file name: ../apps/号外2.0.0_100084畅充.apk file  ----------> [NOT FOUND]
+
+2016/09/02 10:44:40	[ANDROID] installing app name: 途游斗地主 for android device brand: Lenovo, model: Lenovo A808t ----------> [FAIL]
+
+2016/09/02 10:44:40	[ANDROID] installing all android app for android device brand: Lenovo, model: Lenovo A808t ----------> [END]
+
+
+2016/09/02 10:44:40	[ANDROID] install app work thread for the new android device, board type: 1, board num: 8000269, port: 1, busnum: 4, addr: 15, device id: YTDIBISGSK4HDMZP, vid: 17ef, pid: 7435, state: device ----------> [END]
+
+2016/09/02 10:44:45	[USB] usb device action, vid: 17ef, pid: 7435 ----------> [REMOVED]
+
+2016/09/02 10:44:45	[USB] current usb action list data:
+
+2016/09/02 10:44:45	vid: 17ef, pid: 7435, dev path: 41312, action: 2 0
+
+2016/09/02 10:44:45	[USB] process usb device unplug action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 15, vid: 17ef, pid: 7435 ----------> [START]
+
+2016/09/02 10:44:45	[USB] usb device was removed, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 15, vid: 17ef, pid: 7435 ----------> [POWER OFF]
+
+2016/09/02 10:44:45	/dev/ttyS0 send cmd to  68 04 01 01 FF 0A 0B 16
+2016/09/02 10:44:45	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:45	[USB] device POWER OFF, board type: 1, board num: 8000269, port: 1, NEXT PARAM(POWER ON: 10s, POWER OFF: 255s) ----------> [OK]
+
+2016/09/02 10:44:45	/dev/ttyS0 send cmd to  68 03 07 01 00 08 16
+2016/09/02 10:44:45	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:44:45	[USB] Indicator light POWER OFF, board type: 1, board num: 8000269, port: 1 ----------> [OK]
+
+2016/09/02 10:44:45	[USB] process usb device unplug action, board type: 1, board num: 8000269, port: 1, bus num: 4, addr: 15, vid: 17ef, pid: 7435 ----------> [END]
+
+2016/09/02 10:47:56	COMDLL: all root hub is OK.
+
+2016/09/02 10:47:56	Send heartbeat info to service, terminal: ceshiji, version: 2.0.5-2, net_traffic: 254237, url: http://58.68.240.102:8088/heart_log ----------> [OK]
+
+2016/09/02 10:47:56	COMDLL: board type: 1, board num: 8000269, get board device usb port count from com0 now.
+
+2016/09/02 10:47:56	/dev/ttyS0 send cmd to  68 02 06 00 06 16
+2016/09/02 10:47:56	/dev/ttyS0 rev[OK]:(Hex)  68 02 06 02 08 16
+2016/09/02 10:47:56	COMDLL: board type: 1, board num: 8000269, get board device usb port count is 8 from com0.
+
+2016/09/02 10:47:56	COMDLL: all child hub is OK.
+
+2016/09/02 10:52:56	Send heartbeat info to service, terminal: ceshiji, version: 2.0.5-2, net_traffic: 362990, url: http://58.68.240.102:8088/heart_log ----------> [OK]
+
+2016/09/02 10:52:57	COMDLL: all root hub is OK.
+
+2016/09/02 10:52:58	COMDLL: board type: 1, board num: 8000269, get board device usb port count from com0 now.
+
+2016/09/02 10:52:58	/dev/ttyS0 send cmd to  68 02 06 00 06 16
+2016/09/02 10:52:58	/dev/ttyS0 rev[OK]:(Hex)  68 02 06 02 08 16
+2016/09/02 10:52:58	COMDLL: board type: 1, board num: 8000269, get board device usb port count is 8 from com0.
+
+2016/09/02 10:52:58	COMDLL: all child hub is OK.
+
+2016/09/02 10:57:57	Send heartbeat info to service, terminal: ceshiji, version: 2.0.5-2, net_traffic: 759665, url: http://58.68.240.102:8088/heart_log ----------> [OK]
+
+2016/09/02 10:57:58	COMDLL: all root hub is OK.
+
+2016/09/02 10:57:59	COMDLL: board type: 1, board num: 8000269, get board device usb port count from com0 now.
+
+2016/09/02 10:57:59	/dev/ttyS0 send cmd to  68 02 06 00 06 16
+2016/09/02 10:57:59	/dev/ttyS0 rev[OK]:(Hex)  68 02 06 02 08 16
+2016/09/02 10:57:59	COMDLL: board type: 1, board num: 8000269, get board device usb port count is 8 from com0.
+
+2016/09/02 10:57:59	COMDLL: all child hub is OK.
+
+2016/09/02 10:59:47	charge process starting...
+
+2016/09/02 10:59:47	init exit signal model ----------> [START]
+
+2016/09/02 10:59:47	init exit signal model ----------> [OK]
+
+2016/09/02 10:59:47	init reset_board signal model ----------> [START]
+
+2016/09/02 10:59:47	init reset_board signal model ----------> [OK]
+
+2016/09/02 10:59:47	init log model ----------> [START]
+
+2016/09/02 10:59:47	init log model ----------> [OK]
+
+2016/09/02 10:59:47	init device data model ----------> [START]
+
+2016/09/02 10:59:47	init device data model ----------> [OK]
+
+2016/09/02 10:59:47	init power control model ----------> [START]
+
+
+2016/09/02 10:59:47	open serial port : /dev/ttyS0 success.
+
+2016/09/02 10:59:47	open serial port : /dev/ttyS1 success.
+
+2016/09/02 10:59:47	open serial port : /dev/ttyS2 success.
+
+2016/09/02 10:59:47	com_read_thread_func start in device fd 5.
+
+2016/09/02 10:59:47	com_read_thread_func start in device fd 6.
+
+2016/09/02 10:59:47	open serial port : /dev/ttyS3 success.
+
+2016/09/02 10:59:47	open serial port : /dev/ttyS4 success.
+
+2016/09/02 10:59:47	open serial port : /dev/ttyS5 success.
+
+2016/09/02 10:59:47	com_read_thread_func start in device fd 7.
+
+2016/09/02 10:59:47	com_read_thread_func start in device fd 9.
+
+2016/09/02 10:59:47	/dev/ttyS0 send cmd to  68 03 07 00 00 07 16
+2016/09/02 10:59:47	com_read_thread_func start in device fd 11.
+
+2016/09/02 10:59:47	com_read_thread_func start in device fd 12.
+
+2016/09/02 10:59:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:47	/dev/ttyS0 send cmd to  68 04 01 00 FF 0A 0A 16
+2016/09/02 10:59:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:47	/dev/ttyS0 send cmd to  68 03 07 01 00 08 16
+2016/09/02 10:59:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:47	/dev/ttyS0 send cmd to  68 04 01 01 FF 0A 0B 16
+2016/09/02 10:59:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:47	/dev/ttyS0 send cmd to  68 03 07 02 00 09 16
+2016/09/02 10:59:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:47	/dev/ttyS0 send cmd to  68 04 01 02 FF 0A 0C 16
+2016/09/02 10:59:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:47	/dev/ttyS0 send cmd to  68 03 07 03 00 0A 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 04 01 03 FF 0A 0D 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 03 07 04 00 0B 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 04 01 04 FF 0A 0E 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 03 07 05 00 0C 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 04 01 05 FF 0A 0F 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 03 07 06 00 0D 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 04 01 06 FF 0A 10 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 03 07 07 00 0E 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	/dev/ttyS0 send cmd to  68 04 01 07 FF 0A 11 16
+2016/09/02 10:59:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 10:59:48	init board status job done!
+
+2016/09/02 10:59:48	COMDLL: all root hub is OK.
+
+2016/09/02 10:59:49	COMDLL: board type: 1, board num: 8000269, get board device usb port count from com0 now.
+
+2016/09/02 10:59:49	/dev/ttyS0 send cmd to  68 02 06 00 06 16
+2016/09/02 10:59:49	/dev/ttyS0 rev[OK]:(Hex)  68 02 06 02 08 16
+2016/09/02 10:59:49	COMDLL: board type: 1, board num: 8000269, get board device usb port count is 8 from com0.
+
+2016/09/02 10:59:49	COMDLL: all child hub is OK.
+
+2016/09/02 10:59:49	init power control model ----------> [OK]
+
+
+2016/09/02 10:59:49	init android model ----------> [START]
+
+2016/09/02 13:23:46	charge process starting...
+
+2016/09/02 13:23:46	init exit signal model ----------> [START]
+
+2016/09/02 13:23:46	init exit signal model ----------> [OK]
+
+2016/09/02 13:23:46	init reset_board signal model ----------> [START]
+
+2016/09/02 13:23:46	init reset_board signal model ----------> [OK]
+
+2016/09/02 13:23:46	init log model ----------> [START]
+
+2016/09/02 13:23:46	init log model ----------> [OK]
+
+2016/09/02 13:23:46	init device data model ----------> [START]
+
+2016/09/02 13:23:46	init device data model ----------> [OK]
+
+2016/09/02 13:23:46	init power control model ----------> [START]
+
+
+2016/09/02 13:23:46	open serial port : /dev/ttyS0 success.
+
+2016/09/02 13:23:46	open serial port : /dev/ttyS1 success.
+
+2016/09/02 13:23:46	com_read_thread_func start in device fd 5.
+
+2016/09/02 13:23:46	open serial port : /dev/ttyS2 success.
+
+2016/09/02 13:23:46	open serial port : /dev/ttyS3 success.
+
+2016/09/02 13:23:46	open serial port : /dev/ttyS4 success.
+
+2016/09/02 13:23:46	com_read_thread_func start in device fd 6.
+
+2016/09/02 13:23:46	open serial port : /dev/ttyS5 success.
+
+2016/09/02 13:23:46	com_read_thread_func start in device fd 7.
+
+2016/09/02 13:23:46	com_read_thread_func start in device fd 8.
+
+2016/09/02 13:23:46	com_read_thread_func start in device fd 10.
+
+2016/09/02 13:23:46	com_read_thread_func start in device fd 11.
+
+2016/09/02 13:23:46	/dev/ttyS0 send cmd to  68 03 07 00 00 07 16
+2016/09/02 13:23:47	/dev/ttyS0 send cmd to  68 04 01 00 FF 0A 0A 16
+2016/09/02 13:23:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:47	/dev/ttyS0 send cmd to  68 03 07 01 00 08 16
+2016/09/02 13:23:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:47	/dev/ttyS0 send cmd to  68 04 01 01 FF 0A 0B 16
+2016/09/02 13:23:47	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:47	/dev/ttyS0 send cmd to  68 03 07 02 00 09 16
+2016/09/02 13:23:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:48	/dev/ttyS0 send cmd to  68 04 01 02 FF 0A 0C 16
+2016/09/02 13:23:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:48	/dev/ttyS0 send cmd to  68 03 07 03 00 0A 16
+2016/09/02 13:23:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:48	/dev/ttyS0 send cmd to  68 04 01 03 FF 0A 0D 16
+2016/09/02 13:23:48	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:48	/dev/ttyS0 send cmd to  68 03 07 04 00 0B 16
+2016/09/02 13:23:49	/dev/ttyS0 send cmd to  68 04 01 04 FF 0A 0E 16
+2016/09/02 13:23:49	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:49	/dev/ttyS0 send cmd to  68 03 07 05 00 0C 16
+2016/09/02 13:23:49	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:49	/dev/ttyS0 send cmd to  68 04 01 05 FF 0A 0F 16
+2016/09/02 13:23:50	/dev/ttyS0 send cmd to  68 03 07 06 00 0D 16
+2016/09/02 13:23:50	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:50	/dev/ttyS0 send cmd to  68 04 01 06 FF 0A 10 16
+2016/09/02 13:23:51	/dev/ttyS0 send cmd to  68 03 07 07 00 0E 16
+2016/09/02 13:23:51	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:51	/dev/ttyS0 send cmd to  68 04 01 07 FF 0A 11 16
+2016/09/02 13:23:51	/dev/ttyS0 rev[OK]:(Hex)  68 02 01 00 01 16
+2016/09/02 13:23:51	init board status job done!
+
+2016/09/02 13:23:52	COMDLL: all root hub is OK.
+
+2016/09/02 13:23:52	COMDLL: board type: 1, board num: 8000269, get board device usb port count from com0 now.
+
+2016/09/02 13:23:52	/dev/ttyS0 send cmd to  68 02 06 00 06 16
+2016/09/02 13:23:52	/dev/ttyS0 rev[OK]:(Hex)  68 02 06 02 08 16
+2016/09/02 13:23:52	COMDLL: board type: 1, board num: 8000269, get board device usb port count is 8 from com0.
+
+2016/09/02 13:23:52	COMDLL: all child hub is OK.
+
+2016/09/02 13:23:52	init power control model ----------> [OK]
+
+
+2016/09/02 13:23:52	init android model ----------> [START]
+
+2016/09/02 13:23:56	init android model ----------> [OK]
+
+2016/09/02 13:23:56	init ios model ----------> [START]
+
+2016/09/02 13:23:56	init ios model ----------> [OK]
+
+2016/09/02 13:23:56	init usb model ----------> [START]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 05e3, pid: 0610 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 046d, pid: c31c ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 8087, pid: 8000 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 1d6b, pid: 0003 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 17ef, pid: 6019 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 8087, pid: 8008 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	[USB] new usb device action, vid: 1d6b, pid: 0002 ----------> [NEGLECT DEVICE]
+
+2016/09/02 13:23:56	init usb model ----------> [OK]
+
+2016/09/02 13:23:56	init all model ----------> [OK]
+
+2016/09/02 13:23:56	run power model ----------> [START]
+
+2016/09/02 13:23:56	run power model ----------> [OK]
+
+2016/09/02 13:23:56	listen board hub thread ----------> [START]
+
+2016/09/02 13:23:56	run android model ----------> [START]
+
+2016/09/02 13:23:56	run android model ----------> [OK]
+
+2016/09/02 13:23:56	run ios model ----------> [START]
+
+2016/09/02 13:23:56	run ios model ----------> [OK]
+
+2016/09/02 13:23:56	run usb model ----------> [START]
+
+2016/09/02 13:23:56	run usb model ----------> [OK]
+
+2016/09/02 13:23:56	run heartbeat model ----------> [START]
+
+2016/09/02 13:23:56	process usb action thread ----------> [START]
+
+2016/09/02 13:23:56	listen android work thread ----------> [START]
+
+2016/09/02 13:23:56	run heartbeat model ----------> [OK]
+
+2016/09/02 13:23:56	listen ios work thread ----------> [START]
+
+2016/09/02 13:23:56	run all model ----------> [OK]
+
+2016/09/02 13:23:56	waiting for exit signal ----------> [START]
+
+2016/09/02 13:23:56	listen usb work thread ----------> [START]
+
+2016/09/02 13:23:56	net_traffic path is /home/charge/share/practice/charge_plus/application/net_traffic.sh
+2016/09/02 13:23:56	heartbeat thread ----------> [START]
+
+2016/09/02 13:23:56	Send heartbeat info to service, terminal: ceshiji, version: 2.0.5-2, net_traffic: 4150516, url: http://58.68.240.102:8088/heart_log ----------> [OK]
+

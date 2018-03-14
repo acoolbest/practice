@@ -1,0 +1,30 @@
+{
+	"ANDROID" : [
+		{
+			"AppId" : "273",
+			"AppName" : "优信",
+			"AppBundleId" : "com.cn123",
+			"AppPath" : "../apps/d6df684b8b17c921646b2474fc2d7f45.apk",
+			"AppVersion" : "v1.1",
+			"autoOpen" : "1"
+		},
+		{
+			"AppId" : "598",
+			"AppName" : "途游斗地主",
+			"AppBundleId" : "com.tuyoo.doudizhu.cpa",
+			"AppPath" : "../apps/号外2.0.0_100084畅充.apk",
+			"AppVersion" : "3.761",
+			"autoOpen" : "1"
+		}
+	],
+	"IOS" : [
+		{
+			"AppId" : "453",
+			"AppName" : "美团(v6.1.1).ipa",
+			"AppBundleId" : "com.changchong.zhzq",
+			"AppPath" : "../apps/美团(v6.1.1).ipa",
+			"AppVersion" : "v1.0",
+			"autoOpen" : "1"
+		}
+	]
+}
