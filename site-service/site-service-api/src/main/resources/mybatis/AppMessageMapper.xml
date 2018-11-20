@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.changchong.site.mapper.AppMessageMapper" >
+  <resultMap id="BaseResultMap" type="com.changchong.site.model.AppMessage" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="body" property="body" jdbcType="VARCHAR" />
+    <result column="msg_type" property="msgType" jdbcType="BIT" />
+    <result column="push_type" property="pushType" jdbcType="BIT" />
+    <result column="destination" property="destination" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="is_send" property="isSend" jdbcType="BIT" />
+    <result column="live_time" property="liveTime" jdbcType="TIMESTAMP" />
+    <result column="delay_time" property="delayTime" jdbcType="VARCHAR" />
+    <result column="send_term" property="sendTerm" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, logo, title, body, msg_type, push_type, destination, create_time, create_user, 
+    update_time, update_user, is_send, live_time, delay_time, send_term
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from app_message
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from app_message
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.changchong.site.model.AppMessage" >
+    insert into app_message (id, logo, title, 
+      body, msg_type, push_type, destination, 
+      create_time, create_user, update_time, 
+      update_user, is_send, live_time, 
+      delay_time, send_term)
+    values (#{id,jdbcType=INTEGER}, #{logo,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{body,jdbcType=VARCHAR}, #{msgType,jdbcType=BIT}, #{pushType,jdbcType=BIT}, #{destination,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{isSend,jdbcType=BIT}, #{liveTime,jdbcType=TIMESTAMP}, 
+      #{delayTime,jdbcType=VARCHAR}, #{sendTerm,jdbcType=VARCHAR})
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.changchong.site.model.AppMessage" >
+    insert into app_message
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="body != null" >
+        body,
+      </if>
+      <if test="msgType != null" >
+        msg_type,
+      </if>
+      <if test="pushType != null" >
+        push_type,
+      </if>
+      <if test="destination != null" >
+        destination,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="isSend != null" >
+        is_send,
+      </if>
+      <if test="liveTime != null" >
+        live_time,
+      </if>
+      <if test="delayTime != null" >
+        delay_time,
+      </if>
+      <if test="sendTerm != null" >
+        send_term,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null" >
+        #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null" >
+        #{msgType,jdbcType=BIT},
+      </if>
+      <if test="pushType != null" >
+        #{pushType,jdbcType=BIT},
+      </if>
+      <if test="destination != null" >
+        #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="isSend != null" >
+        #{isSend,jdbcType=BIT},
+      </if>
+      <if test="liveTime != null" >
+        #{liveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delayTime != null" >
+        #{delayTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTerm != null" >
+        #{sendTerm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AppMessage" >
+    update app_message
+    <set >
+      <if test="logo != null" >
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null" >
+        body = #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null" >
+        msg_type = #{msgType,jdbcType=BIT},
+      </if>
+      <if test="pushType != null" >
+        push_type = #{pushType,jdbcType=BIT},
+      </if>
+      <if test="destination != null" >
+        destination = #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="isSend != null" >
+        is_send = #{isSend,jdbcType=BIT},
+      </if>
+      <if test="liveTime != null" >
+        live_time = #{liveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delayTime != null" >
+        delay_time = #{delayTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTerm != null" >
+        send_term = #{sendTerm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.changchong.site.model.AppMessage" >
+    update app_message
+    set logo = #{logo,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      body = #{body,jdbcType=VARCHAR},
+      msg_type = #{msgType,jdbcType=BIT},
+      push_type = #{pushType,jdbcType=BIT},
+      destination = #{destination,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      is_send = #{isSend,jdbcType=BIT},
+      live_time = #{liveTime,jdbcType=TIMESTAMP},
+      delay_time = #{delayTime,jdbcType=VARCHAR},
+      send_term = #{sendTerm,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changchong.site.mapper.SiteMapper">
+ 
+ <resultMap id="BaseResultMap" type="com.changchong.site.model.DeviceOld">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="site_id" property="siteId" jdbcType="INTEGER" />
+		<result column="terminal" property="deviceCode" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<resultMap id="resultMap" type="com.changchong.site.model.SitePo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="payable_cfg_json" property="payableCfgJson" jdbcType="VARCHAR" />
+	</resultMap>
+	
+
+
+	<resultMap id="siteInfoMap" type="com.changchong.site.model.SiteInfo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name"  />
+		<result column="developer" property="developer"/>
+		<result column="contract_begin" property="contract_begin"  />
+		<result column="contract_end" property="contract_end"/>
+		<result column="open_type" property="open_type"  />
+		<result column="open_start_time" property="open_start_time"/>
+		<result column="open_end_time" property="open_end_time"/>
+		<result column="province_id" property="province_id"/>
+		<result column="province_name" property="province_name"/>
+		<result column="district_id" property="district_id"/>
+		<result column="district_name" property="district_name"  />
+		<result column="company_id" property="company_id"/>
+		<result column="site_type_id" property="site_type_id"  />
+		<result column="features" property="features"/>
+		<result column="surfaceman" property="surfaceman"  />
+		<result column="surfaceman_send" property="surfaceman_send"/>
+		<result column="director" property="director"  />
+		<result column="director_send" property="director_send"/>
+		<result column="inspection" property="inspection"  />
+		<result column="inspection_send" property="inspection_send"/>
+		<result column="location_describe" property="location_describe"  />
+		<result column="ad_version" property="ad_version"/>
+		<result column="payable_cfg_json" property="payable_cfg_json"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,site_id,terminal
+	</sql>
+
+	<sql id="site_info">
+		id,name,developer,contract_begin,contract_end,open_type,open_start_time,open_end_time,province_id,province_name,district_id,district_name,company_id,
+		site_type_id,features,surfaceman,surfaceman_send,director,director_send,inspection,inspection_send,location_describe,ad_version,payable_cfg_json
+	</sql>
+	<select id="getSiteInfoList" resultMap="siteInfoMap" parameterType="map">
+		SELECT <include refid="site_info"/>
+		FROM site
+		WHERE 1=1
+		 <if test="ids !=null">
+			 AND id IN
+		<foreach collection="ids" item="item" open="(" close=")" index="index" separator=",">
+			#{item}
+		</foreach>
+		</if>
+	</select>
+
+	<select id="getDeviceInfoByCode" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from pc_manage
+		where terminal = #{0} 
+	</select>
+
+	<select id="findById" resultMap="resultMap">
+		select id,payable_cfg_json from site where id=#{siteId}
+	</select>
+	<select id="findByPk" resultMap="siteInfoMap">
+		select <include refid="site_info" /> from site where id=#{id}
+	</select>
+
+	<update id="updatePriceById"   parameterType="map">
+		update site set payable_cfg_json = #{payableCfgJson} where id=#{siteId}
+	</update>
+
+	<select id="findByPortNumber" resultMap="resultMap">
+		SELECT s.id,s.payable_cfg_json FROM t_port p,  t_device d, pc_manage m,site s WHERE
+ 				p.device_id=d.id AND d.code=m.terminal AND m.site_id=s.id AND p.id=#{portNumber}
+	</select>
+	<select id="findByPortCode" resultMap="siteInfoMap">
+		SELECT s.* FROM t_port p,  t_device d, pc_manage m,site s WHERE
+ 				p.device_id=d.id AND d.code=m.terminal AND m.site_id=s.id AND p.id=#{portCode}
+	</select>
+
+</mapper>

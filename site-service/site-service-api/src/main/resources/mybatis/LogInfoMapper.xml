@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changchong.site.mapper.LogInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.changchong.site.model.LogInfo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP"/>
+        <result column="ip" property="ip" jdbcType="VARCHAR"/>
+        <result column="role" property="role" jdbcType="VARCHAR"/>
+        <result column="operation" property="operation" jdbcType="VARCHAR"/>
+        <result column="type" property="type"/>
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,phone_number,email,create_time,ip,role,operation,type
+    </sql>
+    <select id="getCount" resultType="java.lang.Integer" parameterType="map">
+        select count(*) from t_loginfo 
+        where 1=1 and type= 1
+        <if test="email != null">
+			AND email=#{email}
+		</if>
+        <if test="startTime != null">
+			AND DATE_FORMAT(create_time,'%Y-%m-%d') <![CDATA[>=#{startTime} ]]>
+		</if>
+		<if test="endTime != null">
+			AND DATE_FORMAT(create_time,'%Y-%m-%d') <![CDATA[<=#{endTime} ]]>
+		</if>
+    </select>
+
+    <select id="getList" resultMap="BaseResultMap" parameterType="map">
+        SELECT <include refid="Base_Column_List" />
+         from t_loginfo where 1=1 and type= 1
+         <if test="email != null">
+			AND email=#{email}
+		</if>
+        <if test="startTime != null">
+			AND DATE_FORMAT(create_time,'%Y-%m-%d') <![CDATA[>=#{startTime} ]]>
+		</if>
+		<if test="endTime != null">
+			AND DATE_FORMAT(create_time,'%Y-%m-%d') <![CDATA[<=#{endTime} ]]>
+		</if>
+        <if test="startRow != null and endRow != null">
+            order by create_time desc
+            limit #{startRow},#{endRow}
+        </if>
+    </select>
+    <select id="getOperationLogAccount" resultMap="BaseResultMap">
+        SELECT email FROM t_loginfo GROUP BY email
+    </select>
+    <insert id="saveLogInfo" parameterType="com.changchong.site.model.LogInfo" useGeneratedKeys="true" keyProperty="id">
+        insert ignore into t_loginfo (user_id,phone_number,email,create_time,ip,role,operation,type)
+        values (
+        #{user_id,jdbcType=INTEGER},
+        #{phoneNumber,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR},
+        #{create_time,jdbcType=TIMESTAMP},
+        #{ip,jdbcType=VARCHAR},
+        #{role,jdbcType=VARCHAR},
+        #{operation,jdbcType=VARCHAR},
+        #{type}
+        )
+    </insert>
+</mapper>

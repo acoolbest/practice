@@ -1,0 +1,11 @@
+openssl enc -aes-128-cbc -e -a -in enc.txt -out dj.txt -K c286696d887c9aa0611bbb3e2025a45a -iv 562e17996d093d28ddb3ba695a2e6f58 -p
+openssl enc -aes-128-cbc -d -a -in dj.txt -out dedj.txt -K c286696d887c9aa0611bbb3e2025a45a -iv 562e17996d093d28ddb3ba695a2e6f58 -p
+
+加密的结果为二进制文件的加密与解密：
+openssl enc -aes-128-cbc -e  -in enc.txt -out dj.txt -K c286696d887c9aa0611bbb3e2025a45a -iv 562e17996d093d28ddb3ba695a2e6f58 -p
+openssl enc -aes-128-cbc -d  -in dj.txt -out dedj.txt -K c286696d887c9aa0611bbb3e2025a45a -iv 562e17996d093d28ddb3ba695a2e6f58 -p
+
+C286696D887C9AA0611BBB3E2025A45A
+562E17996D093D28DDB3BA695A2E6F58
+C286696D887C9AA0611BBB3E2025A45A
+562E17996D093D28DDB3BA695A2E6F58

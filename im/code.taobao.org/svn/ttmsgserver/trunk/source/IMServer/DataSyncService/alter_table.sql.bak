@@ -1,0 +1,466 @@
+#DROP TABLE IF EXISTS IMTransmitFile;
+CREATE TABLE `IMTransmitFile` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `userId` int(10) unsigned NOT NULL COMMENT '发送者用户ID',
+  `toUserId` int(10) unsigned NOT NULL COMMENT '接收者用户ID',
+  `fileName` varchar(500) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '文件名',
+  `fsize` int(10) unsigned NOT NULL COMMENT '文件大小',
+  `taskId` varchar(100) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '任务ID',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态(0 => 等待接收,1=> 已接收)',
+  `filestate` tinyint(3) unsigned DEFAULT '4' COMMENT 'file state',
+  `filerole` tinyint(3) unsigned DEFAULT '3' COMMENT 'file transmition mode',
+  `serverip` varchar(16) COLLATE utf8mb4_bin DEFAULT '127.0.0.1' COMMENT 'file server ip address',
+  `serverport` smallint(5) unsigned DEFAULT '8600' COMMENT 'file server''s port',
+  `validperiod` smallint(3) unsigned DEFAULT '30' COMMENT 'file''s valid period',
+  `created` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_toUserId_created_status` (`toUserId`,`created`,`status`),
+  KEY `idx_userId_created_status` (`userId`,`created`,`status`),
+  KEY `idx_created` (`created`)
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='IM离线文件表';
+
+
+#company table
+DROP TABLE IF EXISTS IMCompany;
+CREATE TABLE `IMCompany` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `domainid` varchar(64) NOT NULL DEFAULT '' COMMENT '域名标识UUID',
+  `domainname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '域名',
+  `companyName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '公司名称',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '域名状态(0==>正常)',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`Id`),
+  KEY `idx_IMCompany_updated` (`updated`),
+  KEY `idx_IMCompany_domainid` (`domainid`),
+  KEY `idx_IMCompany_status` (`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='公司名称';
+
+
+
+#temp company table
+DROP TABLE IF EXISTS IMCompanyTemp;
+CREATE TABLE `IMCompanyTemp` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `domainid` varchar(64) NOT NULL DEFAULT '' COMMENT '域名标识UUID',
+  `domainname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '域名',
+  `companyName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '公司名称',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '域名状态(0==>正常)',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`Id`),
+  KEY `idx_IMCompanyTemp_domainid` (`domainid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='公司名称临时表';
+
+
+#department table
+DROP TABLE IF EXISTS IMDepart;
+CREATE TABLE `IMDepart` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '部门id',
+  `companyid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '关联部门名称表',
+  `departid` varchar(36) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '部门标识UUID',
+  `departname` varchar(128) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '部门名称',
+  `priority` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '显示优先级',
+  `parentid` int(11) unsigned zerofill NOT NULL DEFAULT '00000000000' COMMENT '上级部门id',
+  `status` tinyint(3) unsigned zerofill NOT NULL DEFAULT '000' COMMENT '状态',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `level` tinyint(3) unsigned zerofill NOT NULL DEFAULT '000' COMMENT '部门级别',
+  PRIMARY KEY (`id`),
+  KEY `idx_IMDepart_companyid` (`companyid`),
+  KEY `idx_IMDepart_priority_status` (`priority`,`status`),
+  KEY `idx_IMDepart_parentid` (`parentid`),
+  KEY `idx_IMDepart_departid` (`departid`),
+  KEY `idx_IMDepart_updated` (`updated`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
+#temp department table
+DROP TABLE IF EXISTS IMDepartTemp;
+CREATE TABLE `IMDepartTemp` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '部门id',
+  `companyid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '关联部门名称表',
+  `domainid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '域名标识UUID',
+  `departid` varchar(36) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '部门标识UUID',
+  `departName` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '部门名称',
+  `priority` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '显示优先级',
+  `parentId` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '上级部门id',
+  `status` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
+  `created` int(11) unsigned NOT NULL COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL COMMENT '更新时间',
+  `level` tinyint(3) unsigned zerofill NOT NULL DEFAULT '000' COMMENT '部门级别',
+  PRIMARY KEY (`id`),
+  KEY `idx_IMDepartTemp_companyid` (`companyid`),
+  KEY `idx_IMDepartTemp_priority_status` (`priority`,`status`),
+  KEY `idx_IMDepartTemp_departid` (`departid`),
+  KEY `idx_IMDepartTemp_domainid` (`domainid`),
+  KEY `idx_IMDepartTemp_parentid` (`parentId`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
+#user table
+DROP TABLE IF EXISTS IMUser;
+CREATE TABLE `IMUser` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `userid` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户名标识UUID',
+  `sex` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '1男2女0未知',
+  `name` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户名',
+  `keyword` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '关键字',
+  `jobnumber` varchar(10) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '工号',
+  `domain` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '拼音',
+  `nick` varchar(32) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '花名,绰号等',
+  `password` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '密码',
+  `signature` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '个性签名',
+  `salt` varchar(4) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '混淆码',
+  `phone` varchar(20) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '手机号码',
+  `telephone` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '固定电话',
+  `faxNum` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `postcode` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '邮编',
+  `address` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '地址',
+  `birthday` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '生日',
+  `email` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'email',
+  `avatar` varchar(255) COLLATE utf8mb4_bin DEFAULT '' COMMENT '自定义用户头像',
+  `status` tinyint(2) unsigned DEFAULT '0' COMMENT '0. 正常 1. 删除 2. 禁用',
+  `created` int(11) unsigned NOT NULL COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_IMUser_userid` (`userid`),
+  KEY `idx_IMUser_updated` (`updated`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
+
+#temp user table
+DROP TABLE IF EXISTS IMUserTemp;
+CREATE TABLE `IMUserTemp` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `userid` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户标识UUID',
+  `sex` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '1男2女0未知',
+  `name` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户名',
+  `domain` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '域名',
+  `email` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'email',
+  `phone` varchar(20) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '手机号码',
+  `jobnumber` varchar(10) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '工号',
+  `keyword` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '关键字',
+  `password` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '密码',
+  `birthday` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '生日',
+  `avatar` varchar(255) COLLATE utf8mb4_bin DEFAULT '' COMMENT '自定义用户头像',
+  `status` tinyint(2) unsigned DEFAULT '0' COMMENT '1. 试用期 2. 正式 3. 离职 4.实习',
+  `created` int(11) unsigned NOT NULL COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_IMUserTemp_userid` (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
+#user position
+DROP TABLE IF EXISTS IMUserPosition;
+CREATE TABLE `IMUserPosition` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户职位标识',
+  `userid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户标识',
+  `companyid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '公司标识',
+  `departid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '部门ID',
+  `position` varchar(255) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '职位',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
+  `created` int(11) unsigned NOT NULL COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_IMUserPosition_userid` (`userid`),
+  KEY `idx_IMUserPosition_companyid` (`companyid`),
+  KEY `idx_IMUserPosition_departid` (`departid`),
+  KEY `idx_IMUserPosition_updated` (`updated`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
+#temp user position
+DROP TABLE IF EXISTS IMUserPositionTemp;
+CREATE TABLE `IMUserPositionTemp` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户职位标识',
+  `userid` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户UUID',
+  `departid` varchar(36) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '部门UUID',
+  `position` varchar(255) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '职位',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
+  `created` int(11) unsigned NOT NULL COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_IMUserPositionTemp_userid` (`userid`),
+  KEY `idx_IMUserPositionTemp_departid` (`departid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+DROP TABLE IF EXISTS IMTransmitFile;
+CREATE TABLE `IMTransmitFile` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `userId` int(10) unsigned NOT NULL COMMENT '发送者用户ID',
+  `toUserId` int(10) unsigned NOT NULL COMMENT '接收者用户ID',
+  `fileName` varchar(500) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '文件名',
+  `fsize` int(10) unsigned NOT NULL COMMENT '文件大小',
+  `taskId` varchar(100) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '任务ID',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态(0 => 等待接收,1=> 已接收)',
+  `filestate` tinyint(3) unsigned DEFAULT '4' COMMENT 'file state',
+  `filerole` tinyint(3) unsigned DEFAULT '3' COMMENT 'file transmition mode',
+  `serverip` varchar(16) COLLATE utf8mb4_bin DEFAULT '127.0.0.1' COMMENT 'file server ip address',
+  `serverport` smallint(5) unsigned DEFAULT '8600' COMMENT 'file server''s port',
+  `validperiod` smallint(3) unsigned DEFAULT '30' COMMENT 'file''s valid period',
+  `created` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_toUserId_created_status` (`toUserId`,`created`,`status`),
+  KEY `idx_userId_created_status` (`userId`,`created`,`status`),
+  KEY `idx_created` (`created`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='IM离线文件表';
+
+
+DROP TABLE IF EXISTS IMGroupMember;
+CREATE TABLE `IMGroupMember` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `groupId` int(11) unsigned NOT NULL COMMENT '群Id',
+  `userId` int(11) unsigned NOT NULL COMMENT '用户id',
+  `status` tinyint(4) unsigned NOT NULL DEFAULT '1' COMMENT '是否退出群，0-正常，1-已退出',
+  `shieldstatus` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT 'group''s shield status,0:normal,1:shield',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_groupId_userId_status` (`groupId`,`userId`,`status`),
+  KEY `idx_userId_status_updated` (`userId`,`status`,`updated`),
+  KEY `idx_groupId_updated` (`groupId`,`updated`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='用户和群的关系表';
+
+alter table IMMessage_0 modify content text null;
+alter table IMMessage_1 modify content text null;
+alter table IMMessage_2 modify content text null;
+alter table IMMessage_3 modify content text null;
+alter table IMMessage_4 modify content text null;
+alter table IMMessage_5 modify content text null;
+alter table IMMessage_6 modify content text null;
+alter table IMMessage_7 modify content text null;
+alter table IMGroupMessage_0 modify content text null;
+alter table IMGroupMessage_1 modify content text null;
+alter table IMGroupMessage_2 modify content text null;
+alter table IMGroupMessage_3 modify content text null;
+alter table IMGroupMessage_4 modify content text null;
+alter table IMGroupMessage_5 modify content text null;
+alter table IMGroupMessage_6 modify content text null;
+alter table IMGroupMessage_7 modify content text null;
+
+DROP TABLE IF EXISTS IMGroupTemp;
+CREATE TABLE `IMGroupTemp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '群名称',
+  `avatar` varchar(256) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '群头像',
+  `creator` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建者用户id',
+  `type` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '群组类型，1-固定;2-临时群',
+  `userCnt` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '成员人数',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '是否删除,0-正常，1-删除',
+  `version` int(11) unsigned NOT NULL DEFAULT '1' COMMENT '群版本号',
+  `lastChated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '最后聊天时间',
+  `updated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `groupid` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'group uuid',
+  `domainid` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'domain id',
+  `companyid` int(11) unsigned DEFAULT '0' COMMENT 'company id',
+  PRIMARY KEY (`id`),
+  KEY `idx_name` (`name`),
+  KEY `idx_creator` (`creator`),
+  KEY `idx_groupid` (`groupid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='IM群信息临时表';
+
+
+DROP TABLE IF EXISTS IMGroupMemberTemp;
+CREATE TABLE `IMGroupMemberTemp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `groupId` int(11) unsigned NOT NULL  DEFAULT '0' COMMENT '群Id',
+  `userId` int(11) unsigned NOT NULL  DEFAULT '0' COMMENT '用户id',
+  `status` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '是否退出群，0-正常，1-已退出',
+  `shieldstatus` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT 'group''s shield status,0:normal,1:shield',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `groupuuid` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'group uuid',
+  `useruuid` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'domain id',
+  PRIMARY KEY (`id`),
+  KEY `idx_groupId_userId_status` (`groupId`,`userId`,`status`),
+  KEY `idx_userId_status_updated` (`userId`,`status`,`updated`),
+  KEY `idx_groupId_updated` (`groupId`,`updated`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='用户和群的关系表';
+
+alter table IMGroup add  `groupid` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'group uuid';
+alter table IMGroup add `companyid` int(11) unsigned DEFAULT '0' COMMENT 'company id';
+alter table IMGroup add  `email` varchar(512) COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'email';
+alter table IMGroupTemp add  `email` varchar(512) COLLATE utf8mb4_bin DEFAULT NULL COMMENT 'email';
+alter table IMUser modify `phone` varchar(512) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'mobile';
+alter table IMUserTemp modify  `phone` varchar(512) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'mobile';
+alter table IMCompany add  `syncserver` varchar(256) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'sync server';
+alter table IMCompanyTemp add  `syncserver` varchar(256) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT 'sync server';
+alter table IMUser add  `alias` varchar(512) COLLATE utf8mb4_bin DEFAULT '' COMMENT 'alias';
+alter table IMUser add  `buyproduct` varchar(512) COLLATE utf8mb4_bin DEFAULT '' COMMENT 'buyproduct';
+alter table IMUserTemp add  `alias` varchar(512) COLLATE utf8mb4_bin DEFAULT '' COMMENT 'alias';
+alter table IMUserTemp add  `buyproduct` varchar(512) COLLATE utf8mb4_bin DEFAULT '' COMMENT 'buyproduct';
+
+#p2p talk shield status
+DROP TABLE IF EXISTS IMP2PTalk;
+CREATE TABLE `IMP2PTalk`
+(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) unsigned NOT NULL COMMENT '用户id',
+  `peerid` int(11) unsigned NOT NULL COMMENT '对方id',
+  `shieldstatus` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT 'user''s shield status,0:normal,1:shield',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_userid_peerid_shieldstatus` (`userid`,`peerid`,`shieldstatus`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='用户和用户的关系表';
+ 
+ alter table IMUser add `orgupdated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '同步数据更新时间';
+ alter table IMTransmitFile add `fileid` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '文件ID';
+ #initialize work flow
+ insert into IMUser(id,userid,name,keyword,nick,avatar,created,updated,buyproduct) values(1,'workflow','审批助手','workflow','审批助手','http://res.im.ioa.cn:12380/data/head/workflow_head_1.jpg',unix_timestamp(),unix_timestamp(),'IM,WORKFLOW');
+ #initialize email
+ insert into IMUser(id,userid,name,keyword,nick,avatar,created,updated,buyproduct) values(2,'email','邮件助手','email','邮件助手','http://res.im.ioa.cn:12380/data/head/email_head_1.jpg',unix_timestamp(),unix_timestamp(),'IM,EMAIL');
+ #initialize bulltin
+ insert into IMUser(id,userid,name,keyword,nick,avatar,created,updated,buyproduct) values(3,'bulletin','公告助手','bulletin','公告助手','http://res.im.ioa.cn:12380/data/head/bulletin_head_1.jpg',unix_timestamp(),unix_timestamp(),'IM,BULLETIN');
+ 
+ 
+DROP TABLE IF EXISTS UserDetails;
+CREATE TABLE `UserDetails` (
+  `uuid` varchar(40)  NOT NULL  COMMENT '用户详情uuid',
+  `useruuid` varchar(40) NOT NULL  COMMENT '用户uuid',
+  `type` int(3)  NOT NULL DEFAULT '0' COMMENT '详情信息类型，1：邮箱（11：工作邮箱，12：个人邮箱）
+2：电话号码（21：手机号码、22：家庭号码、23：工作号码）
+3：地址（31：工作地址，32：家庭地址）
+4：即时通讯（41：QQ、42：微信、43：MSN、44：Google Talk）
+5：传真（51：家庭传真、52：工作传真、53：自定义）
+6：自定义',
+  `title` varchar(40) COLLATE utf8mb4_bin NOT NULL COMMENT '详情信息标题',
+  `content` varchar(1024) COLLATE utf8mb4_bin NOT NULL COMMENT '详情信息内容',
+  `created` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`uuid`),
+  KEY `idx_userdetails_useruuid` (`useruuid`),
+  KEY `idx_userdetails_title` (`title`),
+  KEY `idx_userdetails_updated` (`updated`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='用户详情表';
+
+DROP TABLE IF EXISTS Position;
+CREATE TABLE `Position` (
+  `uuid` varchar(40)  NOT NULL  COMMENT '岗位uuid',
+  `companyid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '公司id',
+  `posname` varchar(50) COLLATE utf8mb4_bin NOT NULL COMMENT '岗位名称',
+  `type` varchar(20)  NOT NULL  COMMENT 'chiefleader：正职领导；leader：副职领导；staff：职员；other：其它；',
+  `status` int(3) NOT NULL DEFAULT '0' COMMENT '状态：-1：已删除；0：正常',
+  `remark` varchar(500) COLLATE utf8mb4_bin  COMMENT '备注',
+  `sort` int(3) NOT NULL DEFAULT '0' COMMENT '排序',
+  `created` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`uuid`),
+  KEY `idx_position_status` (`status`),
+  KEY `idx_position_updated` (`updated`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='岗位表';
+insert into Position (uuid) values('00000000000000000000000000000000';
+
+DROP TABLE IF EXISTS UserAlias;
+CREATE TABLE `UserAlias` (
+  `uuid` varchar(40)  NOT NULL  COMMENT '用户别名uuid',
+  `useruuid` varchar(40) NOT NULL  COMMENT '用户uuid',
+  `username` varchar(128)  NOT NULL  COMMENT '用户名',
+  `aliasname` varchar(128) NOT NULL COMMENT '别名',
+  `created` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`uuid`),
+  KEY `idx_useralias_useruuid` (`useruuid`),
+  KEY `idx_useralias_updated` (`updated`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='用户别名表';
+
+
+DROP TABLE IF EXISTS IMDepartA;
+CREATE TABLE `IMDepartA`
+(
+  `uuid` varchar(40) NOT NULL COMMENT '部门uuid',
+  `companyid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '公司id',
+  `departname` varchar(128) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '部门名称',
+  `priority` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '显示优先级',
+  `parentuuid` varchar(40) COMMENT '上级部门id',
+  `status` int(3) NOT NULL DEFAULT '000' COMMENT '状态 -1：删除； 0:正常',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `level` tinyint(3) unsigned zerofill NOT NULL DEFAULT '000' COMMENT '部门级别',
+  `isdepart` tinyint(1) unsigned zerofill NOT NULL DEFAULT '000' COMMENT '是否是部门',
+  `departpath` varchar(4000)  COMMENT'部门路径',
+  `contactstatus` tinyint(1) unsigned zerofill NOT NULL DEFAULT '1' COMMENT'是否是部门',
+  PRIMARY KEY (`uuid`),
+  KEY `idx_IMDepartA_companyid` (`companyid`),
+  KEY `idx_IMDepartA_status` (`status`),
+  KEY `idx_IMDepartA_parentuuid` (`parentuuid`),
+  KEY `idx_IMDepartA_contactstatus` (`contactstatus`),
+  KEY `idx_IMDepartA_updated` (`updated`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='部门表';
+
+#user position
+DROP TABLE IF EXISTS IMUserPositionA;
+CREATE TABLE `IMUserPositionA`
+(
+   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `uuid` varchar(40) COMMENT 'uuid',
+  `companyid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '公司标识',
+  `departuuid` varchar(40)  COMMENT '部门uuid',
+  `posuuid` varchar(40)  COMMENT '岗位uuid',
+  `useruuid` varchar(40) NOT NULL DEFAULT '' COMMENT '用户uuid',
+  `status` tinyint(3)  NOT NULL DEFAULT '0' COMMENT '状态:0正常；1:删除',
+  `created` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_IMUserPositionA_useruuid` (`useruuid`),
+  KEY `idx_IMUserPositionA_companyid` (`companyid`),
+  KEY `idx_IMUserPositionA_departuuid` (`departuuid`),
+  KEY `idx_IMUserPositionA_posuuid` (`posuuid`),
+  KEY `idx_IMUserPositionA_updated` (`updated`),
+  KEY `idx_IMUserPositionA_status` (`status`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='IM用户岗位表';
+
+#user table
+DROP TABLE IF EXISTS IMUserA;
+CREATE TABLE `IMUserA` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `useruuid` varchar(40) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户名标识UUID',
+  `jobnumber` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '工号',
+  `username` varchar(128) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '用户名',
+  `name` varchar(160) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '姓名',
+  `password` varchar(40) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '密码',
+  `origpassword` varchar(40) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '原始密码',
+  `histpassword` varchar(1000) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '历史密码',
+  `avatar` varchar(200) COLLATE utf8mb4_bin DEFAULT '' COMMENT '自定义用户头像',
+  `sex` tinyint(1) unsigned NOT NULL DEFAULT '2' COMMENT '0女 1男 2未知',
+  `birthday` date NOT NULL DEFAULT '1970-01-01' COMMENT '生日',
+  `phone` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '手机号码',
+  `isadmin` tinyint(1) unsigned DEFAULT '0' COMMENT '0:否；1:是',
+  `adminstatus` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0:禁用；1:启用',
+  `contactstatus` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0:否；1:是',
+  `status` tinyint(4)  NOT NULL DEFAULT '1' COMMENT '-1:已删除；0:禁用；1:启用',
+  `begintime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'EC用户创建时间',
+  `expiredtime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'EC用户到期时间',
+  `updatedtime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'EC用户数据更新时间',
+  `isiplimit` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0:不限制；1:限制',
+  `lastmodifytime` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '密码最后修改时间',
+  `islock` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0:否；1:锁定',
+  `lockip` varchar(15) COLLATE utf8mb4_bin NULL COMMENT '锁定IP',
+  `lockstarttime` int(11) NULL  COMMENT '锁定开始时间',
+  `lockendtime` int(11)  NULL  COMMENT '锁定结束时间',
+  `keyword` varchar(200) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '关键字',
+  `remark` varchar(500) COLLATE utf8mb4_bin COMMENT '备注',
+  `nick` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '花名,绰号等',
+  `signature` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '个性签名',
+  #`salt` varchar(4) COLLATE utf8mb4_bin NOT NULL DEFAULT '' COMMENT '混淆码',
+  `buyproduct` varchar(1024) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '个性签名',
+  `created` int(11) unsigned NOT NULL COMMENT '创建时间',
+  `updated` int(11) unsigned NOT NULL COMMENT '更新时间',
+  companyid int(11) unsigned NOT NULL DEFAULT 0,'公司标识'
+  PRIMARY KEY (`id`),
+  KEY `idx_IMUserA_useruuid` (`useruuid`),
+  KEY `idx_IMUserA_username` (`username`),
+  KEY `idx_IMUserA_status` (`status`),
+  KEY `idx_IMUserA_updated` (`updated`),
+  KEY `idx_IMUserA_updated` (`companyid`)
+)ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='IM用户表';
+SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name="IMUserA";
+alter table IMUserA  auto_increment = 10001;
+
+#alter table IMUserA add companyid int(11) unsigned not null default 0

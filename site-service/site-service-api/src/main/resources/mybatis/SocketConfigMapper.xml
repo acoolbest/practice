@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changchong.site.mapper.SocketConfigMapper">
+  <resultMap id="BaseResultMap" type="com.changchong.site.model.SocketConfig">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="micro_charge_url" jdbcType="VARCHAR" property="microChargeUrl" />
+    <result column="micro_charge_port" jdbcType="VARCHAR" property="microChargePort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, micro_charge_url, micro_charge_port
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_socket_config
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_socket_config
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.changchong.site.model.SocketConfig">
+    insert into t_socket_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="microChargeUrl != null">
+        micro_charge_url,
+      </if>
+      <if test="microChargePort != null">
+        micro_charge_port,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="microChargeUrl != null">
+        #{microChargeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="microChargePort != null">
+        #{microChargePort,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.SocketConfig">
+    update t_socket_config
+    <set>
+      <if test="microChargeUrl != null">
+        micro_charge_url = #{microChargeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="microChargePort != null">
+        micro_charge_port = #{microChargePort,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

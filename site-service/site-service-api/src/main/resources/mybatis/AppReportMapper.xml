@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.changchong.site.mapper.AppReportMapper" >
+  <resultMap id="BaseResultMap" type="com.changchong.site.model.AppReport" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="user_id"/>
+    <result column="report_detail" property="report_detail" jdbcType="VARCHAR" />
+    <result column="report_picture" property="report_picture" jdbcType="VARCHAR" />
+    <result column="province" property="province"/>
+    <result column="city" property="city"/>
+    <result column="address" property="address" />
+    <result column="status" property="status"/>
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="create_time" property="create_time"/>
+    <result column="update_user" property="update_user" />
+    <result column="update_time" property="update_time" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+   id,user_id,report_detail,report_picture,province,city,address,
+   status,remark,create_time,update_user,update_time,phone
+  </sql>
+  
+
+  <insert id="saveAppReport" parameterType="com.changchong.site.model.AppReport" useGeneratedKeys="true" keyProperty="id">
+    insert ignore into app_report
+    (
+    <if test="user_id != null ">
+      user_id,
+    </if>
+    <if test="report_detail != null and report_detail != ''">
+      report_detail,
+    </if>
+    <if test="report_picture != null and report_picture !=''">
+      report_picture,
+    </if>
+    <if test="province != null and province !=''">
+      province,
+    </if>
+    <if test="city != null and city !=''">
+      city,
+    </if>
+    <if test="address != null and address !=''">
+      address,
+    </if>
+    <if test="status != null">
+      status,
+    </if>
+    <if test="remark != null and remark !=''">
+      remark,
+    </if>
+    <if test="update_user != null">
+      update_user,
+    </if>
+    <if test="update_time != null">
+      update_time,
+    </if>
+    <if test="phone != null and phone !=''">
+      phone,
+    </if>
+    <if test="create_time != null ">
+      create_time
+    </if>)
+    values (
+    <if test="user_id != null ">
+      #{user_id},
+    </if>
+    <if test="report_detail != null and report_detail != ''">
+      #{report_detail},
+    </if>
+    <if test="report_picture != null and report_picture !=''">
+      #{report_picture},
+    </if>
+    <if test="province != null and province !=''">
+      #{province},
+    </if>
+    <if test="city != null and city !=''">
+      #{city},
+    </if>
+    <if test="address != null and address !=''">
+      #{address},
+    </if>
+    <if test="status != null">
+      #{status},
+    </if>
+    <if test="remark != null and remark !=''">
+      #{remark},
+    </if>
+    <if test="update_user != null">
+      #{update_user},
+    </if>
+    <if test="update_time != null">
+      #{update_time},
+    </if>
+    <if test="phone != null and phone !=''">
+       #{phone},
+    </if>
+    <if test="create_time != null ">
+      #{create_time}
+    </if>
+  )
+  </insert>
+
+  <select id="getAppReportList" parameterType="map" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List"/>
+    FROM app_report t
+    WHERE 1=1
+    <if test="status != null">
+      AND t.status = #{status}
+    </if>
+    <if test="sTime != null">
+      AND t.create_time &gt;=#{sTime}
+    </if>
+    <if test="eTime !=null">
+      AND t.create_time &lt;=#{eTime}
+    </if>
+ <!--   <if test="province !=null and province !=''">
+      AND t.province =#{province}
+    </if>
+    <if test="city !=null and city != ''">
+      AND t.city =#{city}
+    </if>-->
+    <if test="(address != null and address != '') or  (city !=null and city != '') or (province !=null and province !='')">
+      ${likecondition}
+    </if>
+    ORDER BY t.create_time DESC
+    <if test="startRow != null and endRow != null">
+      LIMIT #{startRow},#{endRow}
+    </if>
+  </select>
+
+  <select id="getAppReportListCount" parameterType="map" resultType="java.lang.Integer">
+    SELECT
+      count(t.id)
+    FROM app_report t
+    WHERE 1=1
+    <if test="status != null">
+      AND t.status = #{status}
+    </if>
+    <if test="sTime != null">
+      AND t.create_time &gt;=#{sTime}
+    </if>
+    <if test="eTime !=null">
+      AND t.create_time &lt;=#{eTime}
+    </if>
+    <!--   <if test="province !=null and province !=''">
+         AND t.province =#{province}
+       </if>
+       <if test="city !=null and city != ''">
+         AND t.city =#{city}
+       </if>-->
+    <if test="(address != null and address != '') or  (city !=null and city != '') or (province !=null and province !='')">
+      ${likecondition}
+    </if>
+  </select>
+
+  <update id="updateAppReport" parameterType="com.changchong.site.model.AppReport">
+    UPDATE  app_report
+    <trim prefix="set" suffixOverrides=",">
+        remark = #{remark},
+      <if test="update_user != null">
+        update_user = #{update_user},
+      </if>
+      <if test="status != null">
+        status = #{status},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time},
+      </if>
+    </trim>
+    WHERE id = #{id}
+  </update>
+</mapper>

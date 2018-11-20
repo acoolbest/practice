@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changchong.site.mapper.PortMapper">
+ 
+ <resultMap id="BaseResultMap" type="com.changchong.site.model.Port">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="TINYINT" />
+		<result column="device_id" property="deviceId" jdbcType="INTEGER" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+
+	</resultMap>
+	
+	<resultMap type="java.lang.Integer" id="ids">
+		<result column="id" property="id"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id,status,device_id,code
+	</sql>
+
+	<select id="selectId" parameterType="map" resultMap="ids">
+		select id from t_port
+		where 1=1
+		<if test="deviceIds != null">
+			and device_id in
+			<foreach item="item" index="index" collection="deviceIds" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+ 	<insert id="insertPort" parameterType="com.changchong.site.model.Port" useGeneratedKeys="true" keyProperty="id">
+		insert into t_port (id,code,status,device_id)
+		values (
+			#{id,jdbcType=INTEGER},
+			#{code,jdbcType=VARCHAR},
+			#{status,jdbcType=TINYINT},
+			#{deviceId,jdbcType=INTEGER}			
+		)
+		</insert>
+	<select id="getPortByDeviceId" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_port
+		where device_id = #{0} 
+	</select>
+	<select id="getPortByCode" resultType="com.changchong.site.model.Port" parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from t_port
+		where code = #{code}
+	</select>
+	<select id="getPortById" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_port
+		where id = #{0} 
+	</select>
+	<delete id="deletePort" parameterType="com.changchong.site.model.Port">
+  		delete from t_port where id=#{id,jdbcType=INTEGER}
+  	</delete>
+  	<delete id="deletePortByDevice">
+  		delete from t_port where device_id=#{0}
+  	</delete>
+	<update id="deletePortFromDevice" parameterType="com.changchong.site.model.Port">
+		 update t_port set	
+			device_id = null 	
+		where id=#{id,jdbcType=INTEGER}
+	</update>
+	
+</mapper>

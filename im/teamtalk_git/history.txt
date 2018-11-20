@@ -1,0 +1,1000 @@
+ 1040  vi /usr/local/php5/etc/php-fpm.conf
+ 1041  vi conf/php-fpm.conf 
+ 1042  cp conf/php-fpm.conf /usr/local/php5/etc/
+ 1043  cd /usr/local
+ 1044  cd p
+ 1045  cd php5/
+ 1046  ls
+ 1047  cd sbin/
+ 1048  ls
+ 1049  ./php-fpm 
+ 1050  ps -e | grep php
+ 1051  ps -e | grep server
+ 1052  ls
+ 1053  cd ..
+ 1054  ls
+ 1055  cd ..
+ 1056  ls
+ 1057  cd
+ 1058  cd share/
+ 1059  ls
+ 1060  cd practice/
+ 1061  ls
+ 1062  cd im
+ 1063  ls
+ 1064  cd TeamTalk
+ 1065  ls
+ 1066  cd auto_setup/
+ 1067  ls
+ 1068  cd nginx_php/
+ 1069  ls
+ 1070  cd nginx/
+ 1071  ls
+ 1072  cd ..
+ 1073  ls
+ 1074  cd ..
+ 1075  ls
+ 1076  cd mariadb/
+ 1077  ls
+ 1078  cd ..
+ 1079  ls
+ 1080  cd im_web/
+ 1081  ls
+ 1082  cd ..
+ 1083  ls
+ 1084  cd ..
+ 1085  ls
+ 1086  cd server/
+ 1087  ls
+ 1088  cd src/
+ 1089  ls
+ 1090  cd hiredis/
+ 1091  ls
+ 1092  cd ..
+ 1093  ls
+ 1094  ./make_hiredis.sh 
+ 1095  ls
+ 1096  cd hiredis/
+ 1097  ls
+ 1098  rm hiredis-master -r
+ 1099  cd ..
+ 1100  ls
+ 1101  ./make_hiredis.sh 
+ 1102  ll db_proxy_server/libhiredis.a 
+ 1103  ll db_proxy_server/ -t
+ 1104  cp --help
+ 1105  ls
+ 1106  cd db_proxy_server/
+ 1107  ls
+ 1108  cat sds.h 
+ 1109  cd ..
+ 1110  ls
+ 1111  apt-get install apr-dev
+ 1112  ls
+ 1113  cd log4cxx/
+ 1114  ls
+ 1115  tar xf apache-log4cxx-0.10.0.tar.gz 
+ 1116  ls
+ 1117  cd apache-log4cxx-0.10.0/
+ 1118  ls
+ 1119  ./configure --help
+ 1120  ./configure --help > 111.txt
+ 1121  apr-config
+ 1122  apr-config --cflags
+ 1123  apr-config --cppflags
+ 1124  apr-config --includes
+ 1125  apr-config --libs
+ 1126  apr-1-config --libs
+ 1127  apr-1-config --link-ld --libs
+ 1128  apr-1-config --link-libtool --libs
+ 1129  apr-1-config --link-ld --libs
+ 1130  apr-1-config --link-ld --libs --cflags, --cppflags, --includes
+ 1131  apr-1-config --link-ld --libs --cflags --cppflags --includes
+ 1132  apr-1-config --link-ld --libs --cflags --cppflags --includes --ldflags
+ 1133  apr-1-config --link-ld --libs --includes --ldflags
+ 1134  apr-1-config --link-ld --libs --includes 
+ 1135  apr-1-config --link-ld --ldflags
+ 1136  apr-1-config --ldflags
+ 1137  ls
+ 1138  ./configure cd ..
+ 1139  cd ..
+ 1140  ls
+ 1141  cd apache-log4cxx-0.10.0/
+ 1142  ls
+ 1143  ll src/main/cpp/
+ 1144  ll ..
+ 1145  cd ../..
+ 1146  ls
+ 1147  ./make_log4cxx.sh 
+ 1148  ls
+ 1149  cd log4cxx/
+ 1150  ls
+ 1151  cd apache-log4cxx-0.10.0/
+ 1152  ls
+ 1153  make clean
+ 1154  ls
+ 1155  make -j4
+ 1156  cd ..
+ 1157  ls
+ 1158  cd ..
+ 1159  ls
+ 1160  cd log4cxx/
+ 1161  ls
+ 1162  rm apache-log4cxx-0.10.0 -r
+ 1163  ls
+ 1164  cd ..
+ 1165  ls
+ 1166  ./make_log4cxx.sh 
+ 1167  apt-get install mariadb-*
+ 1168  apt-get remove mariadb-* --purge
+ 1169  apt-get install mysql*
+ 1170  apt-get install -f
+ 1171  apt-get autoremove 
+ 1172  ls
+ 1173  apt-get install mysql-server
+ 1174  ls
+ 1175  ./build_ubuntu.sh version 1.0.0
+ 1176  apt-get install libprotobuf-lite9v5 
+ 1177  apt-get install libprotobuf-dev 
+ 1178  apt-get install libprotobuf-c-dev 
+ 1179  ls
+ 1180  ./build_ubuntu.sh version 1.0.0
+ 1181  cd base/
+ 1182  ls
+ 1183  cmake .
+ 1184  make
+ 1185  ls
+ 1186  cd ..
+ 1187  ls
+ 1188  cd ..
+ 1189  ls
+ 1190  cp src/ src_bk
+ 1191  cp src/ src_bk -r
+ 1192  ls
+ 1193  cd src
+ 1194  ls
+ 1195  cd base/
+ 1196  ls
+ 1197  make
+ 1198  sudo apt-get remove --purge protobuf-compiler 
+ 1199  apt-get autoremove 
+ 1200  dpkg -P proto
+ 1201  dpkg -P protobuf-compiler
+ 1202  sudo apt-get install libprotobuf-dev protobuf-compiler
+ 1203  ls
+ 1204  cd ..
+ 1205  ls
+ 1206  cd protobuf/
+ 1207  ls
+ 1208  cd ..
+ 1209  ls
+ 1210  cd protobuf/
+ 1211  ls
+ 1212  cd bin/
+ 1213  ls
+ 1214  cp protoc ../../../../pb/
+ 1215  ls
+ 1216  which protoc
+ 1217  ls
+ 1218  cd ..
+ 1219  ls
+ 1220  cd ..
+ 1221  ls
+ 1222  vi make_protobuf.sh 
+ 1223  ls
+ 1224  apt-get remove protobuf-compiler --purge
+ 1225  ls
+ 1226  cd protobuf/
+ 1227  ls
+ 1228  cd protobuf-3.5.1/
+ 1229  ls
+ 1230  ./configure --help
+ 1231  ls
+ 1232  ./configure 
+ 1233  ls
+ 1234  make
+ 1235  make install
+ 1236  make uninstall
+ 1237  make install
+ 1238  make uninstall
+ 1239  ls
+ 1240  make clean
+ 1241  make -j4
+ 1242  make install
+ 1243  ls
+ 1244  cd ..
+ 1245  ls
+ 1246  cd ..
+ 1247  ls
+ 1248  cd ..
+ 1249  ls
+ 1250  cd ..
+ 1251  ls
+ 1252  cd pb
+ 1253  ls
+ 1254  ./create.sh 
+ 1255  ldconfig
+ 1256  ./create.sh 
+ 1257  which protoc 
+ 1258  ./create.sh 
+ 1259  ls
+ 1260  rm gen/ -r
+ 1261  ./create.sh 
+ 1262  tree gen/
+ 1263  ls
+ 1264  vi create.sh 
+ 1265  rm gen/ -r
+ 1266  ./create.sh 
+ 1267  tree gen/
+ 1268  ls
+ 1269  vi IM.BaseDefine.proto 
+ 1270  ./create.sh 
+ 1271  vi IM.BaseDefine.proto 
+ 1272  ./create.sh 
+ 1273  vi create.sh 
+ 1274  ./create.sh 
+ 1275  vi create.sh 
+ 1276  vi IM.BaseDefine.proto 
+ 1277  ./create.sh 
+ 1278  vi IM.BaseDefine.proto 
+ 1279  ./create.sh 
+ 1280  vi IM.BaseDefine.proto 
+ 1281  ./create.sh 
+ 1282  vi IM.BaseDefine.proto 
+ 1283  ./create.sh 
+ 1284  ls
+ 1285  rm protoc 
+ 1286  ls
+ 1287  ./create.sh 
+ 1288  ls
+ 1289  vi IM.BaseDefine.proto 
+ 1290  ./sync.sh 
+ 1291  cd ..
+ 1292  cd server/
+ 1293  ls
+ 1294  cd src
+ 1295  ls
+ 1296  cd base/
+ 1297  ls
+ 1298  make
+ 1299  ls
+ 1300  cd ..
+ 1301  ls
+ 1302  cd ..
+ 1303  ls
+ 1304  cd ..
+ 1305  ls
+ 1306  cd pb/
+ 1307  ls
+ 1308  vi create.sh r
+ 1309  ls
+ 1310  ll
+ 1311  vi create.sh 
+ 1312  ./create.sh 
+ 1313  vi create.sh 
+ 1314  rm gen/ -r
+ 1315  ./create.sh 
+ 1316  ls
+ 1317  ./sync.sh 
+ 1318  cd ..
+ 1319  ls
+ 1320  cd server/
+ 1321  ls
+ 1322  cd src
+ 1323  ls
+ 1324  ./build_ubuntu.sh version 1.0.0
+ 1325  apt-get install libmysqlclient-dev 
+ 1326  apt-get autoremove 
+ 1327  ls
+ 1328  ./build_ubuntu.sh version 1.0.0
+ 1329  vi build_ubuntu.sh 
+ 1330  ./build_ubuntu.sh version 1.0.0
+ 1331  ls
+ 1332  cd ..
+ 1333  ls
+ 1334  cp im-server-1.0.0.tar.gz ../auto_setup/im_server/
+ 1335  ls
+ 1336  cd ..
+ 1337  ls
+ 1338  cd auto_setup/
+ 1339  ls
+ 1340  cd im_server/
+ 1341  ls
+ 1342  vi setup.sh 
+ 1343  protoc --version
+ 1344  cd ..
+ 1345  ls
+ 1346  cd ..
+ 1347  ls
+ 1348  cd pb
+ 1349  ls
+ 1350  vi IM.BaseDefine.proto 
+ 1351  vi create.sh 
+ 1352  ./create.sh 
+ 1353  cat create.sh 
+ 1354  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.BaseDefine.proto 
+ 1355  ls
+ 1356  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.Buddy.proto 
+ 1357  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.File.proto 
+ 1358  ./create.sh 
+ 1359  ls
+ 1360  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.File.proto 
+ 1361  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.Group.proto 
+ 1362  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.Login.proto 
+ 1363  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.Message.proto 
+ 1364  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.Other.proto 
+ 1365  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.Server.proto 
+ 1366  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.SwitchService.proto 
+ 1367  protoc -I=./ --cpp_out=./gen/cpp/ ./IM.Group.proto 
+ 1368  ls
+ 1369  ./create.sh 
+ 1370  ls
+ 1371  cd ..
+ 1372  ls
+ 1373  cd ..
+ 1374  ls
+ 1375  cd TeamTalk_bk/
+ 1376  ls
+ 1377  cd pb/
+ 1378  ls
+ 1379  ./create.sh 
+ 1380  ls
+ 1381  tree gen/
+ 1382  ls
+ 1383  cd ..
+ 1384  ls
+ 1385  cd pb
+ 1386  ls
+ 1387  grep "has_group_id" * -R
+ 1388  ls
+ 1389  ./create.sh 
+ 1390  ls
+ 1391  grep "has_group_id" * -R
+ 1392  ls
+ 1393  cd ..
+ 1394  ls
+ 1395  cd ..
+ 1396  ls
+ 1397  cd ..
+ 1398  ls
+ 1399  cd im
+ 1400  ls
+ 1401  cd TeamTalk
+ 1402  ls
+ 1403  cd auto_setup/
+ 1404  ls
+ 1405  cd im_server/
+ 1406  ls
+ 1407  vi im-server-1.0.0/restart.sh 
+ 1408  ls
+ 1409  ./setup.sh restart
+ 1410  ls
+ 1411  cd ..
+ 1412  ls
+ 1413  cd ..
+ 1414  ls
+ 1415  find ./ -name *.pem
+ 1416  cat ./auto_setup/nginx_php/php/php-5.6.6/ext/mysqli/tests/client-cert.pem
+ 1417  find ./ -name *.pem
+ 1418  cat ./auto_setup/nginx_php/php/php-5.6.6/ext/mysqli/tests/client-key.pem
+ 1419  ls
+ 1420  cd auto_setup/
+ 1421  ls
+ 1422  cd im_server/
+ 1423  ls
+ 1424  cd im-server-1.0.0/
+ 1425  ls
+ 1426  cat push_server/log/default.log 
+ 1427  cd ..
+ 1428  ls
+ 1429  cd ..
+ 1430  ls
+ 1431  cd ..
+ 1432  ls
+ 1433  cd ..
+ 1434  ls
+ 1435  openssl genrsa -out rsa_private.key 2048
+ 1436  ls
+ 1437  cat rsa_private.key 
+ 1438  ls
+ 1439  openssl --help
+ 1440  ls
+ 1441  openssl rsa -in rsa_private.key -pubout -out rsa_public.key
+ 1442  ls
+ 1443  cat rsa_public.key 
+ 1444  openssl genrsa -aes256 -passout pass:111111 -out rsa_aes_private.key 2048
+ 1445  cat rsa_aes_private.key 
+ 1446  ls
+ 1447  ll rsa_private.key 
+ 1448  ll rsa_aes_private.key
+ 1449  openssl genrsa -aes256 -passout pass:111111 -out rsa_aes_private.key 11
+ 1450  openssl genrsa -aes256 -passout pass:111111 -out rsa_aes_private.key 111
+ 1451  cat rsa_aes_private.key 
+ 1452  openssl genrsa -aes256 -passout pass:111111 -out rsa_aes_private.key 1111
+ 1453  cat rsa_aes_private.key 
+ 1454  openssl genrsa -aes256 -passout pass:111111 -out rsa_aes_private.key 2048
+ 1455  cat rsa_aes_private.key 
+ 1456  openssl rsa -in rsa_aes_private.key -passin pass:111111 -pubout -out rsa_public.key
+ 1457  openssl --help
+ 1458  openssl --help | grep der
+ 1459  openssl rsa -in rsa_private.key -noout -text
+ 1460  ls
+ 1461  cd TeamTalk
+ 1462  ls
+ 1463  cd auto_setup/
+ 1464  ls
+ 1465  cd im_server/
+ 1466  ls
+ 1467  cd im-server-1.0.0/
+ 1468  ls
+ 1469  tail -f login_server/log/default.log 
+ 1470  sudo -s
+ 1471  sudo -s
+ 1472  cd share/practice/im/TeamTalk
+ 1473  cd auto_setup/im_server/
+ 1474  ls
+ 1475  cd im-server-1.0.0/
+ 1476  ls
+ 1477  tail -f db_proxy_server/log/default.log 
+ 1478  ls
+ 1479  cat login_server/log/default.log 
+ 1480  ifconfig 
+ 1481  ps -e | grep mysql
+ 1482  ls
+ 1483  tail -f login_server/log/default.log 
+ 1484  cd share/practice/im
+ 1485  cd TeamTalk
+ 1486  LS
+ 1487  ls
+ 1488  cd auto_setup/im_server/
+ 1489  cd im-server-1.0.0/
+ 1490  ls
+ 1491  tail -f msg_server/log/default.log 
+ 1492  cd ~/share/practice/im/TeamTalk/auto_setup/im_server/im-server-1.0.0
+ 1493  cat msg_server/log/default.log 
+ 1494  ls
+ 1495  cat db_proxy_server/log/default.log 
+ 1496  ps -e | grep server
+ 1497  ls
+ 1498  ./restart.sh db_proxy_server/
+ 1499  ./restart.sh db_proxy_server
+ 1500  cat db_proxy_server/log/default.log 
+ 1501  tail -f db_proxy_server/log/default.log 
+ 1502  lsof -i -pn
+ 1503  lsof -i -Pn
+ 1504  lsof -i -Pn | grep 10600
+ 1505  cd ..
+ 1506  ls
+ 1507  cd charge/share/
+ 1508  ls
+ 1509  cd practice/im/TeamTalk
+ 1510  ls
+ 1511  cd a
+ 1512  cd auto_setup/
+ 1513  cd im_server/
+ 1514  ls
+ 1515  cd im-server-1.0.0/
+ 1516  ls
+ 1517  cd db_proxy_server/
+ 1518  ls
+ 1519  ./db_proxy_server 
+ 1520  ls
+ 1521  cd ..
+ 1522  ls
+ 1523  cd ..
+ 1524  ls
+ 1525  cd ..
+ 1526  ls
+ 1527  cd ..
+ 1528  ls
+ 1529  cd server/
+ 1530  ls
+ 1531  cd src
+ 1532  ls
+ 1533  cd ..
+ 1534  ls
+ 1535  cd ..
+ 1536  ls
+ 1537  cd php/
+ 1538  ls
+ 1539  cd ..
+ 1540  ls
+ 1541  cd auto_setup/
+ 1542  ls
+ 1543  cd redis/
+ 1544  ls
+ 1545  ll conf/
+ 1546  cd ..
+ 1547  ls
+ 1548  cd ..
+ 1549  ls
+ 1550  find . name $.sql
+ 1551  find . name *.sql
+ 1552  find . -name *.sql
+ 1553  vi auto_setup/mariadb/conf/ttopen.sql 
+ 1554  ls
+ 1555  cd auto_setup/
+ 1556  ls
+ 1557  cd im_server/im-server-1.0.0/
+ 1558  ls
+ 1559  cd db_proxy_server/
+ 1560  ls
+ 1561  ./db_proxy_server 
+ 1562  ../daeml db_proxy_server 
+ 1563  ls
+ 1564  cd ..
+ 1565  ls
+ 1566  cd ..
+ 1567  ls
+ 1568  cd ..
+ 1569  ls
+ 1570  cd ..
+ 1571  ls
+ 1572  cd ..
+ 1573  ls
+ 1574  cd ..
+ 1575  ls
+ 1576  cd im/
+ 1577  ls
+ 1578  mkdir 1
+ 1579  ls
+ 1580  cd 1
+ 1581  ls
+ 1582  git clone https://github.com/meili/TeamTalk.git
+ 1583  cd ..
+ 1584  ls
+ 1585  rm 1 -r
+ 1586  ls
+ 1587  rm tt.sh 
+ 1588  rm teamtalk-server-benben/ -r
+ 1589  ls
+ 1590  tar cf teamtalk.tar.gz TeamTalk_bk/ 
+ 1591  ls
+ 1592  scp teamtalk.tar.gz charge@192.168.0.161:/home/charge
+ 1593  ls
+ 1594  tar cf TeamTalk.tar.gz TeamTalk
+ 1595  ls
+ 1596  rm TeamTalk.tar.gz 
+ 1597  ls
+ 1598  cd TeamTalk
+ 1599  ls
+ 1600  cd auto_setup/
+ 1601  ls
+ 1602  cd redis/
+ 1603  ls
+ 1604  scp setup.sh charge@192.168.0.161:/home/charge
+ 1605  cd ..
+ 1606  ls
+ 1607  cd nginx_php/
+ 1608  ls
+ 1609  cd php/
+ 1610  ls
+ 1611  vi setup.sh 
+ 1612  scp setup.sh charge@192.168.0.161:/home/charge
+ 1613  ls
+ 1614  cd ..
+ 1615  ls
+ 1616  cd ..
+ 1617  ls
+ 1618  cd im_web/
+ 1619  ls
+ 1620  vi setup.sh 
+ 1621  ls
+ 1622  ll conf/
+ 1623  cd ..
+ 1624  ls
+ 1625  cd nginx_php/
+ 1626  ls
+ 1627  cd php/
+ 1628  ls
+ 1629  cd conf/
+ 1630  ls
+ 1631  vi php.ini 
+ 1632  diff php.ini ../../../../../TeamTalk_bk/auto_setup/nginx_php/php/conf/php.ini 
+ 1633  cd ..
+ 1634  ls
+ 1635  cd ..
+ 1636  ls
+ 1637  cd ../im_web/
+ 1638  ls
+ 1639  cd conf/
+ 1640  ls
+ 1641  vi config.php 
+ 1642  vi database.php 
+ 1643  vi im.com.conf 
+ 1644  ls
+ 1645  cat /usr/local/nginx/conf/nginx.conf
+ 1646  scp /usr/local/nginx/conf/nginx.conf charge@192.168.0.161:/home/charge
+ 1647  cd share/practice/im/
+ 1648  ls
+ 1649  cd TeamTalk
+ 1650  ls
+ 1651  cd
+ 1652  ls
+ 1653  cp nginx.conf share/nginx.conf_161
+ 1654  cd share/
+ 1655  chmod 777 nginx.conf_161 
+ 1656  scp nginx.conf_161 charge@192.168.0.161:/home/charge
+ 1657  ls
+ 1658  cd practice/
+ 1659  ls
+ 1660  cd im/
+ 1661  ls
+ 1662  cd TeamTalk_bk/
+ 1663  ls
+ 1664  cd auto_setup/
+ 1665  ls
+ 1666  cd im_web/
+ 1667  ls
+ 1668  vi setup.sh 
+ 1669  cd
+ 1670  ls
+ 1671  cp mysql_redis_php_nginx.txt share/
+ 1672  chmod 777 share/mysql_redis_php_nginx.txt 
+ 1673  ls
+ 1674  cd share/practice/im/
+ 1675  ls
+ 1676  cd TeamTalk
+ 1677  ls
+ 1678  cd server/
+ 1679  ls
+ 1680  cd src
+ 1681  ls
+ 1682  vi make_log4cxx.sh 
+ 1683  ls
+ 1684  cd ..
+ 1685  ls
+ 1686  cd ..
+ 1687  ls
+ 1688  cd auto_setup/
+ 1689  ls
+ 1690  cd im_server/
+ 1691  ls
+ 1692  cd conf
+ 1693  ls
+ 1694  cd ..
+ 1695  ls
+ 1696  vi setup.sh 
+ 1697  scp setup.sh charge@192.168.0.161:/home/charge
+ 1698  scp -r conf charge@192.168.0.161:/home/charge
+ 1699  ls
+ 1700  cd ../../server/
+ 1701  cd run/
+ 1702  ls
+ 1703  vi restart.sh 
+ 1704  scp restart.sh charge@192.168.0.163:/home/charge
+ 1705  scp restart.sh charge@192.168.0.161:/home/charge
+ 1706  ls
+ 1707  cd ..
+ 1708  cd server/
+ 1709  cd run/
+ 1710  ls
+ 1711  vi restart.sh 
+ 1712  ifconfig 
+ 1713  ls
+ 1714  cd
+ 1715  ls
+ 1716  chmod 777 im_server.txt 
+ 1717  mv im_server.txt share/
+ 1718  ls
+ 1719  ifconfig 
+ 1720  ls
+ 1721  cd share/
+ 1722  ls
+ 1723  cd practice/
+ 1724  ls
+ 1725  cd im
+ 1726  ls
+ 1727  cd TeamTalk
+ 1728  ls
+ 1729  du -h android/
+ 1730  ls
+ 1731  du -h doc/
+ 1732  du -h ios/
+ 1733  ls
+ 1734  du -h win-client/
+ 1735  ls
+ 1736  du -h tt.zip 
+ 1737  du -h tt
+ 1738  ls
+ 1739  du -h auto_setup/
+ 1740  ls
+ 1741  cd auto_setup/
+ 1742  ls
+ 1743  du -h gcc_setup/
+ 1744  ls
+ 1745  du -h im_web/
+ 1746  ls
+ 1747  du -h mariadb/
+ 1748  du -h nginx_php/
+ 1749  ls
+ 1750  cd nginx_php/
+ 1751  ls
+ 1752  cd php/
+ 1753  ls
+ 1754  cd ..
+ 1755  ls
+ 1756  cd nginx/
+ 1757  ls
+ 1758  cd ..
+ 1759  ls
+ 1760  cd php/
+ 1761  ls
+ 1762  cd ..
+ 1763  ls
+ 1764  cd ..
+ 1765  ls
+ 1766  cd redis/
+ 1767  ls
+ 1768  cd ..
+ 1769  ls
+ 1770  cd ..
+ 1771  ls
+ 1772  cd ..
+ 1773  ls
+ 1774  du -h TeamTalk_bk/
+ 1775  ls
+ 1776  mkdir TeamTalk_git
+ 1777  ls
+ 1778  cd TeamTalk_git/
+ 1779  ls
+ 1780  git clone https://github.com/meili/TeamTalk.git
+ 1781  ls
+ 1782  tar cf TeamTalk_20180413.tar.gz TeamTalk/
+ 1783  ls
+ 1784  du -h TeamTalk_20180413.tar.gz 
+ 1785  ls
+ 1786  du -h TeamTalk
+ 1787  ls
+ 1788  cd ..
+ 1789  ls
+ 1790  cd TeamTalk_git/
+ 1791  ls
+ 1792  rm TeamTalk_20180413.tar.gz 
+ 1793  ls
+ 1794  tar cf teamtalk.tar.gz TeamTalk/
+ 1795  ls
+ 1796  rm teamtalk.tar.gz 
+ 1797  tar cf teamtalk_src.tar.gz TeamTalk/
+ 1798  ls
+ 1799  mv TeamTalk/ teamtalk
+ 1800  ls
+ 1801  cd teamtalk/
+ 1802  ls
+ 1803  cd ..
+ 1804  ls
+ 1805  cd ..
+ 1806  ls
+ 1807  chmod 777 TeamTalk_git/ -R
+ 1808  ls
+ 1809  cd TeamTalk_git/
+ 1810  ls
+ 1811  rm teamtalk -r
+ 1812  tar xvf teamtalk_src.tar.gz 
+ 1813  ls
+ 1814  mv TeamTalk/ teamtalk
+ 1815  ls
+ 1816  chmod 777 * -R
+ 1817  ls
+ 1818  cd teamtalk/
+ 1819  ls
+ 1820  cd auto_setup/
+ 1821  ls
+ 1822  cd im_
+ 1823  ls
+ 1824  cd im_server/
+ 1825  ls
+ 1826  mv conf/ conf_bk
+ 1827  mv setup.sh setup.sh_bk
+ 1828  ls
+ 1829  cd ..
+ 1830  ls
+ 1831  cd im_web/
+ 1832  ls
+ 1833  ll conf/
+ 1834  ls
+ 1835  mv conf/ conf_bk
+ 1836  mv setup.sh setup.sh_bk
+ 1837  ls
+ 1838  cd ..
+ 1839  ls
+ 1840  cd mariadb/
+ 1841  ls
+ 1842  cd ..
+ 1843  ls
+ 1844  cd nginx_php/
+ 1845  ls
+ 1846  cd ..
+ 1847  cd nginx_php/
+ 1848  ls
+ 1849  cd php/
+ 1850  ls
+ 1851  ll conf/
+ 1852  ls
+ 1853  mv setup.sh_bk
+ 1854  mv setup.sh setup.sh_bk
+ 1855  ls
+ 1856  mv conf/ conf_bk
+ 1857  ls
+ 1858  cd ..
+ 1859  ls
+ 1860  cd nginx/
+ 1861  ls
+ 1862  vi setup.sh 
+ 1863  ls
+ 1864  cd ..
+ 1865  ls
+ 1866  cd ..
+ 1867  ls
+ 1868  cd  redis/
+ 1869  ls
+ 1870  ll conf/
+ 1871  vi conf/redis.conf 
+ 1872  ls
+ 1873  mv setup.sh setup.sh_bk
+ 1874  ls
+ 1875  cd ..
+ 1876  ls
+ 1877  cd ..
+ 1878  ls
+ 1879  cd server/
+ 1880  ls
+ 1881  cd run/
+ 1882  ls
+ 1883  mv restart.sh restart.sh_bk
+ 1884  ls
+ 1885  cd ..
+ 1886  ls
+ 1887  cd src/
+ 1888  ls
+ 1889  mv build_ubuntu.sh build_ubuntu.sh_bk
+ 1890  ls
+ 1891  vi make_log4cxx.sh 
+ 1892  vi make_hiredis.sh 
+ 1893  ls
+ 1894  vi make_log4cxx.sh 
+ 1895  mv make_log4cxx.sh make_log4cxx.sh_bk
+ 1896  ls
+ 1897  cd ..
+ 1898  ls
+ 1899  cd ..
+ 1900  ls
+ 1901  cd ..
+ 1902  ls
+ 1903  tar cf teamtalk_20180113.tar.gz teamtalk
+ 1904  ls
+ 1905  cd teamtalk/
+ 1906  ls
+ 1907  cd ..
+ 1908  ls
+ 1909  cp teamtalk teamtalk_20180413 -r
+ 1910  ls
+ 1911  rm teamtalk_20180113.tar.gz 
+ 1912  tar cf teamtalk_20180413.tar.gz teamtalk_20180413/
+ 1913  ls
+ 1914  tar xf teamtalk_src.tar.gz 
+ 1915  ls
+ 1916  mv TeamTalk/ teamtalk_src
+ 1917  ls
+ 1918  rm teamtalk_src.tar.gz 
+ 1919  tar cf  teamtalk_src.tar.gz teamtalk_src/
+ 1920  ls
+ 1921  rm teamtalk_src -r
+ 1922  ls
+ 1923  rm teamtalk_20180413 -r
+ 1924  ls
+ 1925  cd teamtalk/
+ 1926  ls
+ 1927  cd ..
+ 1928  ls
+ 1929  cd ..
+ 1930  ls
+ 1931  ks
+ 1932  ls
+ 1933  rm apache-log4cxx-0.10.0.tar.gz -r
+ 1934  ls
+ 1935  rm redis-4.0.8 -r
+ 1936  ls
+ 1937  rm redis-4.0.8.tar.gz 
+ 1938  ls
+ 1939  ll analogous_love/
+ 1940  ls
+ 1941  rm analogous_love/ -r
+ 1942  ls
+ 1943  rm teamtalk.tar.gz 
+ 1944  ls
+ 1945  rm TeamTalk_bk/ -r
+ 1946  ls
+ 1947  mv TeamTalk_git/ teamtalk_git
+ 1948  ls
+ 1949  cd teamtalk_git/
+ 1950  ls
+ 1951  cd teamtalk/
+ 1952  ls
+ 1953  mkdir pro
+ 1954  ls
+ 1955  chmod 777 pro/ -R
+ 1956  ls
+ 1957  cd pb
+ 1958  ls
+ 1959  ./create.sh 
+ 1960  ls
+ 1961  ./sync.sh 
+ 1962  ls
+ 1963  cd ..
+ 1964  ls
+ 1965  cd server/
+ 1966  ls
+ 1967  ll run/
+ 1968  ls
+ 1969  cd 
+ 1970  cd -
+ 1971  cd src/
+ 1972  ls
+ 1973  vi make_hiredis.sh 
+ 1974  ./make_hiredis.sh 
+ 1975  ls
+ 1976  vi build_ubuntu.sh
+ 1977  ls
+ 1978  ll tools/
+ 1979  ls
+ 1980  mkdir -p base/pb/lib/linux/
+ 1981  cp /usr/local/lib/libprotobuf-lite.a base/pb/lib/linux/
+ 1982  cp -r /usr/local/include/google/ base/pb/
+ 1983  ls
+ 1984  cd ..
+ 1985  l
+ 1986  ls
+ 1987  cp src/ src_bk
+ 1988  cp src/ src_bk -r
+ 1989  cp src/ src_20180413 -r
+ 1990  ls
+ 1991  rm src_bk/
+ 1992  rm src_bk/ -r
+ 1993  ls
+ 1994  cd src
+ 1995  ls
+ 1996  ctags * -R
+ 1997  ls
+ 1998  vi db_proxy_server/business/InterLogin.cpp 
+ 1999  sudo -s
+ 2000  ls
+ 2001  cd share/practice/
+ 2002  ls
+ 2003  cd im/
+ 2004  ls
+ 2005  cd teamtalk_git/
+ 2006  ls
+ 2007  grep "dos2unix" *
+ 2008  grep "dos2unix" * -R
+ 2009  grep "yum" * -R
+ 2010  apt-get install dos2unix 
+ 2011  dos2unix --help
+ 2012  ls
+ 2013  mv /home/charge/make_all_release.sh .
+ 2014  ls
+ 2015  ./make_all_release.sh 
+ 2016  vi make_all_release.sh 
+ 2017  ls
+ 2018  ./make_all_release.sh 
+ 2019  vi make_all_release.sh 
+ 2020  ./make_all_release.sh 
+ 2021  dos2unix --help
+ 2022  dos2unix  make_all_release.sh -n 1.sh
+ 2023  ls
+ 2024  dos2unix  make_all_release.sh 1.sh
+ 2025  dos2unix  make_all_release.sh ./1.sh
+ 2026  dos2unix  make_all_release.sh 1.sh
+ 2027  man dos2unix 
+ 2028  cat -v make_all_release.sh 
+ 2029  ls
+ 2030  ./make_all_release.sh 
+ 2031  ls
+ 2032  cat make_all_release.sh 
+ 2033  rm make_all_release.sh 
+ 2034  ls
+ 2035  history | grep for a
+ 2036  history | grep "for a"
+ 2037  ls
+ 2038  history 
+ 2039  history > history.txt

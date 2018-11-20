@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changchong.site.mapper.DeviceTroubleDetailMapper">
+ 
+ <resultMap id="BaseResultMap" type="com.changchong.site.model.DeviceTroubleDetail">
+	 <id column="id" property="id" jdbcType="INTEGER" />
+	 <result column="user_id" property="user_id" jdbcType="INTEGER" />
+	 <result column="phone" property="phone" />
+	 <result column="device_code" property="device_code" />
+	 <result column="trouble_id" property="trouble_id" />
+	 <result column="trouble_picture" property="trouble_picture" />
+	 <result column="trouble_detail" property="trouble_detail" />
+	 <result column="province" property="province" />
+	 <result column="city" property="city" />
+	 <result column="address" property="address" />
+	 <result column="status" property="status" />
+	 <result column="remark" property="remark" />
+	 <result column="create_time" property="create_time" />
+	 <result column="update_user" property="update_user" />
+	 <result column="update_time" property="update_time" />
+ </resultMap>
+	<sql id="Base_Column_List">
+		id,user_id,phone,device_code,trouble_id,trouble_picture,trouble_detail,province,city,address,status,remark,create_time,update_user,update_time
+	</sql>
+
+	<insert id="saveDeviceTroubleDetail" parameterType="com.changchong.site.model.DeviceTroubleDetail" useGeneratedKeys="true" keyProperty="id">
+		insert ignore into t_device_trouble
+		(
+		<if test="user_id != null">
+			user_id,
+		</if>
+		<if test="device_code != null and device_code != ''">
+			device_code,
+		</if>
+		<if test="trouble_id != null and trouble_id != ''">
+			trouble_id,
+		</if>
+		<if test="trouble_detail != null and trouble_detail != ''">
+			trouble_detail,
+		</if>
+		<if test="trouble_picture != null and trouble_picture !=''">
+			trouble_picture,
+		</if>
+		<if test="province != null and province !=''">
+			province,
+		</if>
+		<if test="city != null and city !=''">
+			city,
+		</if>
+		<if test="address != null and address !=''">
+			address,
+		</if>
+		<if test="status != null">
+			status,
+		</if>
+		<if test="remark != null and remark !=''">
+			remark,
+		</if>
+		<if test="update_user != null">
+			update_user,
+		</if>
+		<if test="update_time != null">
+			update_time,
+		</if>
+		<if test="phone != null and phone !=''">
+			phone,
+		</if>
+		<if test="create_time != null ">
+			create_time
+		</if>)
+		values (
+		<if test="user_id != null ">
+			 #{user_id},
+		</if>
+		<if test="device_code != null and device_code != ''">
+			 #{device_code},
+		</if>
+		<if test="trouble_id != null and trouble_id != ''">
+			#{trouble_id},
+		</if>
+		<if test="trouble_detail != null and trouble_detail != ''">
+			#{trouble_detail},
+		</if>
+		<if test="trouble_picture != null and trouble_picture !=''">
+			#{trouble_picture},
+		</if>
+		<if test="province != null and province !=''">
+			#{province},
+		</if>
+		<if test="city != null and city !=''">
+			#{city},
+		</if>
+		<if test="address != null and address !=''">
+			#{address},
+		</if>
+		<if test="status != null">
+			#{status},
+		</if>
+		<if test="remark != null and remark !=''">
+			#{remark},
+		</if>
+		<if test="update_user != null">
+			#{update_user},
+		</if>
+		<if test="update_time != null">
+			#{update_time},
+		</if>
+		<if test="phone != null and phone !=''">
+			#{phone},
+		</if>
+		<if test="create_time != null ">
+			#{create_time}
+		</if>
+		)
+	</insert>
+<!--	<select id="getDeviceTroubleDetailList" parameterType="map" resultMap="BaseResultMap">
+		SELECT unit_report.*
+		FROM (SELECT <include refid="Base_Column_List"/>
+		FROM t_device_trouble
+		WHERE 1=1
+		<if test="status != null">
+			AND status = #{status}
+		</if>
+		<if test="sTime != null">
+			AND create_time &gt;=#{sTime}
+		</if>
+		<if test="eTime !=null">
+			AND create_time &lt;=#{eTime}
+		</if>
+		<if test="province != null and province != ''">
+			AND province = #{province}
+		</if>
+		<if test="city != null and city != ''">
+			AND city = #{city}
+		</if>
+		<if test="address != null and address != ''">
+			AND address LIKE CONCAT(#{address}, '%')
+		</if>
+		<if test="address != null and address != ''">
+			UNION
+			SELECT <include refid="Base_Column_List"/>
+			FROM t_device_trouble
+			WHERE 1=1
+			<if test="status != null">AND status = #{status}
+			</if>
+			<if test="sTime != null">
+				AND create_time &gt;=#{sTime}
+			</if>
+			<if test="eTime !=null">
+				AND create_time &lt;=#{eTime}
+			</if>
+			<if test="address != null and address != ''">
+				AND address LIKE CONCAT(#{addressDetail}, '%')
+			</if>
+		</if>) AS unit_report
+		ORDER BY create_time DESC
+		<if test="startRow != null and endRow != null">
+			LIMIT #{startRow},#{endRow}
+		</if>
+	</select>-->
+
+	<select id="getDeviceTroubleDetailList" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM t_device_trouble t
+		WHERE 1=1
+		<if test="status != null">
+			AND t.status = #{status}
+		</if>
+		<if test="sTime != null">
+			AND t.create_time &gt;=#{sTime}
+		</if>
+		<if test="eTime !=null">
+			AND t.create_time &lt;=#{eTime}
+		</if>
+	<!--   <if test="province !=null and province !=''">
+         AND t.province =#{province}
+       </if>
+       <if test="city !=null and city != ''">
+         AND t.city =#{city}
+       </if>-->
+	<if test="(address != null and address != '') or  (city !=null and city != '') or (province !=null and province !='')">
+		${likecondition}
+	</if>
+		ORDER BY t.create_time DESC
+		<if test="startRow != null and endRow != null">
+			LIMIT #{startRow},#{endRow}
+		</if>
+	</select>
+
+	<select id="getDeviceTroubleDetailListCount" parameterType="map" resultType="java.lang.Integer">
+		SELECT
+			count(t.id)
+		FROM t_device_trouble t
+		WHERE 1=1
+		<if test="status != null">
+			AND t.status = #{status}
+		</if>
+		<if test="sTime != null">
+			AND t.create_time &gt;=#{sTime}
+		</if>
+		<if test="eTime !=null">
+			AND t.create_time &lt;=#{eTime}
+		</if>
+	<!--   <if test="province !=null and province !=''">
+         AND t.province =#{province}
+       </if>
+       <if test="city !=null and city != ''">
+         AND t.city =#{city}
+       </if>-->
+	<if test="(address != null and address != '') or  (city !=null and city != '') or (province !=null and province !='')">
+		${likecondition}
+	</if>
+	</select>
+
+	<update id="updateDeviceTrouble" parameterType="com.changchong.site.model.DeviceTroubleDetail">
+		UPDATE  t_device_trouble
+		<trim prefix="set" suffixOverrides=",">
+				remark = #{remark},
+			<if test="update_user != null">
+				update_user = #{update_user},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="update_time != null">
+				update_time = #{update_time},
+			</if>
+		</trim>
+		WHERE id = #{id}
+	</update>
+</mapper>

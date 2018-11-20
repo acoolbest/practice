@@ -1,0 +1,638 @@
+package IM.Buddy;
+import "IM.BaseDefine.proto";
+option java_package = "com.mogujie.tt.protobuf";
+//option java_outer_classname = "MOGUJIEIMMessage";
+option optimize_for = LITE_RUNTIME;
+
+//service id   0x0002
+
+message IMRecentContactSessionReq{
+	//请求获取最近联系人列表
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//最后更新时间
+	optional bytes attach_data = 20;
+}
+
+message IMRecentContactSessionRsp{
+	//最近联系人列表信息响应
+	required uint32 user_id = 1;//用户id
+	repeated IM.BaseDefine.ContactSessionInfo contact_session_list = 2;//最近联系人列表
+	optional bytes attach_data = 20;
+}
+
+message IMUserStatNotify{
+	//用户状态通知
+	required IM.BaseDefine.UserStat user_stat = 1;//用户状态
+}
+
+message IMUsersInfoReq{
+	//查询用户信息请求
+	required uint32 user_id = 1;//用户id
+	repeated uint32 user_id_list = 2;//需要查询的用户id列表
+	optional bytes attach_data = 20;
+}
+
+message IMUsersInfoRsp{
+	//查询用户信息响应
+	//更新用户信息的请求数据
+	required uint32 user_id = 1;//用户id
+	repeated IM.BaseDefine.UserInfo user_info_list = 2;//用户信息列表
+	optional bytes attach_data = 20;
+}
+
+message IMRemoveSessionReq{
+	//删除会话请求
+	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.SessionType session_type = 2;//用户类型，1：个人用户，2：群组用户
+	required uint32 session_id = 3;//需要删除的会话id
+	optional bytes attach_data = 20;
+}
+
+message IMRemoveSessionRsp{
+	//删除会话响应
+	required uint32 user_id = 1;//用户id
+	required uint32 result_code = 2;//删除结果
+	required IM.BaseDefine.SessionType session_type = 3;//用户类型，1：个人用户，2：群组用户
+	required uint32 session_id = 4;//删除的会话id
+	optional bytes attach_data = 20;
+}
+
+message IMAllUserReq{
+	//获取组织架构所有联系人请求
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//最近更新时间，如果需要获取所有联系人的信息，可传0
+	optional bytes attach_data = 20;
+}
+
+message IMAllUserRsp{
+	//获取组织架构所有联系人响应
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//最近更新时间
+	repeated IM.BaseDefine.UserInfo user_list = 3;	//用户信息列表	
+	optional uint32 user_count = 4; //total normal users
+	optional bytes attach_data = 20;
+}
+
+message IMUsersStatReq{
+	//获取组织架构所有联系人的状态请求
+	required uint32 user_id = 1;//用户id
+	repeated uint32 user_id_list = 2;//需要获取状态的用户列表
+	optional bytes attach_data = 20;
+}
+
+message IMUsersStatRsp{
+	//获取组织架构所有联系人的状态响应
+	required uint32 user_id = 1;//用户id
+	repeated IM.BaseDefine.UserStat user_stat_list = 2;//用户状态
+	optional bytes attach_data = 20;
+}
+
+message IMChangeAvatarReq{
+	//修改用户头像请求
+	required uint32 user_id = 1;//用户id
+	required string avatar_url = 2;//头像路径
+	optional bytes attach_data = 20;
+}
+
+message IMChangeAvatarRsp{
+	//修改用户头像响应
+	required uint32 user_id = 1;//用户id
+	required uint32 result_code = 2;//修改结果
+	optional bytes attach_data = 20;
+}
+
+//george jiang added the msssage on Aug 19th,2015
+message IMChangeAvatarAndNotifyRsp
+{
+	//更改用户头像和通知响应
+    required uint32 user_id = 1;
+    required uint32 result_code = 2;
+		required string avatar_url = 3;
+		optional bytes attach_data = 20; 
+}
+
+message IMChangeAvatarNotify
+{
+	//更改用户头像通知
+	required uint32 user_id = 1;
+	required string avatar_url = 2;
+}
+//end of adding
+
+message IMPCLoginStatusNotify{
+	//登陆状态通知
+	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.UserStatType login_stat = 2;//用户状态
+}
+
+ message IMRemoveSessionNotify{
+ 	//删除会话通知
+ 	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.SessionType session_type = 2;//会话类型，1：个人会话，2：群组会话
+	required uint32 session_id = 3;//删除的会话id
+ }
+
+message IMDepartmentReq{
+	//获取组织架构信息请求
+	required uint32 user_id = 1;//用户id
+	required uint32 company_id = 2; //company id;
+	required uint32 latest_update_time = 3;//组织架构最近更新时间
+	optional bytes attach_data = 20;
+}
+
+message IMDepartmentRsp{
+	//获取组织架构信息响应
+	required uint32 user_id = 1;//用户id
+	required uint32 company_id = 2; //company id
+	required uint32 latest_update_time = 3;//组织架构最近更新时间 
+	repeated IM.BaseDefine.DepartInfo dept_list = 4;//获取到的组织架构信息列表
+	optional bytes attach_data = 20;
+}
+
+
+message IMCompanyReq{
+	//获取公司信息请求
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//公司信息最近更新时间
+	optional bytes attach_data = 20;
+}
+
+message IMCompanyRsp{
+	//获取公司信息响应
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//公司信息最近更新时间
+	repeated IM.BaseDefine.CompanyInfo company_info_list = 3;//公司信息列表
+	optional bytes attach_data = 20;
+}
+
+message IMUpdateUserNagureReq{
+	//更新用户签名信息请求
+	required uint32 user_id = 1;//用户id
+	required string nagure = 2;//签名
+	optional bytes attach_data = 20;
+}
+message IMUpdateUserNagureRsp{
+	//更新用户签名信息响应
+	required uint32 user_id = 1;//用户id
+	required string nagure = 2;//更新后的签名信息
+	required uint32 latest_update_time = 3;//更新时间
+	optional bytes attach_data = 20;
+}
+
+//george jiang added the structure on Aug 19th, 2015
+message IMUpdateUserNagureNotify
+{
+	//更改用户签名通知
+	required uint32 user_id = 1;
+	required string nagure = 2;
+}
+//end of adding
+
+/*message IMUpdateUserRsp{
+	//更新用户个人信息响应
+	required uint32 user_id = 1;//用户id
+	required uint32 nSex = 2;//性别
+	required string strSignature = 3;//签名
+	required string strPhone = 4;//主手机号码
+	required int32 Birthday = 5;//生日
+	required string strAvatar = 6;//头像地址
+	required uint32 latest_update_time = 7;//更新时间
+	repeated IM.BaseDefine.UserDetails user_details_list = 8; //用户详细信息
+	optional bytes attach_data = 20;
+}
+
+//george jiang added the structure on Aug 19th,2015
+message IMUpdateUserNotify
+{
+	//更新用户个人信息通知接口
+	required uint32 user_id = 1;//用户id
+	required uint32 nSex = 2;//性别
+	required string strSignature = 3;//签名
+	required string strPhone = 4;//主手机号码
+	required int32 Birthday = 5;//生日
+	required string strAvatar = 6;//头像地址
+	repeated IM.BaseDefine.UserDetails user_details_list = 7; //用户详细信息
+}
+//end of adding
+*/
+
+
+message IMOnlineUsersReq{
+	//获取组织架构所有在线的联系人请求
+	required uint32 user_id = 1;//用户id
+	optional bytes attach_data = 20;
+}
+
+message IMOnlineUsersRsp{
+	//获取组织架构所有在线联系人的响应
+	required uint32 user_id = 1;//用户id
+	repeated uint32 user_id_list = 2;//在线联系人列表
+	optional bytes attach_data = 20;
+}
+
+//george appened the pairs on Nov 17th,2015
+message IMUserShieldReq
+{
+	//屏蔽/打开个人消息请求
+	required uint32 user_id = 1;//用户id
+	required uint32 peer_id = 2;//对方用户id
+	required uint32 shield_status = 3;//屏蔽操作，0：不屏蔽，1：屏蔽
+	optional bytes attach_data = 20;
+}
+
+
+message IMUserShieldRsp
+{
+	//屏蔽/打开个人消息响应
+	required uint32 user_id = 1;//用户id
+	required uint32 peer_id = 2;//对方用户id
+	required uint32 result_code = 3;//操作结果0:successed 1:failed
+	optional bytes attach_data = 20;
+}
+
+
+//added by george  on April 12th
+message IMUserSyncNotify
+{
+	required uint32 user_id = 1; //user id;
+	required IM.BaseDefine.DataSyncType sync_type = 2; 
+	required uint32 sync_user_id = 3;
+	required string sync_user_uuid =4;//user uuid;
+	optional string user_name = 5; 
+	optional string user_real_name = 6;
+	optional string avatar_url = 7; 
+	optional uint32 user_gender = 8; 
+	optional int32 birthday = 9;
+	optional string mobile_phone =10; 
+	required int32 status = 11;
+	optional string keyword = 12;
+	optional string user_nick_name = 13;
+	optional string signature = 14; 
+	optional string email = 15;
+	optional uint32 is_actived=16;
+	optional string account=17;
+}
+
+message IMPasswordChangeNotify
+{
+	required uint32 user_id=1; //user id
+}
+
+message IMDepartSyncNotify
+{
+	required uint32 user_id = 1;//user id 
+	required IM.BaseDefine.DataSyncType sync_type=2; 
+	required string dept_uuid = 3;
+	optional uint32 priority = 4;
+ 	optional string dept_name = 5;   
+ 	optional string parent_dept_uuid = 6;   
+ 	optional int32 dept_status = 7;   
+ 	optional uint32 dept_level = 8;    
+ 	optional uint32 contact_status = 9;    
+ 	optional uint32 company_id = 10;
+}
+
+message IMPositionSyncNotify
+{ 
+ 	required uint32 user_id = 1; //user id; 
+	required IM.BaseDefine.DataSyncType sync_type = 2;
+	required string position_uuid = 3;  
+  optional IM.BaseDefine.JobGradeType position_type = 4; 
+ 	optional string position_name =5; 
+ 	optional int32 status =6;
+ 	optional uint32 sort = 7;
+ 	optional uint32 company_id = 8;
+}
+
+//员工职责信息同步
+message IMUserDutySyncNotify
+{
+	required uint32 user_id = 1; //user id	
+	required IM.BaseDefine.DataSyncType sync_type=2;
+	required uint32 sync_user_id = 3; //user id
+	required string sync_user_uuid=4;//staff uuid
+	required string depart_uuid=5;//depart uuid
+	required string position_uuid=6;//position uuid; 如果同步类型为删除且岗位uuid为32个0(即'00000000000000000000000000000000'）表示将用户从当前部门删除
+	required IM.BaseDefine.JobGradeType  job_grade = 7;
+}
+
+
+//拓展信息变更通知，当同步类型员工时表示变更员工扩展信息，否则为用户拓展信息
+message IMUserDetailsSyncNotify 
+{ 
+	required uint32 user_id = 1;
+	required IM.BaseDefine.DataSyncType sync_type=2;
+	required string sync_user_uuid=3;
+	required uint32 sync_user_id = 4;
+	repeated IM.BaseDefine.UserDetails user_details_list = 5; //用户详细信息
+}
+
+message IMRemoveDepartUserSyncNotify
+{
+	required uint32 user_id = 1;
+	required IM.BaseDefine.DataSyncType sync_type=2;
+	required string depart_uuid=3;
+	repeated uint32 sync_user_id_list=4;
+}
+
+//获取公司岗位请求接口 
+ message IMPositionReq
+{
+	//获取岗位信息请求
+	required uint32 user_id = 1;//用户id
+	required uint32 company_id = 2; //company id
+	required uint32 latest_update_time = 3;//岗位信息最近更新时间
+	optional bytes attach_data = 20;
+}
+
+
+//获取岗位响应接口
+message IMPositionRsp
+{
+	//获取岗位信息响应
+	required uint32 user_id = 1;//用户id
+	required uint32 company_id = 2; //company id
+	required uint32 latest_update_time = 3;//岗位信息最近更新时间
+	repeated IM.BaseDefine.PositionInfo position_list = 4;//信息列表
+	optional bytes attach_data = 20;
+}
+
+//获取组织架构所有联系人请求(只获取基本信息)
+/*message IMAllUserLiteReq
+{
+	//获取组织架构所有联系人请求
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//最近更新时间，如果需要获取所有联系人的信息，可传0
+	optional bytes attach_data = 20;
+}
+
+//获取组织架构所有联系人响应(只获取基本信息)
+message IMAllUserLiteRsp{
+	//获取组织架构所有联系人响应
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//最近更新时间
+	repeated IM.BaseDefine.UserInfoBase user_list = 3;	//用户信息列表	
+	optional bytes attach_data = 20;
+}
+
+//获取个人信息请求(获取精简信息)
+message IMUserInfoLiteReq
+{
+		//查询用户信息请求
+	required uint32 user_id = 1;//用户id
+	repeated uint32 user_id_list = 2;//需要查询的用户id列表
+	optional bytes attach_data = 20;
+}
+
+
+//获取个人信息响应(获取精简信息)
+message IMUserInfoLiteRsp
+{
+	//查询用户信息响应
+	//更新用户信息的请求数据
+	required uint32 user_id = 1;//用户id
+	repeated IM.BaseDefine.UserInfoLite user_info_list = 2;//用户信息列表
+	optional bytes attach_data = 20;
+}*/
+
+
+/*message IMDepartUsersSyncNotify
+{
+	required uint32 user_id = 1; //user id
+	required IM.BaseDefine.DataSyncType sync_type=2;//delete all users from the department
+	required string depart_uuid=3;//department id;
+	repeated uint32 sync_user_id_list = 4; //user id list
+}
+*/
+
+//获取指定组织所有员工请求
+message IMAllStaffReq
+{
+	required uint32 user_id = 1;//用户id
+	required uint32 company_id = 2; //company id
+	required uint32 latest_update_time = 3;//最近更新时间，如果需要获取所有联系人的信息，可传0
+	optional bytes attach_data = 20;
+}
+
+//获取指定组织组织架构所有员工响应
+message IMAllStaffRsp
+{
+	required uint32 user_id = 1;//用户id
+	required uint32 company_id = 2; //company id;
+	required uint32 latest_update_time = 3;//最近更新时间
+	repeated IM.BaseDefine.StaffInfo staff_info_list = 4;	//用户信息列表	
+	optional uint32 staff_count = 5; //total normal staff
+	optional bytes attach_data = 20;
+}
+
+//获取指定组织所有员工请求(基本信息)
+message IMAllStaffLiteReq
+{
+	required uint32 user_id = 1;//用户id
+	required uint32 company_id = 2; //company id
+	required uint32 latest_update_time = 3;//最近更新时间，如果需要获取所有联系人的信息，可传0
+	optional bytes attach_data = 20;
+}
+
+//获取指定组织组织架构所有员工响应(基本信息)
+message IMAllStaffLiteRsp
+{
+	required uint32 user_id = 1;//用户id
+	required uint32 company_id = 2; //company id;
+	required uint32 latest_update_time = 3;//最近更新时间
+	repeated IM.BaseDefine.StaffInfoLite  staff_info_list = 4;	//员工信息列表	
+	optional bytes attach_data = 20;
+}
+
+//查询指定员工详细信息请求
+message IMStaffInfoReq
+{
+	required uint32 user_id = 1;//用户id
+	repeated uint32 user_id_list = 2;//需要查询的用户id列表
+	optional bytes attach_data = 20;
+}
+
+//查询指定员工详细信息响应
+message IMStaffInfoRsp
+{
+	required uint32 user_id = 1;//用户id
+	repeated IM.BaseDefine.UserInfo user_info_list = 2;//用户信息列表
+	optional bytes attach_data = 20;
+}
+
+
+//更新用户信息的请求数据
+message IMUpdateUserReq
+{
+	required string user_uuid = 1;//用户uuid
+	required uint32 user_id = 2; //用户id
+	required uint32 sex = 3;//性别
+	required string signature = 4;//签名
+	required int32 birthday = 5;//生日
+	repeated IM.BaseDefine.UserDetails user_details_list = 6; //用户详细信息
+	required string user_real_name = 7; //user real name
+	optional bytes attach_data = 20;
+}
+
+//更新用户个人信息响应
+message IMUpdateUserRsp
+{
+	required string user_uuid = 1;//用户uuid
+	required uint32 user_id = 2; //用户id
+	required uint32 sex = 3;//性别
+	required string signature = 4;//签名
+	required int32 birthday = 5;//生日
+	repeated IM.BaseDefine.UserDetails user_details_list = 6; //用户详细信息
+	required uint32 latest_update_time = 7;//更新时间
+	required string user_real_name = 8; //user real name
+	optional bytes attach_data = 20;
+}
+
+
+//更新用户个人信息通知接口
+message IMUpdateUserNotify
+{
+	required string user_uuid = 1;//用户uuid
+	required uint32 user_id = 2; //用户id
+	required uint32 sex = 3;//性别
+	required string signature = 4;//签名
+	required int32 birthday = 5;//生日
+	repeated IM.BaseDefine.UserDetails user_details_list = 6; //用户详细信息
+	required string user_real_name = 7; //user real name
+}
+
+
+//更新员工个人信息请求数据
+message IMUpdateStaffReq
+{
+	required string staff_uuid = 1; //staff uuid
+	required uint32 user_id = 2; //user id
+	repeated IM.BaseDefine.UserDetails staff_details_list = 3; //staff details
+	optional bytes attach_data = 20;
+}
+
+
+//更新员工个人信息响应数据
+message IMUpdateStaffRsp
+{
+	required string staff_uuid = 1; //staff uuid
+	required uint32 user_id = 2; //user id
+	repeated IM.BaseDefine.UserDetails staff_details_list = 3; //staff details
+	required uint32 latest_update_time = 4;//更新时间
+	optional bytes attach_data = 20;
+}
+
+//更新员工个人信息通知接口
+message IMUpdateStaffNotify
+{
+	required string staff_uuid = 1; //staff uuid
+	required uint32 user_id = 2; //user id
+	repeated IM.BaseDefine.UserDetails staff_details_list = 3; //staff details
+}
+
+
+message IMChangeVipRequest
+{
+	required uint32 user_id = 1;
+	required uint32 vip_id = 2;
+	required IM.BaseDefine.VipModifyType operation_type = 3;
+	optional bytes attach_data = 20;
+}
+
+
+message IMChangeVipResponse
+{
+	required uint32 user_id = 1;
+	required uint32 vip_id = 2;
+	required IM.BaseDefine.VipModifyType operation_type = 3;
+	required uint32 latest_update_time = 4;//更新时间;
+	optional bytes attach_data = 20;
+}
+
+
+message IMChangeVipNotify
+{
+	required uint32 user_id = 1;
+	required uint32 vip_id = 2;
+	required IM.BaseDefine.VipModifyType operation_type = 3;
+}
+
+//获取助手请求信息
+message IMAssistantInfoReq
+{
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//最近更新时间，如果需要获取所有联系人的信息，可传0
+	optional bytes attach_data = 20;
+}
+
+//获取助手响应信息
+message IMAssistantInfoRsp
+{
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2;//最近更新时间
+	repeated IM.BaseDefine.UserInfo  asst_info_list = 3;	//助手信息列表	
+	optional bytes attach_data = 20;
+}
+
+
+//员工同步接口
+message IMStaffSyncNotify
+{
+	required uint32 user_id = 1; //user id;
+	required IM.BaseDefine.DataSyncType sync_type = 2; 
+	required uint32 sync_user_id = 3;
+	required string sync_user_uuid = 4; //user uuid
+	required string sync_staff_uuid =5; //staff uuid;
+	required uint32 company_id = 6;
+	optional string job_number =7;
+	optional string staff_name = 8; 
+	optional string mobile_phone = 9;
+	optional string keyword = 10;
+	optional uint32 order_product = 11;
+	optional uint32 is_admin = 12;
+	optional uint32 admin_status = 13;
+	optional uint32 is_super_admin=14;
+	optional uint32 is_actived = 15;
+	optional int32 status=16;
+	optional uint32 contact_status=17;
+	optional string account=18;
+	optional string user_name=19;
+	optional string email =20;
+	optional string default_email = 21;
+}
+
+message IMCompanySyncNotify
+{
+	required uint32 user_id = 1;//user id
+	required IM.BaseDefine.DataSyncType sync_type = 2; 
+	required uint32 sync_company_id=3;
+	required string sync_company_uuid=4;
+	optional string company_no = 5;
+	optional string company_name=6;
+	optional string company_full_name=7;
+	optional string industry_type=8;
+	optional uint32 company_is_joined = 9; //can join the team
+	optional uint32 company_is_invite = 10; //inviting others to join the company
+	optional uint32 status= 11;
+}
+
+message IMQueryUserInfoReq{
+	//查询用户信息请求
+	required uint32 user_id = 1;//用户id
+	required string user_uuid = 2;//需要查询的用户uuid列表
+	optional bytes attach_data = 20;
+}
+
+message IMQueryUserInfoRsp{
+	//查询用户信息响应
+	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.UserInfo user_info = 2;//用户信息列表
+	optional bytes attach_data = 20;
+}
+
+message IMUserMomentNotify
+{
+	required uint32 user_id=1;  //user id
+	required uint32 like_count=2; //like counts
+	required string avatar=3; //avatar
+}

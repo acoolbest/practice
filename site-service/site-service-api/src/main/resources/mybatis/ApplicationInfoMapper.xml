@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.changchong.site.mapper.ApplicationInfoMapper">
+	<resultMap id="BaseResultMap" type="com.changchong.site.model.ApplicationInfo">
+		<id column="id" property="id" />
+		<result column="app_name" property="appName" jdbcType="VARCHAR" />
+		<result column="app_pkg_name" property="appPackageName"
+			jdbcType="VARCHAR" />
+		<result column="icon" property="icon" />
+		<result column="size" property="size" />
+		<result column="type" property="type" />
+		<result column="app_type" property="appType" />
+		<result column="version_id" property="version" />
+		<result column="version" property="versionName" />
+		<result column="time_slot" property="timeSlot"/>
+		<result column="app_describe" property="appDescribe"/>
+		<result column="app_picture" property="appPicture"/>
+		<result column="app_source" property="appSource"/>
+		<result column="hot_ranking" property="hotRanking"/>
+		<result column="create_time" property="createTime"/>
+		<result column="app_key" property="appKey"/>
+	</resultMap>
+	
+	<resultMap id="AppPublishData" type="com.changchong.site.model.AppPublishData">
+		<result column="app_total" property="appTotal"/>
+		<result column="publish_num" property="publishNum"/>
+	</resultMap>
+	<resultMap id="DownResultMap" type="com.changchong.site.model.ApplicationDownInfo">
+		<id column="id" property="appId" />
+		<result column="app_name" property="appName" jdbcType="VARCHAR" />
+		<result column="app_pkg_name" property="appPkgName" jdbcType="VARCHAR" />
+		<result column="file_name" property="fileName" />
+		<result column="md5" property="md5" />
+		<result column="down_url" property="downUrl" />
+		<result column="version" property="version" />
+		<result column="app_type" property="appType"/>
+		<result column="is_auto_open" property="isAutoOpen"/>
+		<result column="icon" property="icon"/>
+		<result column="time_slot" property="timeSlot"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,app_name,app_pkg_name,icon,size,type,app_source,app_type,version,version_id,time_slot,app_key
+	</sql>
+	
+	<select id="getAppInfo" resultMap="BaseResultMap" parameterType="map">
+		select <include refid="Base_Column_List"/> from apps
+		where 1=1
+		<if test="id != null">
+			AND id = #{id} limit 1
+		</if>
+	</select>
+
+	<select id="getPushStartTimeByAppId"  resultType="java.lang.Integer" parameterType="map">
+		select min(start_day) from app_district_map
+		where 1=1
+		<if test="id != null">
+			AND app_id = #{id} limit 1
+		</if>
+	</select>
+
+	<select id="findAppInstallList" resultMap="BaseResultMap" parameterType="map">
+		select
+		 a.id,a.app_name,a.app_pkg_name,a.oss_icon_url as icon,a.size,a.type,a.version_id,b.create_time 
+		 FROM apps a RIGHT JOIN t_app_install b ON a.id = b.app_id where 1=1
+		<if test="device_id != null">
+			AND b.device_id = #{device_id}
+		</if>
+		<if test="user_id != null">
+			AND b.user_id = #{user_id}
+		</if>
+	</select>
+	
+	<select id="findAppDownList" resultMap="DownResultMap">
+		select 
+		a.id,a.app_name,a.app_pkg_name,a.file_name,a.md5,a.oss_url as down_url,a.version,a.app_type,a.is_auto_open,a.oss_icon_url as icon,a.time_slot    
+		 FROM apps a LEFT JOIN app_district_map b ON a.id = b.app_id  where 
+		  b.status IN (3,7) 
+		order by b.app_sort asc
+	</select>
+
+	<!-- 应用推广统计 -->
+	<select id="getAppPublishData" resultMap="AppPublishData" parameterType="map">
+		SELECT COUNT(a.id) AS app_total,SUM(b.`publish_num`) AS publish_num FROM apps a 
+		LEFT JOIN app_district_map b ON a.`id` = b.`app_id`
+		WHERE b.`status` IN (3,7)
+		<if test="app_type != null">
+			AND a.`app_type` = #{app_type}
+		</if>
+		<if test="endTime != null">
+			<![CDATA[AND  DATE_FORMAT(updatetime,'%Y-%m-%d') <= #{endTime}]]>
+		</if>
+		<if test="startTime != null">
+			AND DATE_FORMAT(updatetime,'%Y-%m-%d')>= #{startTime}
+		</if>
+	</select>
+	
+	
+	<!-- 手机端获取应用列表 -->
+	<!--<select id="findAppList" resultMap="BaseResultMap"
+		parameterType="map">
+		select 
+		a.id,a.app_name,a.app_pkg_name,a.oss_icon_url as icon,a.size,a.type,a.time_slot,a.version_id,a.app_describe,a.app_picture,b.hot_ranking   
+		 FROM apps a LEFT JOIN app_district_map b ON a.id = b.app_id  where a.id NOT IN 
+		 (
+		 SELECT b.app_id from t_app_install b where 1=1
+		 <if test="device_id != null">
+			AND b.device_id = #{device_id}
+		 </if>
+		 )
+		 &lt;!&ndash; 手机端获取应用列表安卓 &ndash;&gt;
+		 <if test="device_id != null">
+			AND a.app_type = 0 
+		 </if>
+		 &lt;!&ndash; h5获取应用列表安卓 &ndash;&gt;
+		 <if test="device_id == null">
+			AND a.app_type = 1 
+		 </if>
+		 AND b.status IN (3,7) 
+		<if test="time_slot != null">
+			AND a.time_slot = #{time_slot}
+		</if>
+		
+		order by b.app_sort asc
+	</select>-->
+
+	<select id="findAppList" resultMap="BaseResultMap"
+			parameterType="map">
+		select
+		a.id,a.app_name,a.app_pkg_name,a.oss_icon_url as icon,a.size,a.type,a.time_slot,a.app_type,a.version_id,a.app_describe,a.app_picture,b.hot_ranking
+		FROM apps a LEFT JOIN app_district_map b ON a.id = b.app_id
+		where 1=1
+		<if test="device_id != null">
+		AND a.id NOT IN
+		(
+		SELECT b.app_id from t_app_install b where 1=1
+		AND b.device_id = #{device_id}
+		)
+	</if>
+
+		<!-- 手机端获取应用列表安卓 -->
+		<if test="device_id != null">
+			AND a.app_type = 0
+		</if>
+		<!-- h5获取应用列表安卓 -->
+		<if test="device_id == null">
+			AND a.app_type = 1
+		</if>
+		AND b.status IN (3,7)
+		<if test="time_slot != null">
+			AND a.time_slot = #{time_slot}
+		</if>
+		<if test="is_hot ==0">
+			<!-- 不是热门 -->
+			AND b.final_push_sort != 0
+			order by b.final_push_sort asc
+		</if>
+		<if test="is_hot ==1">
+			<!-- 是热门 -->
+			AND  b.hot_ranking != 0
+			order by b.hot_ranking asc
+		</if>
+
+	</select>
+</mapper>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.changchong.site.mapper.ChangChongAppMapper">
+	<resultMap id="BaseResultMap" type="com.changchong.site.model.ChangChongApp">
+		<id column="id" property="id" />
+		<result column="version_code" property="versionCode" />
+		<result column="version_name" property="versionName" jdbcType="VARCHAR" />
+		<result column="package_name" property="packageName" />
+		<result column="update_desc" property="updateDesc"/>
+		<result column="down_url" property="downUrl"/>
+		<result column="must_update" property="mustUpdate"/>
+		<result column="os_type" property="osType"/>
+		<result column="size" property="size"/>
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,version_code,version_name,package_name,update_desc,down_url,must_update,os_type,size,create_time
+	</sql>
+
+	<select id="findAppVersion" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		FROM t_changchong_app where version_code>#{0} 
+		 AND os_type = #{1}
+		ORDER BY version_code DESC
+	</select>
+	<select id="findAppVersionByParam" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		FROM t_changchong_app where 1=1
+		<if test="os_type != null">
+			AND os_type=#{os_type}
+		</if>
+        <if test="version_code != null">
+			<![CDATA[AND version_code>#{version_code}]]>
+		</if>
+	</select>
+	
+	 <select id="getCount" resultType="java.lang.Integer" parameterType="map">
+        select count(*) from t_changchong_app 
+        where 1=1
+        <if test="os_type != null">
+			AND os_type=#{os_type}
+		</if>
+        <if test="must_update != null">
+			AND must_update=#{must_update}
+		</if>
+		<if test="version_name != null">
+			AND version_name=#{version_name}
+		</if>
+    </select>
+
+    <select id="getList" resultMap="BaseResultMap" parameterType="map">
+        SELECT <include refid="Base_Column_List" />
+         from t_changchong_app where 1=1
+        <if test="os_type != null">
+			AND os_type=#{os_type}
+		</if>
+        <if test="must_update != null">
+			AND must_update=#{must_update}
+		</if>
+		<if test="version_name != null">
+			AND version_name=#{version_name}
+		</if>
+        <if test="startRow != null and endRow != null">
+            order by create_time desc
+            limit #{startRow},#{endRow}
+        </if>
+    </select>
+    <insert id="saveChangChongApp" parameterType="com.changchong.site.model.ChangChongApp" useGeneratedKeys="true" keyProperty="id">
+        insert ignore into t_changchong_app (version_code,version_name,package_name,update_desc,down_url,must_update,os_type,size,create_time)
+        values (
+        #{versionCode},
+        #{versionName},
+        #{packageName},
+        #{updateDesc},
+        #{downUrl},
+        #{mustUpdate},
+        #{osType},
+        #{size},
+        #{createTime}
+        )
+    </insert>
+    <update id="updateChangChongApp" parameterType="com.changchong.site.model.ChangChongApp" >
+		 update t_changchong_app
+		<set>		
+				<if test="versionCode != null">
+					version_code = #{versionCode},
+				</if>
+				<if test="versionName != null">
+					version_name = #{versionName},
+				</if>
+				<if test="packageName != null">
+					package_name = #{packageName},
+				</if>
+				<if test="updateDesc != null">
+					update_desc = #{updateDesc},
+				</if>
+				<if test="downUrl != null">
+					down_url = #{downUrl},
+				</if>
+				<if test="mustUpdate != null">
+					must_update = #{mustUpdate},
+				</if>
+				<if test="osType != null">
+					os_type = #{osType},
+				</if>
+				<if test="size != null">
+					size = #{size},
+				</if>
+				<if test="createTime != null">
+					create_time = #{createTime},
+				</if>
+						
+			</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

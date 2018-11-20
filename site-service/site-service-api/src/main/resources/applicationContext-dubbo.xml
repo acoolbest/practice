@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+                           http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<aop:aspectj-autoproxy proxy-target-class="false" />
+	<!-- 提供方应用名称信息，这个相当于起一个名字，我们dubbo管理页面比较清晰是哪个应用暴露出来的 -->
+	<dubbo:protocol name="dubbo" port="20251" />
+   <dubbo:application name="dubbo_provider"></dubbo:application>
+   <!-- 使用zookeeper注册中心暴露服务地址 -->  
+   <dubbo:registry address="${dubbo.registry.address}" check="false" subscribe="false" register=""></dubbo:registry>
+   
+  	<bean id="redisService" class="com.changchong.site.serviceImpl.RedisServiceImpl" />
+  	<dubbo:service interface="com.changchong.site.service.RedisService" ref="redisService" timeout="1200000" /> 
+  	<!-- <bean id="paySiteService" class="com.changchong.site.pay.serviceImpl.PayServiceImpl" />
+  	<dubbo:service interface="com.changchong.site.pay.service.PayService" ref="paySiteService" timeout="1200000"/> -->
+  	<bean id="deviceSiteService" class="com.changchong.site.serviceImpl.DeviceServiceImpl" />
+  	<dubbo:service interface="com.changchong.site.service.DeviceService" ref="deviceSiteService" timeout="1200000"/>
+
+	<bean id="operationService" class="com.changchong.site.serviceImpl.OperationServiceImpl" />
+  	<dubbo:service interface="com.changchong.site.service.OperationService" ref="operationService" timeout="1200000"/>
+  	<bean id="payableConfigService" class="com.changchong.site.serviceImpl.PayableConfigServiceImpl"/>
+  	<dubbo:service interface="com.changchong.site.app.service.PayableConfigService" ref="payableConfigService" timeout="1200000"/>
+  	<bean id="payableConfigAuditService" class="com.changchong.site.serviceImpl.PayableConfigAuditServiceImpl"/>
+  	<dubbo:service interface="com.changchong.site.app.service.PayableConfigAuditService" ref="payableConfigAuditService" timeout="1200000"/>
+  	<bean id="payableConfigAuditLogService" class="com.changchong.site.serviceImpl.PayableConfigAuditLogServiceImpl"/>
+  	<dubbo:service interface="com.changchong.site.app.service.PayableConfigAuditLogService" ref="payableConfigAuditLogService" timeout="1200000"/>
+	<bean id="areaService" class="com.changchong.site.app.serviceImpl.AreaServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.app.service.AreaService" ref="areaService" timeout="1200000"/>
+	<bean id="appReportService" class="com.changchong.site.app.serviceImpl.AppReportServiceImp"/>
+	<dubbo:service interface="com.changchong.site.app.service.AppReportService" ref="appReportService" timeout="1200000"/>
+	<bean id="portService" class="com.changchong.site.app.serviceImpl.PortServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.app.service.PortService" ref="portService" timeout="1200000"/>
+	<bean id="deviceTroubleService" class="com.changchong.site.app.serviceImpl.DeviceTroubleServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.app.service.DeviceTroubleService" ref="deviceTroubleService" timeout="1200000"/>
+	<bean id="applicationInfoService" class="com.changchong.site.serviceImpl.ApplicationInfoServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.app.service.ApplicationInfoService" ref="applicationInfoService" timeout="1200000"/>
+	<bean id="chargeProblemService" class="com.changchong.site.app.serviceImpl.ChargeProblemServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.app.service.ChargeProblemService" ref="chargeProblemService" timeout="1200000"/>
+	<bean id="appInstallService" class="com.changchong.site.serviceImpl.AppInstallServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.app.service.AppInstallService" ref="appInstallService" timeout="1200000"/>
+	<bean id="changChongAppService" class="com.changchong.site.serviceImpl.ChangChongAppServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.app.service.ChangChongAppService" ref="changChongAppService" timeout="1200000"/>
+	<bean id="logInfoService" class="com.changchong.site.serviceImpl.LogInfoServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.app.service.LogInfoService" ref="logInfoService" timeout="1200000"/>
+	<bean id="systemConfigService" class="com.changchong.site.serviceImpl.SystemConfigServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.service.SystemConfigService" ref="systemConfigService" timeout="1200000"/>
+	<bean id="siteService" class="com.changchong.site.serviceImpl.SiteServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.service.SiteService" ref="siteService" timeout="1200000"/>
+
+
+	<dubbo:service interface="com.changchong.site.service.AdService" ref="adService" timeout="1200000"/>
+
+
+	<dubbo:service interface="com.changchong.site.service.SocketConfigService" ref="socketConfigService" timeout="1200000"/>
+
+	<bean id="marketConfigService" class="com.changchong.site.serviceImpl.MarketConfigServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.service.MarketConfigService" ref="marketConfigService" timeout="1200000"/>
+
+	<bean id="microImageService" class="com.changchong.site.serviceImpl.MicroImageServiceImpl"/>
+	<dubbo:service interface="com.changchong.site.service.MicroImageService" ref="microImageService" timeout="1200000"/>
+
+</beans>

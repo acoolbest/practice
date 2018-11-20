@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BE351B33-1EE4-4F10-BD36-7F3747832AA3}</ProjectGuid>
+    <RootNamespace>DBProxyServer</RootNamespace>
+    <ProjectName>DbProxyServer</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\db_proxy_server\AutoPool.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\AudioModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\Common.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\CompanyAction.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\CompanyModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\DepartAction.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\DepartModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\ExterLogin.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\FileAction.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\FileModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\GroupAction.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\GroupMessageModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\GroupModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\InterLogin.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\Login.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\LoginStrategy.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\MessageContent.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\MessageCounter.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\MessageModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\PositionAction.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\PositionModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\RecentSession.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\RelationModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\SessionModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\UserAction.h" />
+    <ClInclude Include="..\..\db_proxy_server\business\UserModel.h" />
+    <ClInclude Include="..\..\db_proxy_server\CachePool.h" />
+    <ClInclude Include="..\..\db_proxy_server\DBPool.h" />
+    <ClInclude Include="..\..\db_proxy_server\HandlerMap.h" />
+    <ClInclude Include="..\..\db_proxy_server\ProxyConn.h" />
+    <ClInclude Include="..\..\db_proxy_server\ProxyTask.h" />
+    <ClInclude Include="..\..\db_proxy_server\SyncCenter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\db_proxy_server\AutoPool.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\AudioModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\CompanyAction.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\CompanyModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\DepartAction.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\DepartModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\ExterLogin.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\FileAction.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\FileModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\GroupAction.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\GroupMessageModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\GroupModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\InterLogin.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\Login.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\MessageContent.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\MessageCounter.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\MessageModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\PositionAction.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\PositionModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\RecentSession.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\RelationModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\SessionModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\UserAction.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\business\UserModel.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\CachePool.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\DBPool.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\db_proxy_server.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\HandlerMap.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\ProxyConn.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\ProxyTask.cpp" />
+    <ClCompile Include="..\..\db_proxy_server\SyncCenter.cpp" />
+    <ClCompile Include="..\..\msg_server\jsonxx.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

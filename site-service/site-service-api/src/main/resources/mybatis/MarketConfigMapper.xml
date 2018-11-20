@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.changchong.site.mapper.MarketConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.changchong.site.model.MarketConfig" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="market_price" property="market_price"/>
+    <result column="market_code" property="market_code"/>
+    <result column="status" property="status"/>
+    <result column="effect_time" property="effect_time"/>
+    <result column="sys_type" property="sys_type"/>
+    <result column="user_id" property="user_id" />
+    <result column="update_time" property="update_time"/>
+    <result column="create_time" property="create_time" />
+    <result column="future" property="future"/>
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+   id,market_price,market_code,status,effect_time,sys_type,user_id,
+   update_time,create_time,future
+  </sql>
+  
+
+  <insert id="saveMarketConfig" parameterType="com.changchong.site.model.MarketConfig" useGeneratedKeys="true" keyProperty="id">
+    insert ignore into t_market_config
+    (
+    <if test="market_price != null and market_price != ''">
+      market_price,
+    </if>
+    <if test="market_code != null and market_code != ''">
+      market_code,
+    </if>
+    <if test="status != null">
+      status,
+    </if>
+    <if test="effect_time != null">
+      effect_time,
+    </if>
+    <if test="sys_type != null">
+      sys_type,
+    </if>
+    <if test="user_id != null">
+      user_id,
+    </if>
+    <if test="update_time != null">
+      update_time,
+    </if>
+    <if test="future != null ">
+      future,
+    </if>
+    <if test="create_time != null">
+      create_time
+    </if>
+    )
+    values (
+    <if test="market_price != null and market_price != ''">
+      #{market_price},
+    </if>
+    <if test="market_code != null and market_code != ''">
+      #{market_code},
+    </if>
+    <if test="status != null">
+      #{status},
+    </if>
+    <if test="effect_time != null">
+      #{effect_time},
+    </if>
+    <if test="sys_type != null">
+      #{sys_type},
+    </if>
+    <if test="user_id != null">
+      #{user_id},
+    </if>
+    <if test="update_time != null">
+      #{update_time},
+    </if>
+    <if test="future != null ">
+      #{future},
+    </if>
+    <if test="create_time != null">
+      #{create_time}
+    </if>
+  )
+  </insert>
+
+  <select id="getMarketConfigList" parameterType="map" resultMap="BaseResultMap">
+   SELECT <include refid="Base_Column_List"/>
+    FROM t_market_config
+    WHERE 1=1
+    <if test="market_price != null and market_price != ''">
+      AND market_price = #{market_price}
+    </if>
+    <if test="market_code != null and market_code != ''">
+     AND market_code = #{market_code}
+    </if>
+    <if test="status != null">
+      AND status = #{status}
+    </if>
+    <if test="effect_time != null">
+      AND effect_time = #{effect_time}
+    </if>
+    <if test="sys_type != null">
+      AND sys_type = #{sys_type}
+    </if>
+    <if test="user_id != null">
+      AND user_id = #{user_id}
+    </if>
+    <if test="update_time != null">
+      AND update_time = #{update_time}
+    </if>
+    <if test="future != null ">
+      AND future = #{future}
+    </if>
+    <if test="create_time != null">
+      AND create_time = #{create_time}
+    </if>
+    ORDER BY effect_time DESC
+  </select>
+
+
+
+  <update id="updateMarketConfig" parameterType="com.changchong.site.model.MarketConfig">
+    UPDATE  t_market_config
+    <trim prefix="set" suffixOverrides=",">
+      <if test="market_price != null and market_price != ''">
+        market_price =  #{market_price},
+      </if>
+      <if test="market_code != null and market_code != ''">
+        market_code = #{market_code},
+      </if>
+      <if test="status != null">
+        status = #{status},
+      </if>
+      <if test="effect_time != null">
+        effect_time = #{effect_time},
+      </if>
+      <if test="sys_type != null">
+        sys_type = #{sys_type},
+      </if>
+      <if test="user_id != null">
+        user_id = #{user_id},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time},
+      </if>
+      <if test="future != null ">
+        future = #{future},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time}
+      </if>
+    </trim>
+    WHERE id = #{id}
+  </update>
+</mapper>

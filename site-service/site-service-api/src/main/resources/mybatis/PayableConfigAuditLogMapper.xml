@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.changchong.site.mapper.PayableConfigAuditLogMapper">
+	<resultMap id="BaseResultMap"
+		type="com.changchong.site.model.PayableConfigAuditLog">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="config_id" property="config_id" />
+		<result column="audit_reason" property="audit_reason" />
+		<result column="description" property="description" />
+		<result column="opt_user_id" property="opt_user_id" />
+		<result column="status" property="status" />
+		<result column="create_time" property="create_time" />
+		<result column="auditResult" property="auditResult" />
+		<result column="userName" property="userName" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, config_id,audit_reason, description,opt_user_id,
+		status, create_time
+	</sql>
+	<select id="getCount" parameterType="map" resultType="java.lang.Integer">
+		select count(*) from t_payable_config_audit_log
+		WHERE 1 = 1 
+	</select>
+	<select id="getPayableConfigAuditLogList" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT description,opt_user_id,audit_reason,create_time,
+		case status
+		WHEN '1' THEN '提交'
+		WHEN '2' THEN '通过审核'
+		WHEN '3' THEN '退回'
+		WHEN
+		'4' THEN '通过审核'
+		WHEN '5' THEN '退回'
+		WHEN '6' THEN '提交'
+		WHEN '7' THEN '通过删除审核'
+		WHEN '8' THEN '删除退回'
+		WHEN
+		'9' THEN '通过删除审核'
+		WHEN '10' THEN '删除退回'
+		END AS auditResult
+		FROM t_payable_config_audit_log
+		WHERE 1 = 1
+		<if test="config_id != null">
+			AND config_id = #{config_id}
+		</if>
+	</select>
+	<insert id="savePayableConfigAuditLog" parameterType="com.changchong.site.model.PayableConfigAuditLog"
+		useGeneratedKeys="true" keyProperty="id">
+		insert ignore into
+		t_payable_config_audit_log
+		(config_id,audit_reason,
+		description,opt_user_id, status, create_time)
+		values
+		(
+		#{config_id},
+		#{audit_reason},
+		#{description},
+		#{opt_user_id},
+		#{status},
+		#{create_time}
+		)
+	</insert>
+
+</mapper>

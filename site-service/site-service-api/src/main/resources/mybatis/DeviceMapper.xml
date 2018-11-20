@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changchong.site.mapper.DeviceMapper">
+
+	<resultMap id="BaseResultMap" type="com.changchong.site.model.Device">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="TINYINT" />
+		<result column="device_code" property="deviceCode" jdbcType="TINYINT" />
+		<result column="province" property="province" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap type="java.lang.Integer" id="ids">
+		<result column="id" property="id"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,code,status,province,device_code
+	</sql>
+
+	<select id="selectId" parameterType="map" resultMap="ids">
+		select id from t_device
+		where 1=1
+		<if test="deviceName !=null  and deviceName != ''">
+			and code=#{deviceName,jdbcType=VARCHAR}
+		</if>
+		<if test="province != null">
+			and province = #{province,jdbcType=INTEGER}
+		</if>
+	</select>
+
+	<insert id="insertDevice" parameterType="com.changchong.site.model.Device"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into t_device
+		(code,status,province)
+		values (
+		#{code,jdbcType=VARCHAR},
+		#{status,jdbcType=TINYINT},
+		#{province,jdbcType=INTEGER}
+		)
+	</insert>
+	<select id="getDeviceByName" resultType="com.changchong.site.model.Device" >
+		select
+		<include refid="Base_Column_List" />
+		from t_device
+		where code = #{0}
+	</select>
+	<update id="deleteDevice">
+		update t_device set
+		status = 0
+		where code = #{0}
+	</update>
+	<update id="updateDevice" parameterType="com.changchong.site.model.Device">
+		update t_device set
+		province = #{province,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="finadDeviceByPort" resultType="java.lang.String">
+		select
+		t.code
+		from t_device t
+		where t.id = (select n.device_id from t_port n where
+		n.id=#{0})
+	</select>
+	<select id="getAllDevice" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_device
+	</select>
+	<select id="getDeviceById"  resultType="com.changchong.site.model.Device">
+		SELECT
+		<include refid="Base_Column_List" />
+		from t_device
+		WHERE id = #{0}
+	</select>
+    <select id="existenceByDeviceId" resultType="java.lang.Integer">
+        select COUNT(*) FROM t_device where id =#{0}
+    </select>
+</mapper>

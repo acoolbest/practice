@@ -1,0 +1,203 @@
+package IM.Group;
+import "IM.BaseDefine.proto";
+option java_package = "com.mogujie.tt.protobuf";
+//option java_outer_classname = "MOGUJIEIMMessage";
+option optimize_for = LITE_RUNTIME;
+
+//service id:0x0004
+
+message IMNormalGroupListReq{
+	//获取群组列表请求
+	required uint32 user_id = 1;//用户id
+	required uint32 latest_update_time = 2; //latest update time
+	optional bytes attach_data = 20;
+}
+
+message IMNormalGroupListRsp{
+	//获取群组列表响应
+	required uint32 user_id = 1;//用户id
+	repeated IM.BaseDefine.GroupVersionInfo group_version_list = 2;//获取到的群组id列表
+	optional bytes attach_data = 20;
+}
+
+message IMGroupInfoListReq{
+	//根据群组id获取群组信息请求
+	required uint32 user_id = 1;//用户id
+	repeated IM.BaseDefine.GroupVersionInfo group_version_list = 2;//需要获取的群组id列表
+	optional bytes attach_data = 20;
+}
+
+message IMGroupInfoListRsp{
+	//根据群组id获取群组信息响应
+	required uint32 user_id = 1;//用户id
+	repeated IM.BaseDefine.GroupInfo group_info_list = 2;//群组信息列表
+	optional bytes attach_data = 20;
+}
+
+message IMGroupCreateReq{
+	//创建群组请求
+	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.GroupType group_type = 2 [default = GROUP_TYPE_TMP];		//默认是创建临时群，且客户端只能创建临时群
+	required string group_name = 3;//群组名称
+	required string group_avatar = 4;//群组头像地址
+	repeated uint32 member_id_list = 5;//群组成员列表
+	required uint32 company_id = 6; //company id
+	optional bytes attach_data = 20;
+}
+
+message IMGroupCreateRsp{
+	//创建群组响应
+	required uint32 user_id = 1;//用户id
+	required uint32 result_code = 2;//创建结果
+	optional uint32 group_id = 3;//群组id
+	required string group_name = 4;//群组名称
+	repeated uint32 user_id_list = 5;//群组用户列表
+	required string group_uuid=6; //group uuid
+	required uint32 company_id = 7; //company id
+	optional bytes attach_data = 20;
+}
+
+message IMGroupChangeMemberReq{
+	//修改群组成员请求
+	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.GroupModifyType change_type = 2;//修改类型，1：增加成员，2：删除成员
+	required uint32 group_id = 3;//群组id
+	repeated uint32 member_id_list = 4;//需要修改的id列表
+	optional bytes attach_data = 20;
+}
+
+message IMGroupChangeMemberRsp{
+	//修改群组成员响应
+	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.GroupModifyType change_type = 2;//修改类型，1：增加成员，2：删除成员
+	required uint32 result_code = 3;//修改结果
+	required uint32 group_id = 4;//群组id
+	repeated uint32 cur_user_id_list = 5;			//现有的成员id		
+	repeated uint32 chg_user_id_list = 6;			//变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
+	optional bytes attach_data = 20;
+}
+
+message IMGroupShieldReq{
+	//屏蔽/打开群组消息请求
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	required uint32 shield_status = 3;//屏蔽操作，0：屏蔽，1：不屏蔽
+	optional bytes attach_data = 20;
+}
+
+message IMGroupShieldRsp{
+	//屏蔽/打开群组消息响应
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	required uint32 result_code = 3;//操作结果0:successed 1:failed
+	optional bytes attach_data = 20;
+}
+
+message IMGroupChangeMemberNotify{
+	//群组成员变更通知
+	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.GroupModifyType change_type = 2;;//变更类型，1：增加成员，2：删除成员
+	required uint32 group_id = 3;//群组id
+	repeated uint32 cur_user_id_list = 4;//现有的成员id
+	repeated uint32 chg_user_id_list = 5;//add: 表示添加成功的id, del: 表示删除的id
+}
+
+//george.jiang inserted the following on June 19th,2015
+message IMGroupChangeNameReq{
+	//修改群组名称请求
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	required string group_new_name = 3;//新群组名称
+	optional bytes attach_data = 20;
+}
+
+message IMGroupChangeNameRsp{
+	//修改群组名称响应
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	required uint32 result_code = 3; //0:succeed，1:failed
+	required string group_new_name = 4; //new group name
+	required IM.BaseDefine.GroupModifyType change_type = 5; //change type
+	optional bytes attach_data = 20;
+}
+
+message IMGroupChangeNameAndNotifyRsp{
+	//修改群组名称且通知响应(仅限于服务端使用)
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	required uint32 result_code = 3; //0:succeed，1:failed
+	required string group_new_name = 4; //new group name
+	required IM.BaseDefine.GroupModifyType change_type = 5; //change type
+	repeated uint32 cur_user_id_list = 6;//当前用户列表
+	optional bytes attach_data = 20;
+}
+
+message IMGroupTransferLeaderReq{
+	//群主转让请求
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	required uint32 new_leader_id = 3;//新群主id
+	optional bytes attach_data = 20;
+}
+
+message IMGroupTransferLeaderRsp{
+	//群主转让响应
+	required uint32 user_id = 1;//用户id 
+	required uint32 group_id = 2;//群组id
+	required uint32 result_code = 3; //0:succeed，1:failed
+	required uint32 new_leader_id = 4; //new leader id
+	required IM.BaseDefine.GroupModifyType change_type = 5; //change type 
+	optional bytes attach_data = 20;
+}
+
+message IMGroupTransferLeaderAndNotifyRsp{
+	//群主转让且通知响应(仅限服务端使用)
+	required uint32 user_id = 1;//用户id 
+	required uint32 group_id = 2;//群组id
+	required uint32 result_code = 3; //0:succeed，1:failed
+	required uint32 new_leader_id = 4; //new leader id
+	required IM.BaseDefine.GroupModifyType change_type = 5; //change type 
+	repeated uint32 cur_user_id_list = 6;//当前用户列表
+	optional bytes attach_data = 20;
+}
+
+message IMGroupChangeNameNotify{
+	//群名变更通知
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	required string group_new_name = 3; //new group name
+}
+
+message IMGroupTransferLeaderNotify{
+	//群名变更通知
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	required uint32 new_leader_id = 3; //new group leader id
+}
+
+message IMGroupCreateNotify{
+	//创建群组通知
+	required uint32 user_id = 1;//用户id
+	required uint32 group_id = 2;//群组id
+	repeated uint32 user_id_list = 3;//群组用户列表
+	required string group_name = 4;//group name
+	required string group_uuid=5; //group uuid
+	required uint32 company_id = 6; //company id
+}
+
+//end of being inserted by george.jiang on July 3rd,2015
+
+//inserted by george jiang on Aug 25th,2015 (just for server side)
+message IMGroupChangeMemberTempRsp{
+	//修改群组成员临时响应
+	required uint32 user_id = 1;//用户id
+	required IM.BaseDefine.GroupModifyType change_type = 2;//修改类型，1：增加成员，2：删除成员
+	required uint32 result_code = 3;//修改结果
+	required uint32 group_id = 4;//群组id
+	repeated uint32 cur_user_id_list = 5;			//现有的成员id		
+	repeated uint32 chg_user_id_list = 6;			//变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
+	required uint32 creator_id = 7; //creator id
+	required string group_name = 8;//group name
+	optional bytes attach_data = 20;
+}
+//end of inserting on Aug 25th,2015

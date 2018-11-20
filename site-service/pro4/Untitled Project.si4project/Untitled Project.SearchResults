@@ -1,0 +1,99 @@
+---- updateByPrimaryKeySelective Matches (15 in 14 files) ----
+AdBaseMapper in AdBaseMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(AdBase record);
+AdBaseMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 204 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AdBase">
+AdStatisticsMapper in AdStatisticsMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(AdStatistics record);
+AdStatisticsMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 47 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AdStatistics">
+AppMessageMapper in AppMessageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(AppMessage record);
+AppMessageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 150 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AppMessage" >
+AppMessageTopicMapper in AppMessageTopicMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(AppMessageTopic record);
+AppMessageTopicMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 96 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AppMessageTopic" >
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :      * @Title updateByPrimaryKeySelective
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(MicroImage record);
+MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 103 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.MicroImage">
+PortLogMapper in PortLogMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(PortLog record);
+PortLogMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 54 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.PortLog">
+SocketConfigMapper in SocketConfigMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(SocketConfig record);
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.SocketConfig">
+---- updateByPrimaryKeySelective Matches (#count#) ----
+---- updateByPrimaryKeySelective Matches (15 in 14 files) ----
+AdBaseMapper in AdBaseMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(AdBase record);
+AdBaseMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 204 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AdBase">
+AdStatisticsMapper in AdStatisticsMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(AdStatistics record);
+AdStatisticsMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 47 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AdStatistics">
+AppMessageMapper in AppMessageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(AppMessage record);
+AppMessageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 150 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AppMessage" >
+AppMessageTopicMapper in AppMessageTopicMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(AppMessageTopic record);
+AppMessageTopicMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 96 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AppMessageTopic" >
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :      * @Title updateByPrimaryKeySelective
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(MicroImage record);
+MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 103 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.MicroImage">
+PortLogMapper in PortLogMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(PortLog record);
+PortLogMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) line 54 :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.PortLog">
+SocketConfigMapper in SocketConfigMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(SocketConfig record);
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.SocketConfig">
+---- Micro Matches (70 in 10 files) ----
+applicationContext-dubbo.xml (Z:\practice\site-service\site-service-api\src\main\resources) line 65 : 	<bean id="microImageService" class="com.changchong.site.serviceImpl.MicroImageServiceImpl"/>
+applicationContext-dubbo.xml (Z:\practice\site-service\site-service-api\src\main\resources) line 66 : 	<dubbo:service interface="com.changchong.site.service.MicroImageService" ref="microImageService" timeout="1200000"/>
+MicroImage.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\model) line 6 :  * @Package: com.changchong.site.model.MicroImage.java
+MicroImage.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\model) line 14 : public class MicroImage {
+MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) line 3 : import com.changchong.site.model.MicroImage;
+MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) line 9 :  * @Package: com.changchong.site.mapper.MicroImageMapper.java
+MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) line 18 : public interface MicroImageMapper {
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int insert(MicroImage record);
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int insertSelective(MicroImage record);
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :      * @return com.changchong.site.model.MicroImage
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     MicroImage selectByPrimaryKey(Integer id);
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKeySelective(MicroImage record);
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     int updateByPrimaryKey(MicroImage record);
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     List<String> queryMicroImages();
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) : <mapper namespace="com.changchong.site.mapper.MicroImageMapper">
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <resultMap id="BaseResultMap" type="com.changchong.site.model.MicroImage">
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     from t_micro_image
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     delete from t_micro_image
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <insert id="insert" keyProperty="id" parameterType="com.changchong.site.model.MicroImage" useGeneratedKeys="true">
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     insert into t_micro_image (id, img_url, status, 
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <insert id="insertSelective" keyProperty="id" parameterType="com.changchong.site.model.MicroImage" useGeneratedKeys="true">
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     insert into t_micro_image
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.MicroImage">
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     update t_micro_image
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <update id="updateByPrimaryKey" parameterType="com.changchong.site.model.MicroImage">
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     update t_micro_image
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <select id="queryMicroImages" resultType="string">
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     from t_micro_image
+MicroImageService.java (Z:\practice\site-service\site-service\src\main\java\com\changchong\site\service) line 10 : public interface MicroImageService {
+MicroImageService in MicroImageService.java (Z:\practice\site-service\site-service\src\main\java\com\changchong\site\service) :     List<String> queryMicroImages();
+MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) line 3 : import com.changchong.site.mapper.MicroImageMapper;
+MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) line 4 : import com.changchong.site.service.MicroImageService;
+MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) line 15 : @Service("microImageService")
+MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) line 16 : public class MicroImageServiceImpl implements MicroImageService {
+MicroImageServiceImpl in MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) :     private MicroImageMapper microImageMapper;
+MicroImageServiceImpl in MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) :     public List<String> queryMicroImages() {
+MicroImageServiceImpl.queryMicroImages in MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) :             result = microImageMapper.queryMicroImages();
+SocketConfig in SocketConfig.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\model) :     private String microChargeUrl;
+SocketConfig in SocketConfig.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\model) :     private String microChargePort;
+SocketConfigDto in SocketConfigDto.java (Z:\practice\site-service\site-service\src\main\java\com\changchong\site\pay\dto) :     private String microChargeUrl;
+SocketConfigDto in SocketConfigDto.java (Z:\practice\site-service\site-service\src\main\java\com\changchong\site\pay\dto) :     private String microChargePort;
+SocketConfigDto in SocketConfigDto.java (Z:\practice\site-service\site-service\src\main\java\com\changchong\site\pay\dto) :     private String microUrlAndPort;
+mapper.resultMap in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     <result column="micro_charge_url" jdbcType="VARCHAR" property="microChargeUrl" />
+mapper.resultMap in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     <result column="micro_charge_port" jdbcType="VARCHAR" property="microChargePort" />
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :     id, micro_charge_url, micro_charge_port
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :       <if test="microChargeUrl != null">
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :         micro_charge_url,
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :       <if test="microChargePort != null">
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :         micro_charge_port,
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :       <if test="microChargeUrl != null">
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :         #{microChargeUrl,jdbcType=VARCHAR},
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :       <if test="microChargePort != null">
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :         #{microChargePort,jdbcType=VARCHAR},
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :       <if test="microChargeUrl != null">
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :         micro_charge_url = #{microChargeUrl,jdbcType=VARCHAR},
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :       <if test="microChargePort != null">
+mapper in SocketConfigMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :         micro_charge_port = #{microChargePort,jdbcType=VARCHAR},
+SocketConfigServiceImpl.selectAll in SocketConfigServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) :             socketConfigDto.setMicroUrlAndPort(socketConfig.getMicroChargeUrl()+":"+socketConfig.getMicroChargePort());
+---- queryMicroImages Matches (5 in 4 files) ----
+MicroImageMapper in MicroImageMapper.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\mapper) :     List<String> queryMicroImages();
+mapper in MicroImageMapper.xml (Z:\practice\site-service\site-service-api\src\main\resources\mybatis) :   <select id="queryMicroImages" resultType="string">
+MicroImageService in MicroImageService.java (Z:\practice\site-service\site-service\src\main\java\com\changchong\site\service) :     List<String> queryMicroImages();
+MicroImageServiceImpl in MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) :     public List<String> queryMicroImages() {
+MicroImageServiceImpl.queryMicroImages in MicroImageServiceImpl.java (Z:\practice\site-service\site-service-api\src\main\java\com\changchong\site\serviceImpl) :             result = microImageMapper.queryMicroImages();
+---- netty Matches (0 in 0 files) ----

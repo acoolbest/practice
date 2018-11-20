@@ -1,0 +1,38 @@
+
+安装protobuf
+cd teamtalk/server/src/protobuf
+tar xf protobuf-2.6.1.tar.gz 
+cd protobuf-2.6.1/
+./configure
+make
+make install
+ldconfig
+
+根据make_protobuf.sh复制protobuf安装文件到相应目录
+cd teamtalk/server/src
+mkdir -p base/pb/lib/linux/
+cp /usr/local/lib/libprotobuf-lite.a base/pb/lib/linux/
+cp -r /usr/local/include/google/ base/pb/
+
+用pb生成最新cpp协议文件，并拷贝到对应的目录
+cd teamtalk/pb
+./create.sh 
+./sync.sh
+
+
+cd teamtalk/server/src
+关闭make_log4cxx.sh中用yum安装的程序，改用apt-get手动安装
+./make_log4cxx.sh
+
+./make_hiredis.sh
+
+
+
+关闭build_ubuntu.sh中用yum安装的程序，改用apt-get手动安装，protobuf相关的程序不用再安装，因已用源码安装过了
+调整teamtalk/server/run下restart.sh，将判断服务是否存在相关代码改为pidof，原代码会使msfs服务启动失败
+./build_ubuntu.sh version 1.0.0
+
+
+cp teamtalk/server/im-server-1.0.0.tar.gz teamtalk/auto_setup/im_server/
+根据INSTALL.md修改teamtalk/auto_setup/im_server/conf下的配置文件
+./setup.sh install

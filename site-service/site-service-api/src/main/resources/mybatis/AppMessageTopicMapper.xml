@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.changchong.site.mapper.AppMessageTopicMapper" >
+  <resultMap id="BaseResultMap" type="com.changchong.site.model.AppMessageTopic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="client_id" property="clientId" jdbcType="VARCHAR" />
+    <result column="topic" property="topic" jdbcType="VARCHAR" />
+    <result column="belong_to" property="belongTo" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="is_enabled" property="isEnabled" jdbcType="BIT" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, client_id, topic, belong_to, create_time, update_time, update_user, is_enabled
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from app_message_topic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from app_message_topic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.changchong.site.model.AppMessageTopic" >
+    insert into app_message_topic (id, client_id, topic, 
+      belong_to, create_time, update_time, 
+      update_user, is_enabled)
+    values (#{id,jdbcType=INTEGER}, #{clientId,jdbcType=VARCHAR}, #{topic,jdbcType=VARCHAR}, 
+      #{belongTo,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{isEnabled,jdbcType=BIT})
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.changchong.site.model.AppMessageTopic" >
+    insert into app_message_topic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="clientId != null" >
+        client_id,
+      </if>
+      <if test="topic != null" >
+        topic,
+      </if>
+      <if test="belongTo != null" >
+        belong_to,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="isEnabled != null" >
+        is_enabled,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null" >
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="topic != null" >
+        #{topic,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null" >
+        #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnabled != null" >
+        #{isEnabled,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.changchong.site.model.AppMessageTopic" >
+    update app_message_topic
+    <set >
+      <if test="clientId != null" >
+        client_id = #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="topic != null" >
+        topic = #{topic,jdbcType=VARCHAR},
+      </if>
+      <if test="belongTo != null" >
+        belong_to = #{belongTo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnabled != null" >
+        is_enabled = #{isEnabled,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.changchong.site.model.AppMessageTopic" >
+    update app_message_topic
+    set client_id = #{clientId,jdbcType=VARCHAR},
+      topic = #{topic,jdbcType=VARCHAR},
+      belong_to = #{belongTo,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      is_enabled = #{isEnabled,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                          http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                          http://www.springframework.org/schema/tx
+                          http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- Spring 与 mybatis集成 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<property name="typeAliasesPackage" value="com.changchong.*.model" />
+		<property name="mapperLocations" value="classpath*:/mybatis/**/*Mapper.xml" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
+		<property name="basePackage" value="com.changchong.*.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+</beans>

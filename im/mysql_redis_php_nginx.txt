@@ -1,0 +1,48 @@
+ubuntu下部署teamtalk
+
+*所有setup.sh脚本需要去除环境检查，因为原脚本必须为CentOS64
+
+git clone https://github.com/meili/TeamTalk.git
+cd TeamTalk/
+
+1、安装mysql
+apt-get install mysql-server
+username：root
+password：12345
+
+
+2、安装redis
+修改auto_setup/redis/setup.sh
+redis的下载地址为http://download.redis.io/releases/redis-stable.tar.gz
+cd auto_setup/redis
+./setup.sh install
+
+3、安装php
+修改auto_setup/nginx_php/php/conf/php-fpm.conf
+其中用户和组改为当前用户和组，否则php启动失败，如下
+user = charge
+group = charge
+
+修改auto_setup/nginx_php/php/setup.sh
+其中第三方库全通过apt-get完成安装，去掉原有的yum方式安装
+cd auto_setup/nginx_php/php/setup.sh
+./setup.sh install
+
+4、安装nginx
+apt-get install nginx
+
+5、配置管理后台（nginx+php+mysql）
+mysql -uroot -p12345 < auto_setup/mariadb/conf/ttopen.sql
+
+rm或mv nginx配置目录下的默认配置文件
+/etc/nginx/sites-available/default
+/etc/nginx/default.conf
+
+*若mysql的root密码不是12345，需要改配置文件（auto_setup/im_web/conf/database.php）中的密码
+
+cd teamtalk
+cp php tt -r
+zip -r tt.zip tt
+cp tt auto_setup/im_web
+cd auto_setup/im_web
+./setup.sh

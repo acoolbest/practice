@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C4E458F3-F0EA-4B52-A060-2D03E10AEE1F}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeOutput>PushServer.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeOutput>PushServer.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\push_server\apns_client.cpp" />
+    <ClCompile Include="..\..\push_server\apns_client_handler.cpp" />
+    <ClCompile Include="..\..\push_server\apns_feedback_handler.cpp" />
+    <ClCompile Include="..\..\push_server\apns_msg.cpp" />
+    <ClCompile Include="..\..\push_server\byte_stream.cpp" />
+    <ClCompile Include="..\..\push_server\ConfigFileReader.cpp" />
+    <ClCompile Include="..\..\push_server\jsonxx.cpp" />
+    <ClCompile Include="..\..\push_server\main.cpp" />
+    <ClCompile Include="..\..\push_server\pdu_msg.cpp" />
+    <ClCompile Include="..\..\push_server\push_app.cpp" />
+    <ClCompile Include="..\..\push_server\push_server.cpp" />
+    <ClCompile Include="..\..\push_server\push_server_handler.cpp" />
+    <ClCompile Include="..\..\push_server\push_session.cpp" />
+    <ClCompile Include="..\..\push_server\push_session_handler.cpp" />
+    <ClCompile Include="..\..\push_server\session_manager.cpp" />
+    <ClCompile Include="..\..\push_server\socket\base_io_stream.cpp" />
+    <ClCompile Include="..\..\push_server\socket\epoll_io_loop.cpp" />
+    <ClCompile Include="..\..\push_server\socket\io_loop.cpp" />
+    <ClCompile Include="..\..\push_server\socket\ssl_client_async.cpp" />
+    <ClCompile Include="..\..\push_server\socket\tcp_client_async.cpp" />
+    <ClCompile Include="..\..\push_server\socket\tcp_server.cpp" />
+    <ClCompile Include="..\..\push_server\socket\tcp_session_async.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\push_server\bufferloop\buffer_loop.hpp" />
+    <ClInclude Include="..\..\push_server\push_server.h" />
+    <ClInclude Include="..\..\push_server\sigslot\sigslot.h" />
+    <ClInclude Include="..\..\push_server\socket\base_handler.hpp" />
+    <ClInclude Include="..\..\push_server\socket\base_io_stream.h" />
+    <ClInclude Include="..\..\push_server\socket\base_msg.h" />
+    <ClInclude Include="..\..\push_server\socket\base_socket.hpp" />
+    <ClInclude Include="..\..\push_server\socket\base_thread.hpp" />
+    <ClInclude Include="..\..\push_server\socket\epoll_io_loop.h" />
+    <ClInclude Include="..\..\push_server\socket\io_loop.h" />
+    <ClInclude Include="..\..\push_server\socket\socket_io.h" />
+    <ClInclude Include="..\..\push_server\socket\socket_io_define.h" />
+    <ClInclude Include="..\..\push_server\socket\ssl_client_async.h" />
+    <ClInclude Include="..\..\push_server\socket\tcp_client_async.h" />
+    <ClInclude Include="..\..\push_server\socket\tcp_server.h" />
+    <ClInclude Include="..\..\push_server\socket\tcp_session_async.h" />
+    <ClInclude Include="..\..\push_server\thread\base_thread.hpp" />
+    <ClInclude Include="..\..\push_server\timer\Timer.hpp" />
+    <ClInclude Include="..\..\push_server\type\base_type.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

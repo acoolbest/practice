@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changchong.site.mapper.SystemConfigMapper">
+ 
+ 
+
+ <resultMap id="BaseResultMap" type="com.changchong.site.model.SystemConfig">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="sys_key" property="key" jdbcType="VARCHAR" />
+		<result column="sys_value" property="value" jdbcType="VARCHAR" />
+		<result column="future" property="future" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	
+	
+	<sql id="Base_Column_List">
+		id,sys_key,sys_value,create_time,update_time,future
+	</sql>
+
+
+	<select id="getAllSystemConfig" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_system_conf
+	</select>
+
+	<select id="getSystemConfigByKey" resultMap="BaseResultMap" parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from t_system_conf
+		WHERE sys_key = #{key}
+	</select>
+	<update id="updateSystemConfig" parameterType="map">
+		UPDATE t_system_conf
+		SET sys_value = #{value},
+		update_time = #{updateTime}
+		WHERE sys_key = #{key}
+
+	</update>
+	
+</mapper>

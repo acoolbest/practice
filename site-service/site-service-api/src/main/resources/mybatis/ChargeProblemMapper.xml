@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.changchong.site.mapper.ChargeProblemMapper">
+ 
+ <resultMap id="BaseResultMap" type="com.changchong.site.model.ChargeProblem">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="answer" property="answer" jdbcType="VARCHAR" />
+	 	<result column="type" property="type"  />
+		<result column="user_id" property="user_id"  />
+	 	<result column="update_time" property="update_time"  />
+	</resultMap>
+	
+
+	
+	<sql id="Base_Column_List">
+		id,title,answer,type,user_id,update_time
+	</sql>
+	<select id="getChargeProblemList" parameterType="map" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List"/>
+		FROM t_charge_problem
+		WHERE 1=1
+		<if test="type !=null">
+			AND type = #{type} OR type = 7
+		</if>
+		ORDER BY update_time DESC
+		<if test="startRow != null and endRow != null">
+			LIMIT #{startRow},#{endRow}
+		</if>
+	</select>
+	<select id="getChargeProblemListCount" parameterType="map" resultType="java.lang.Integer">
+		SELECT count(id)
+		FROM t_charge_problem
+		WHERE 1=1
+		<if test="type !=null">
+			AND type = #{type} OR type = 7
+		</if>
+	</select>
+
+	<select id="getWebChargeProblemList" parameterType="map" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List"/>
+		FROM t_charge_problem
+		WHERE 1=1
+		<if test="types !=null">
+			AND type IN
+			<foreach collection="types" index="index" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		ORDER BY update_time DESC
+		<if test="startRow != null and endRow != null">
+			LIMIT #{startRow},#{endRow}
+		</if>
+	</select>
+	<select id="getWebChargeProblemListCount" parameterType="map" resultType="java.lang.Integer">
+		SELECT count(id)
+		FROM t_charge_problem
+		WHERE 1=1
+		<if test="types !=null">
+			AND type IN
+			<foreach collection="types" index="index" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	<insert id="saveChargeProblem" parameterType="com.changchong.site.model.ChargeProblem" useGeneratedKeys="true" keyProperty="id">
+		insert ignore into t_charge_problem
+		(
+		<if test="title != null and title !='' ">
+			title,
+		</if>
+		<if test="answer != null and answer != ''">
+			answer,
+		</if>
+		<if test="type != null ">
+			type,
+		</if>
+		<if test="user_id != null ">
+			user_id,
+		</if>
+		<if test="update_time != null">
+			update_time
+		</if>
+		)
+		values (
+		<if test="title != null and title !='' ">
+			#{title},
+		</if>
+		<if test="answer != null and answer != ''">
+			#{answer},
+		</if>
+		<if test="type != null ">
+			#{type},
+		</if>
+		<if test="user_id != null ">
+			#{user_id},
+		</if>
+		<if test="update_time != null">
+			#{update_time}
+		</if>
+		)
+	</insert>
+	<update id="updateChargeProblem" parameterType="com.changchong.site.model.ChargeProblem">
+		UPDATE t_charge_problem
+		<trim prefix="set" suffixOverrides=",">
+			<if test="title != null and title !='' ">
+				title = #{title},
+			</if>
+			<if test="answer != null and answer != ''">
+				answer = #{answer},
+			</if>
+			<if test="type != null ">
+				type = #{type},
+			</if>
+			<if test="user_id != null ">
+				user_id = #{user_id},
+			</if>
+			<if test="update_time != null">
+				update_time = #{update_time},
+			</if>
+		</trim>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteChargeProblem" parameterType="java.lang.Integer">
+		DELETE FROM t_charge_problem
+		where id = #{0}
+	</delete>
+</mapper>

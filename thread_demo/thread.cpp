@@ -16,8 +16,8 @@ void increase_reference (std::atomic<int>& variable, int n) {
 		++variable;
 }
 
-struct C : std::atomic<int> {
-  C() : std::atomic<int>(0) {}
+struct CCC : std::atomic<int> {
+  CCC() : std::atomic<int>(0) {}
   void increase_member (int n) { 
 	for (int i=0; i<n; ++i) 
 	  fetch_add(1);
@@ -38,9 +38,9 @@ int main ()
     threads.push_back(std::thread(increase_reference,std::ref(foo),1000));
 
   std::cout << "increase counter (bar) with 10 threads using member...\n";
-  C bar;
+  CCC bar;
   for (int i=1; i<=10; ++i)
-    threads.push_back(std::thread(&C::increase_member,std::ref(bar),1000));
+    threads.push_back(std::thread(&CCC::increase_member,&bar,1000));
 
   std::cout << "synchronizing all threads...\n";
   for (auto& th : threads) th.join();

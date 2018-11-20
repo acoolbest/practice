@@ -1,0 +1,703 @@
+package IM.BaseDefine;
+option java_package = "com.mogujie.tt.protobuf";
+//option java_outer_classname = "MOGUJIEIMMessage";
+option optimize_for = LITE_RUNTIME;
+
+// service id
+enum ServiceID{
+    SID_LOGIN           = 0x0001;           // for login
+    SID_BUDDY_LIST      = 0x0002;		    // for friend list
+    SID_MSG             = 0x0003;           //
+    SID_GROUP           = 0x0004;           // for group message
+    SID_FILE            = 0x0005;
+    SID_SWITCH_SERVICE  = 0x0006;
+    SID_OTHER           = 0x0007;
+    SID_INTERNAL        = 0x0008;		     
+}
+
+// command id for login
+enum LoginCmdID{
+    CID_LOGIN_REQ_MSGSERVER         = 0x0101; 	//
+    CID_LOGIN_RES_MSGSERVER         = 0x0102;	//
+    CID_LOGIN_REQ_USERLOGIN         = 0x0103;	//
+    CID_LOGIN_RES_USERLOGIN         = 0x0104;	//
+    CID_LOGIN_REQ_LOGINOUT          = 0x0105;	//
+    CID_LOGIN_RES_LOGINOUT          = 0x0106; 	//
+    CID_LOGIN_KICK_USER				= 0x0107; 	//
+    CID_LOGIN_REQ_DEVICETOKEN       = 0x0108;  //
+    CID_LOGIN_RES_DEVICETOKEN       = 0x0109;  //
+    CID_LOGIN_REQ_KICKPCCLIENT      = 0x010a;
+    CID_LOGIN_RES_KICKPCCLIENT      = 0x010b;
+}
+
+// command id for buddy list
+enum BuddyListCmdID{
+    CID_BUDDY_LIST_RECENT_CONTACT_SESSION_REQUEST       = 0x0201;
+    CID_BUDDY_LIST_RECENT_CONTACT_SESSION_RESPONSE      = 0x0202;
+    CID_BUDDY_LIST_STATUS_NOTIFY                        = 0x0203; //
+    CID_BUDDY_LIST_USER_INFO_REQUEST                    = 0x0204; //
+    CID_BUDDY_LIST_USER_INFO_RESPONSE                   = 0x0205;
+    CID_BUDDY_LIST_REMOVE_SESSION_REQ                	= 0x0206;
+    CID_BUDDY_LIST_REMOVE_SESSION_RES                   = 0x0207;
+    CID_BUDDY_LIST_ALL_USER_REQUEST                     = 0x0208;
+    CID_BUDDY_LIST_ALL_USER_RESPONSE                    = 0x0209;
+    CID_BUDDY_LIST_USER_UPDATE_NAGURE_REQUEST 		= 0x020a;
+    CID_BUDDY_LIST_USER_UPDATE_NAGURE_RESPONSE  		= 0x020b;
+    CID_BUDDY_LIST_USER_UPDATE_INFO_REQUEST 		= 0x020c;
+    CID_BUDDY_LIST_USER_UPDATE_INFO_RESPONSE 		= 0x020d;
+    CID_BUDDY_LIST_USERS_STATUS_REQUEST                 = 0x020e;
+    CID_BUDDY_LIST_USERS_STATUS_RESPONSE                = 0x020f;
+    CID_BUDDY_LIST_CHANGE_AVATAR_REQUEST              	= 0x0210;
+    CID_BUDDY_LIST_CHANGE_AVATAR_RESPONSE               = 0x0211;
+    CID_BUDDY_LIST_PC_LOGIN_STATUS_NOTIFY              	= 0x0212;
+    CID_BUDDY_LIST_REMOVE_SESSION_NOTIFY               	= 0x0213;
+    CID_BUDDY_LIST_DEPARTMENT_REQUEST                   = 0x0214;
+    CID_BUDDY_LIST_DEPARTMENT_RESPONSE                  = 0x0215;
+    CID_BUDDY_LIST_COMPANY_REQUEST				= 0x0216;
+    CID_BUDDY_LIST_COMPANY_RESPONSE				= 0x0217;
+    CID_BUDDY_LIST_UPDATE_NAGURE_NOTIFY		= 0x0218;
+    CID_BUDDY_LIST_UPDATE_INFO_NOTIFY			= 0x0219;
+    CID_BUDDY_LIST_CHANGE_AVATAR_NOTIFY		= 0x021a;
+    CID_BUDDY_LIST_ONLINE_USER_REQUEST		= 0x021b;
+    CID_BUDDY_LIST_ONLINE_USER_RESPONSE		= 0x021c;
+    CID_BUDDY_SHIELD_USER_REQUEST  		= 0x021d;
+    CID_BUDDY_SHIELD_USER_RESPONSE 		= 0x021f;
+    CID_BUDDY_LIST_SYNC_USER_NOTIFY = 0x0220;
+    CID_BUDDY_LIST_SYNC_DEPART_NOTIFY = 0x0221;
+    CID_BUDDY_LIST_SYNC_POSITION_NOTIFY = 0x0222;
+    CID_BUDDY_LIST_SYNC_USER_DETAILS_NOTIFY = 0x0223;
+    CID_BUDDY_LIST_SYNC_USER_DUTY_NOTIFY = 0x0224;
+    CID_BUDDY_LIST_SYNC_PASSWORD_NOTIFY = 0x0225;
+    CID_BUDDY_LIST_POSITION_REQUEST = 0x0226;
+    CID_BUDDY_LIST_POSITION_RESPONSE = 0x0227;
+    CID_BUDDY_LIST_ALL_USER_LITE_REQUEST = 0x0228;
+    CID_BUDDY_LIST_ALL_USER_LITE_RESPONSE = 0x0229;
+    CID_BUDDY_LIST_USER_INFO_LITE_REQUEST = 0x022a;
+    CID_BUDDY_LIST_USER_INFO_LITE_RESPONSE = 0x022b; 
+    CID_BUDDY_LIST_SYNC_USER_DEPT_NOTIFY = 0x022c;
+    CID_BUDDY_LIST_ALL_STAFF_REQUEST   = 0x022d;
+    CID_BUDDY_LIST_ALL_STAFF_RESPONSE  = 0x022e;
+    CID_BUDDY_LIST_ALL_STAFF_LITE_REQUEST   = 0x022f;
+    CID_BUDDY_LIST_ALL_STAFF_LITE_RESPONSE  = 0x0230;
+    CID_BUDDY_LIST_STAFF_INFO_REQUEST       = 0x0231;
+    CID_BUDDY_LIST_STAFF_INFO_RESPONSE      = 0x0232;
+ 	 	CID_BUDDY_LIST_STAFF_UPDATE_INFO_REQUEST 		= 0x0233;
+    CID_BUDDY_LIST_STAFF_UPDATE_INFO_RESPONSE 	= 0x0234;
+    CID_BUDDY_LIST_STAFF_UPDATE_INFO_NOTIFY			= 0x0235;
+    CID_BUDDY_LIST_CHANGE_VIP_REQUEST = 0x0236;
+    CID_BUDDY_LIST_CHANGE_VIP_RESPONSE = 0x0237;
+    CID_BUDDY_LIST_CHANGE_VIP_NOTIFY = 0x0238;
+    CID_BUDDY_LIST_ASST_INFO_REQUEST = 0x0239;
+    CID_BUDDY_LIST_ASST_INFO_RESPONSE = 0x023a;
+    CID_BUDDY_LIST_SYNC_STAFF_NOTIFY = 0x023b;
+    CID_BUDDY_LIST_SYNC_STAFF_DETAILS_NOTIFY = 0x023c;
+    CID_BUDDY_LIST_SYNC_COMPANY_NOTIFY = 0x023d;
+    CID_BUDDY_LIST_QUERY_USER_INFO_REQUEST = 0x023e;
+    CID_BUDDY_LIST_QUERY_USER_INFO_RESPONSE = 0x023f;
+    CID_BUDDY_LIST_USER_MOMENT_NOTIFY = 0x0240;
+}
+
+// command id for msg
+enum MessageCmdID{
+    CID_MSG_DATA					= 0x0301;	//
+    CID_MSG_DATA_ACK				= 0x0302; 	//
+    CID_MSG_READ_ACK				= 0x0303; 	//
+    CID_MSG_READ_NOTIFY     		= 0x0304;    //  宸茶娑堟伅閫氱煡
+    CID_MSG_TIME_REQUEST 			= 0x0305;	//
+    CID_MSG_TIME_RESPONSE			= 0x0306; 	//
+    CID_MSG_UNREAD_CNT_REQUEST		= 0x0307; 	//
+    CID_MSG_UNREAD_CNT_RESPONSE		= 0x0308;	//
+    CID_MSG_LIST_REQUEST            = 0x0309;    //鑾峰彇鎸囧畾闃熷垪娑堟伅
+    CID_MSG_LIST_RESPONSE           = 0x030a;
+    CID_MSG_GET_LATEST_MSG_ID_REQ   = 0x030b;
+    CID_MSG_GET_LATEST_MSG_ID_RSP   = 0x030c;
+    CID_MSG_GET_BY_MSG_ID_REQ       = 0x030d;
+    CID_MSG_GET_BY_MSG_ID_RES       = 0x030e;
+    CID_MSG_RESEND_MSG_REQ	= 0x030f; //resend 
+    CID_MSG_RESEND_MSG_RES = 0x0310;
+}
+
+// command id for group message
+enum GroupCmdID{
+    CID_GROUP_NORMAL_LIST_REQUEST			= 0x0401;
+    CID_GROUP_NORMAL_LIST_RESPONSE			= 0x0402;
+    CID_GROUP_INFO_REQUEST          		= 0x0403;
+    CID_GROUP_INFO_RESPONSE         		= 0x0404;
+    CID_GROUP_CREATE_REQUEST                = 0x0405;
+    CID_GROUP_CREATE_RESPONSE               = 0x0406;
+    CID_GROUP_CHANGE_MEMBER_REQUEST 		= 0x0407;
+    CID_GROUP_CHANGE_MEMBER_RESPONSE 		= 0x0408;
+    CID_GROUP_SHIELD_GROUP_REQUEST  		= 0x0409;
+    CID_GROUP_SHIELD_GROUP_RESPONSE 		= 0x040a;
+    CID_GROUP_CHANGE_MEMBER_NOTIFY			= 0x040b;
+    CID_GROUP_CHANGE_GRPNAME_REQUEST		= 0x040c;	//request for changing group name
+    CID_GROUP_CHANGE_GRPNAME_RESPONSE		= 0x040d; //response for changing group name
+    CID_GROUP_TRANSFER_LEADER_REQUEST		= 0x040e; //request for transfering group leader
+    CID_GROUP_TRANSFER_LEADER_RESPONSE	= 0x040f; //response for transfering group leader
+    CID_GROUP_CHANGE_GRPNAME_NOTIFY			= 0x0410; //notification for changing group name
+    CID_GROUP_TRANSFER_LEADER_NOTIFY		= 0x0411; //notification for transfering leader
+    CID_GROUP_CREATE_NOTIFY							= 0x0412; //notification for creating a new group and some users
+}
+
+enum FileCmdID{
+    CID_FILE_LOGIN_REQ              = 0x0501; // sender/receiver need to login to
+    CID_FILE_LOGIN_RES              = 0x0502; // login success or failure
+    CID_FILE_STATE                  = 0x0503;
+    CID_FILE_PULL_DATA_REQ          = 0x0504;
+    CID_FILE_PULL_DATA_RSP          = 0x0505;
+    // To MsgServer
+    CID_FILE_REQUEST                = 0x0506; // sender -> receiver
+    CID_FILE_RESPONSE               = 0x0507; // receiver -> sender
+    CID_FILE_NOTIFY                 = 0x0508;
+    CID_FILE_HAS_OFFLINE_REQ        = 0x0509;
+    CID_FILE_HAS_OFFLINE_RES        = 0x050a;
+    CID_FILE_ADD_OFFLINE_REQ        = 0x050b;
+    CID_FILE_ADD_OFFLINE_RES       = 0x050c;
+    CID_FILE_DEL_OFFLINE_REQ        = 0x050d;
+}
+
+// command id for switch service
+enum SwitchServiceCmdID{
+    CID_SWITCH_P2P_CMD	= 0x0601;	//
+}
+
+enum OtherCmdID{
+    CID_OTHER_HEARTBEAT                     = 0x0701;
+    CID_OTHER_STOP_RECV_PACKET              = 0x0702;
+    CID_OTHER_VALIDATE_REQ                  = 0x0703;
+    CID_OTHER_VALIDATE_RSP                  = 0x0704;
+    CID_OTHER_GET_DEVICE_TOKEN_REQ          = 0x0705;
+    CID_OTHER_GET_DEVICE_TOKEN_RSP          = 0x0706;
+    CID_OTHER_ROLE_SET                      = 0x0707;
+    CID_OTHER_ONLINE_USER_INFO              = 0x0708;
+    CID_OTHER_MSG_SERV_INFO                 = 0x0709;
+    CID_OTHER_USER_STATUS_UPDATE            = 0x070a;
+    CID_OTHER_USER_CNT_UPDATE               = 0x070b;
+    CID_OTHER_SERVER_KICK_USER              = 0x070d;
+    CID_OTHER_LOGIN_STATUS_NOTIFY           = 0x070e;
+    CID_OTHER_PUSH_TO_USER_REQ              = 0x070f;
+    CID_OTHER_PUSH_TO_USER_RSP              = 0x0710;
+    CID_OTHER_GET_SHIELD_REQ                = 0x0711;
+    CID_OTHER_GET_SHIELD_RSP                = 0x0712;
+    CID_OTHER_FILE_TRANSFER_REQ             = 0x0731;
+    CID_OTHER_FILE_TRANSFER_RSP             = 0x0732;
+    CID_OTHER_FILE_SERVER_IP_REQ            = 0x0733;
+    CID_OTHER_FILE_SERVER_IP_RSP            = 0x0734;
+    CID_OTHER_GET_SHIELD_USER_REQ						= 0x0735;
+    CID_OTHER_GET_SHIELD_USER_RSP						= 0x0736;
+}
+
+enum ResultType{
+	REFUSE_REASON_NONE				= 0;
+	REFUSE_REASON_NO_MSG_SERVER		= 1;
+	REFUSE_REASON_MSG_SERVER_FULL 	= 2;
+	REFUSE_REASON_NO_DB_SERVER		= 3;
+	REFUSE_REASON_NO_LOGIN_SERVER	= 4;
+	REFUSE_REASON_NO_ROUTE_SERVER	= 5;
+	REFUSE_REASON_DB_VALIDATE_FAILED = 6;
+	REFUSE_REASON_VERSION_TOO_OLD	= 7;
+	//george added the following 3 lines on Dec 15th,2015
+  REFUSE_REASON_INVALID_USER_PASSWORD = 0x1000;	//用户名/密码出错
+  REFUSE_REASON_LOCK_USER = 0x1001;		//用户名/密码出错次数太多
+  REFUSE_REASON_DISABLED_USER	= 0x1002;					//用户被禁用
+  REFUSE_REASON_INVALID_DOMAIN_USER = 0x1003; //invalid domain user,added by george on Jan 5th,2016
+  REFUSE_REASON_LOWER_CLIENT_VERSION = 0x1004; //lower client version
+  REFUSE_REASON_USER_NOT_EXIST = 0x1005;  //user does not exists
+  REFUSE_REASON_INVALID_ALIAS_PASSWORD = 0x1006; //login by alias name
+  REFUSE_REASON_FORCE_CHANGE_PASSWORD = 0x1007; //force to change password
+  REFUSE_REASON_NOT_BUY_PRODUCT = 0x1008; //no buying any product
+  REFUSE_REASON_INACTIVE_USER = 0x1009 ;// inactive user 
+  REFUSE_REASON_EXPIRED_PASSWORD = 0x100a; //expired password
+  REFUSE_REASON_LIMITED_IP = 0x100b; //limited ip  
+}
+
+enum KickReasonType{
+// 踢出原因
+	KICK_REASON_DUPLICATE_USER = 1;
+    KICK_REASON_MOBILE_KICK    = 2;
+}
+
+enum OnlineListType{
+	ONLINE_LIST_TYPE_FRIEND_LIST = 1;
+}
+
+enum UserStatType{
+//用户状态
+	USER_STATUS_ONLINE 	= 1;//在线
+	USER_STATUS_OFFLINE	= 2;//离线
+	USER_STATUS_LEAVE	= 3;//离开
+
+}
+enum SessionType{
+//聊天会话类型
+	SESSION_TYPE_SINGLE = 1;          	//单人聊天
+	SESSION_TYPE_GROUP = 2;          	//群组聊天
+}
+enum MsgType{
+//消息类型
+	MSG_TYPE_SINGLE_TEXT    = 0x01;//单人文本消息
+    MSG_TYPE_SINGLE_AUDIO   = 0x02;//单人语音消息
+    MSG_TYPE_SINGLE_FILE		= 0x03;//单人文件传送消息
+    MSG_TYPE_SINGLE_SYSTEM	= 0x04;//单人系统消息(from user id 0）
+    MSG_TYPE_SINGLE_WORKFLOW = 0x05;//单人审批提醒消息(from user id 1). added by george on Nov 10th,
+    MSG_TYPE_SINGLE_FILE_STATUS = 0x06;//单人文件传送状态消息(比如接收成功，发送成功，取消等)
+    MSG_TYPE_SINGLE_EMAIL = 0x07; //email
+    MSG_TYPE_SINGLE_BULLETIN = 0x08; //bulltin added by george on Dec 31st,2015
+    MSG_TYPE_SINGLE_NEW_FRIEND = 0x09; //new good friend. added by george on July 19th,2016
+    MSG_TYPE_SINGLE_NEW_STAFF = 0x0a; //user join a team
+    MSG_TYPE_SINGLE_ATTENDANCE = 0x0b; //attendance
+    MSG_TYPE_GROUP_TEXT     = 0x11;//群组文本消息
+    MSG_TYPE_GROUP_AUDIO    = 0x12;//群组语音消息
+    MSG_TYPE_GROUP_FILE			= 0x13;//群组文件传送消息
+    MSG_TYPE_GROUP_SYSTEM		= 0x14;//群组系统消息(from user id 0)
+    MSG_TYPE_GROUP_WORKFLOW	= 0x15;//群组审批提醒消息(from user id 1)
+    MSG_TYPE_GROUP_FILE_STATUS = 0x16;//群组文件传送状态消息(说明同单人),george added on Nov 26th,2015
+    MSG_TYPE_GROUP_EMAIL = 0x17; //group email
+    MSG_TYPE_GROUP_BULLETIN = 0x18; //group bulltin added by george on Dec 31st,2015
+}
+
+enum MsgFlag
+{
+	MSG_FLAG_NORMAL = 0x00; //normal
+	MSG_FLAG_AT_MSG = 0x01; //at message
+};
+
+
+enum ClientType{
+//客户端类型
+	CLIENT_TYPE_WINDOWS     = 0x01;//window端
+    CLIENT_TYPE_MAC         = 0x02;//苹果电脑客户端
+    CLIENT_TYPE_IOS         = 0x11;//ios手机端
+    CLIENT_TYPE_ANDROID     = 0x12;//安卓手机端
+}
+
+enum GroupType{
+//群组类型
+	GROUP_TYPE_NORMAL		= 0x01;//普通群组
+	GROUP_TYPE_TMP			= 0x02;//临时群组
+	GROUP_TYPE_EMAIL		= 0x03;//email group
+}
+
+enum GroupModifyType{
+//修改群组成员类型
+	GROUP_MODIFY_TYPE_ADD	= 0x01;//增加成员
+	GROUP_MODIFY_TYPE_DEL	= 0x02;//删除成员
+	GROUP_MODIFY_TYPE_CHANGE_GRPNAME = 0x03;	//change group name
+	GROUP_MODIFY_TYPE_TRANSFER_LEADER = 0x04;	//transfer group leader
+	GROUP_MODIFY_TYPE_DEL_BY_SELF = 0x05;  //actively quit
+}
+
+//george jiang add the enum on Jan 13th,2016,modifed on April 12th,2016
+enum DataSyncType
+{
+	DATA_SYNC_TYPE_ADD_USER = 0x01; //add user
+	DATA_SYNC_TYPE_DEL_USER = 0x02; //del user
+	DATA_SYNC_TYPE_MOD_USER = 0x03; //update user
+	DATA_SYNC_TYPE_ENABLE_USER = 0x04; //enable user
+	DATA_SYNC_TYPE_DISABLE_USER = 0x05; //disable user
+	DATA_SYNC_TYPE_ADD_DEPART = 0x06; //add department
+	DATA_SYNC_TYPE_DEL_DEPART = 0x07; //delete department
+	DATA_SYNC_TYPE_MOD_DEPART = 0x08; //modify department
+	DATA_SYNC_TYPE_ADD_POSITION = 0x09; //add position
+	DATA_SYNC_TYPE_DEL_POSITION = 0x0a;//del position
+	DATA_SYNC_TYPE_MOD_POSITION = 0x0b; //modify position
+	DATA_SYNC_TYPE_ADD_USER_DUTY = 0x0c; //add duty
+	DATA_SYNC_TYPE_DEL_USER_DUTY = 0x0d; //delete duty
+	DATA_SYNC_TYPE_MOD_USER_DUTY = 0x0e;//modify user duty
+	DATA_SYNC_TYPE_CHG_USER_DETAILS = 0x0f; //change user details
+	DATA_SYNC_TYPE_DEL_USER_FROM_DEPT = 0x10; //remove users from department
+	DATA_SYNC_TYPE_ADD_STAFF = 0x11; //a user joins a company
+	DATA_SYNC_TYPE_MOD_STAFF = 0x12; //update staff information
+	DATA_SYNC_TYPE_DEL_STAFF = 0x13; //delete a staff from a company
+	DATA_SYNC_TYPE_ENABLE_STAFF = 0x14; //enabled staff
+	DATA_SYNC_TYPE_DISABLE_STAFF = 0x15; //disable staff
+	DATA_SYNC_TYPE_CHG_STAFF_DETAILS = 0x16; //change staff details
+	DATA_SYNC_TYPE_ADD_COMPANY = 0x17; //add company
+	DATA_SYNC_TYPE_DEL_COMPANY = 0x18; //del company
+	DATA_SYNC_TYPE_MOD_COMPANY = 0x19; //update company
+}
+	
+enum FileType{
+    FILE_TYPE_ONLINE        = 0x01;
+    FILE_TYPE_OFFLINE       = 0x02;
+}
+
+/*enum ClientFileState{
+    CLIENT_FILE_PEER_READY  = 0x00;
+    CLIENT_FILE_CANCEL      = 0x01;
+    CLIENT_FILE_REFUSE      = 0x02;
+    CLIENT_FILE_UPLOAD_DONE       = 0x03;
+    CLIENT_FILE_DOWNLOAD_DONE	  = 0x04;
+}*/
+
+
+enum ClientFileState{
+	CLIENT_FILE_UNDO = 0x01;  				//未接受
+  CLIENT_FILE_CANCEL = 0x02;			//取消接收
+  CLIENT_FILE_REFUSE = 0x03;				//拒绝接收
+  CLIENT_FILE_DONE = 0x04;				//上传完成
+	CLIENT_FILE_READY = 0x05;				//准备状态
+	CLIENT_FILE_DOING = 0x06;					//传输中
+	CLIENT_FILE_FAILD = 0x07;				//传输失败
+	CLIENT_FILE_INVALID = 0x08;				//无效文件
+	CLIENT_FILE_DOWNLOAD_DONE = 0x09; //下载完成
+}
+
+enum ClientFileRole{
+    CLIENT_REALTIME_SENDER  = 0x01;
+    CLIENT_REALTIME_RECVER  = 0x02;
+    CLIENT_OFFLINE_UPLOAD   = 0x03;
+    CLIENT_OFFLINE_DOWNLOAD = 0x04;
+}
+
+enum FileServerError{
+    FILE_SERVER_ERRNO_OK                                = 0x00;
+    FILE_SERVER_ERRNO_CREATE_TASK_ID_ERROR              = 0x01;
+    FILE_SERVER_ERRNO_CREATE_TASK_ERROR                 = 0x02;
+    FILE_SERVER_ERRNO_LOGIN_INVALID_TOKEN               = 0x03;
+    FILE_SERVER_ERRNO_INVALID_USER_FOR_TASK             = 0x04;
+    FILE_SERVER_ERRNO_PULL_DATA_WITH_INVALID_TASK_ID    = 0x05;
+    FILE_SERVER_ERRNO_PULL_DATA_ILLIEAGE_USER           = 0x06;
+    FILE_SERVER_ERRNO_PULL_DATA_MKDIR_ERROR             = 0x07;
+    FILE_SERVER_ERRNO_PULL_DATA_OPEN_FILE_ERROR         = 0x08;
+    FILE_SERVER_ERRNO_PULL_DATA_READ_FILE_HEADER_ERROR  = 0x09;
+    FILE_SERVER_ERRNO_PULL_DATA_ALLOC_MEM_ERROR         = 0x0a;
+    FILE_SERVER_ERRNO_PULL_DATA_SEEK_OFFSET_ERROR       = 0x0b;
+    FILE_SERVER_ERRNO_PULL_DATA_FINISHED                = 0x0c;
+}
+
+enum SessionStatusType{
+//会话状态
+    SESSION_STATUS_OK           = 0x00;//正常
+    SESSION_STATUS_DELETE       = 0x01;//被删除
+}
+
+enum DepartmentStatusType{
+//部门状态
+    DEPT_STATUS_OK              = 0x00;//正常
+    DEPT_STATUS_DELETE          = -0x01;//已删除
+}
+
+/*enum PositionType
+{
+	NONE = 0x01;
+	CHIEF_LEADER = 0x02;
+	LEADER = 0x03;
+	STAFF = 0x04;
+	OTHER= 0x05;
+}*/
+
+enum JobGradeType
+{
+	NONE = 0x01;
+	CHIEF_LEADER = 0x02;
+	LEADER = 0x03;
+	STAFF = 0x04;
+	OTHER= 0x05;
+}
+
+message IpAddr{
+	required string ip = 1;
+	required uint32 port = 2;
+}
+
+//公司信息
+message CompanyInfo
+{
+	required uint32 company_id = 1; //company id 
+	required string company_uuid = 2; //company uuid;
+	required string company_no = 3; //company number
+	required string company_name = 4;//company name
+	required string company_full_name = 5; //company full name
+	required string industry_type = 6; //industry type
+	required uint32 company_is_joined = 7; //can join the team
+	required uint32 company_is_invite = 8; //inviting others to join the company
+}
+
+//部门信息
+message DepartInfo
+{  
+ required string dept_uuid = 1;//部门uuid 
+ required uint32 priority = 2;//部门级别 
+ required string dept_name = 3;//部门名称     
+ required string parent_dept_uuid = 4;//父部门id     
+ required uint32 company_id = 5;//公司id     //change from required to optional by george on April 19th,2016
+ required int32 dept_status = 6;//部门状态 (-1:已删除；0:正常)    
+ required uint32 dept_level = 7; //depart level     
+ required uint32 contact_status = 8; //is the department shown in contact list (是否在通讯录中显示(0:不显示；1:显示) 
+ required string company_uuid = 9; // company uuid
+} 
+
+//岗位信息 
+message PositionInfo 
+{ 
+ required string position_uuid = 1; //岗位 uuid; 
+ required JobGradeType position_type = 2; //岗位类型 ( 类型：chiefleader：正职领导；leader：副职领导；staff：职员；other：其它；) 
+ required string position_name = 3; //岗位名称 
+ required int32 status = 4; //岗位状态(-1：已删除；0:正常) 
+ required uint32 sort = 5; //排序 
+ required uint32 company_id = 6; //company id
+} 
+
+
+//职责信息 
+message DutyInfo 
+//{     
+// required string depart_uuid = 1; //部门uuid 
+// required string depart_name = 2; //部门名称 
+// required int32 status = 3;  //部门状态  (-1:已删除；0:正常) 
+// repeated PositionInfo position_list = 4; //岗位列表   
+//} 
+
+//精简职责信息 (added by george on April 19th,2016)
+//message DutyInfoLite 
+{     
+ required string depart_uuid = 1; //部门uuid 
+ required JobGradeType job_grade = 2; //job grade
+ repeated string position_uuid_list = 3; //岗位uuid 
+} 
+
+//屏蔽用户信息  added by george jiang on Nov 18th,2015
+message ShieldUser
+{
+	required uint32 user_id = 1;  //user id
+	required uint32 shield_status = 2;  //shield status
+}
+
+//用户扩展信息 
+//信息类型 (1：邮箱（11：工作邮箱，12：个人邮箱） 
+//2：电话号码（21：手机号码、22：家庭号码、23：工作号码） 
+//3：地址（31：工作地址，32：家庭地址） 
+//4：即时通讯（41：QQ、42：微信） 
+//5：传真（51：家庭传真、52：工作传真） 
+//6：自定义)   
+message UserDetails  //maybe add a operation tyep:add/modify/del/query
+{ 
+ required string details_uuid = 1; //用户详情uuid    
+ required uint32 details_type = 2; //类型
+ required string details_title = 3; //标题 
+ required string details_content = 4; //内容 
+} 
+
+
+//员工基本详情信息
+message StaffInfo
+{
+	required string staff_uuid = 1; //staff uuid
+	required string job_number = 2;  // 员工编号（用户编号) 
+	required string staff_name = 3; //员工姓名
+ 	required string mobile_phone = 4; //手机号码 
+	optional uint32 buy_product = 5 ; //用户订购产品(16位中每一位代表一种产品。1表示开通该产品；0则表示未开通。就目前开发的产品来看从低位到高位的每一位分别代表IM、审批、邮箱、公告、云盘、通讯录、文档和人力资源)
+	required uint32  flags = 6; //标志位(按从低位到高位顺序排列最后1位代表是否管理员(0：是，1:否);第2位代表管理员状态(0:禁用，1:启用);第3位代表是否超级管理员(0；否，1:是);第4和5位代表员工状态，第6代表激活状态；第7位代表通讯录状态
+  repeated DutyInfo duty_list = 7; //职责 
+  required uint32 company_id = 8; //公司id
+  required string keyword = 9;//关键词 
+  repeated UserDetails add_info_list = 10;//员工扩展信息 
+  required uint32 user_id = 11; //user id
+  required string user_uuid = 12; //user uuid
+  required string account = 13; //account
+  required string user_name = 14; //username
+  required string email = 15; //email
+  required string default_email = 16; //default email
+}
+
+
+//个人信息 
+message UserInfo
+{ 
+ required uint32 user_id = 1; 
+ required string user_uuid = 2;//用户ID 
+ required string user_name = 3; //用户名
+ required string user_real_name = 4; //真名（姓名) 
+ required string avatar_url = 5; //头像 
+ required uint32 user_gender = 6;  // 用户性别,0:女; 1:男; 2:双性 
+ required int32 birthday = 7; //生日  //change from string to int32. added by george on April 20th.change db type also
+ required string mobile_phone = 8; //手机号码 
+ required string email = 9; //邮箱
+ required int32 status = 10;        //用户状态，-1:已删除；0:禁用；1:启用 
+ required string keyword = 11; //关键词 
+ repeated UserDetails add_info_list = 12; //用户扩展信息 
+ required string user_nick_name = 13; //绰号 
+ required string signature = 14;  //个性签名 
+ repeated ShieldUser black_list = 15; // shield user list. added by george jiang on Nov 18th,2015 
+ repeated CompanyInfo company_info_list = 16; //company info list(如果用户有加入公司，则用户登录时list_size>0,未加入公司或获取用户信息时list_size=0)
+ repeated StaffInfo staff_info_list = 17; //staff info list (list_size同上)
+ repeated uint32 vip_id_list =18;//important user list
+ required string account = 19; //account
+ //required string buyproduct = 18; //buy products,separating by comma(,) if more products. added by george on Nov 10th,2015 
+ //required string companyname = 19;// 所在公司名称 
+ //repeated DutyInfo duty_list = 20; //职责
+} 
+
+
+message ContactSessionInfo{
+//联系人会话信息
+	required uint32 session_id = 1;//会话id
+	required SessionType session_type = 2;//会话类型
+    required SessionStatusType session_status = 3;//会话状态，0：正常，1：已删除
+	required uint32 updated_time = 4;//更新时间
+	required uint32 latest_msg_id = 5;//最后一条消息的id
+	required bytes latest_msg_data = 6;//最后一条消息的内容
+    required MsgType latest_msg_type = 7;//最后一条消息的类型
+    required uint32 latest_msg_from_user_id = 8;//最后一条消息的发信人id
+  required string session_name = 9;//the peer name, added on Aug 11th,2015
+  required string avatar_url = 10;//avatar url,added on Aug 11th,2015
+  required uint32 last_at_msgid = 11; // last at msgid: 0 means no msgid
+}
+
+message UserStat{
+//用户状态
+	required uint32 user_id = 1;//用户id
+	required UserStatType status = 2;//状态
+}
+
+message ServerUserStat{
+	required uint32 user_id = 1;
+	required UserStatType status = 2;
+	required ClientType client_type = 3;
+}
+
+message UnreadInfo{
+//未读消息结构
+	required uint32 session_id = 1;//会话id
+	required SessionType session_type = 2;//会话类型
+	required uint32 unread_cnt = 3;//未读消息数量
+	required uint32 latest_msg_id = 4;//最后一条消息的id
+	required bytes latest_msg_data = 5;//最后一条消息的内容
+    required MsgType latest_msg_type = 6;//最后一条消息的类型
+    required uint32 latest_msg_from_user_id = 7;//最后一条消息的发信人id
+}
+
+message MsgInfo{
+//消息结构体
+	required uint32 msg_id = 1;//消息id
+	required uint32 from_session_id = 2;   //该条消息的发信人
+	required uint32 create_time = 3;//该消息的创建时间
+	required MsgType msg_type = 4;//消息类型
+	required bytes msg_data = 5;//消息内容
+	optional uint32 msg_flag =6; //message flag. 0:none,1:at message
+}
+
+message GroupVersionInfo{
+	required uint32 group_id = 1;//群组id
+	required uint32 version = 2;//版本
+	
+}
+
+message GroupInfo
+{
+//群组信息结构体
+	required uint32 group_id = 1;//群组id
+	required uint32 version = 2;//版本
+	required string group_name = 3;//群组名称
+	required string group_avatar = 4;//群组头像
+	required uint32 group_creator_id = 5;//群组创建者id
+	required GroupType group_type = 6;//群组类型, 1:normal,2:temp,3:emailgroup
+	required uint32 shield_status = 7;//是否屏蔽1:屏蔽0:不屏蔽
+	repeated uint32 group_member_list = 8;//群组成员列表
+	required uint32 status = 9;//group status
+	optional string email = 10;//email 
+	required string group_uuid=11; //group uuid
+	required uint32 company_id=12; //company id;
+}
+
+message UserTokenInfo{
+    required uint32 user_id = 1;//用户id
+	required ClientType user_type = 2;//客户端类型
+	required string token = 3;//客户端型号
+	required uint32 push_count = 4;//推送数量
+	required uint32 push_type = 5;			//1: 正常推送  	2:无打扰式推送
+}
+
+message PushResult{
+	required string user_token = 1;//型号
+	required uint32 result_code = 2;//结果
+}
+
+message ShieldStatus{
+//屏蔽状态结构
+	required uint32 user_id = 1;		//用户id
+	required uint32 group_id = 2;	//群组id
+	required uint32 shield_status = 3;		//1: shield  0: not shield 
+}
+
+/*message OfflineFileInfo{
+    required uint32 from_user_id = 1;
+    required string task_id = 2;
+    required string file_name = 3;
+    required uint32 file_size = 4;
+}*/
+
+
+enum MessageSendError
+{
+	//MESSAGE_SEND_ERROR_NO_DATA				= 0x01;	//an empty message
+	MESSAGE_SEND_ERROR_TOO_MUCH_DATA	=0x03001;	//too much data
+	MESSAGE_SEND_ERROR_INVALID_USER = 0x3002; //invalid user id
+	MESSAGE_SEND_ERROR_TOO_MUCH_MSG_CNT_PER_SECOND	= 0x3003; //too much message count per second
+	MESSAGE_SEND_ERROR_SAME_USER = 0x3004;	 //send to oneself when single chatting
+	MESSAGE_SEND_ERROR_NO_DATA				= 0x3005;	//an empty message
+	MESSAGE_SEND_ERROR_INVALID_TIMESTAMP = 0x3006; //invalid timestamp. added by george on Nov 26th,2015
+	//MESSAGE_SEND_ERROR_WRITE_DB_ERROR = 0x05;  //system internal error
+}
+
+
+//用户基本信息
+/*message UserInfoBase
+{
+	required uint32 user_id = 1; //用户id
+	required string user_uuid = 2; //用户uuid(EC同步使用)
+	//required string user_name = 3; //用户名
+	required string user_real_name =4; //用户姓名
+	required string avatar_url = 5; //头像 
+	required uint32  flags = 6; //标志位(按从低位到高位顺序排列最后2位代表性别;第3和4位代表用户状态，6-8位保留位)
+	//说明: 性别中00表示女性；01:男性；10:未知，用户状态中00表示禁用；01:表示启用；10表示删除
+	//required uint32 buy_product = 7 ; //用户订购产品(16位中每一位代表一种产品。1表示开通该产品；0则表示未开通。就目前开发的产品来看从低位到高位的每一位分别代表IM、审批、邮箱、公告、云盘、通讯录、文档和人力资源)
+	repeated ShieldUser black_list = 7; //屏蔽用户名单
+}*/
+
+
+//精简结构体用户详细信息
+/*message UserInfoLite
+{ 
+	required uint32 user_id = 1; //用户id
+	required string user_uuid = 2; //用户uuid(EC同步使用)
+	required string user_name = 3; //用户名
+	required string user_real_name =4; //用户姓名
+	required string avatar_url = 5; //头像 
+	required string email = 6; //邮箱
+	required int32 birthday = 7; //生日 
+ 	required string mobile_phone = 8; //手机号码 
+ 	repeated UserDetails add_info_list = 9;//用户扩展信息 
+ 	required string user_nick_name = 10;//绰号 
+ 	required string signature = 11; //个性签名 
+}*/
+
+message ConfigPara
+{
+	required string key=1; //key
+	required string value=2; //value
+}
+
+
+//员工信息精简数据包结构
+message StaffInfoLite
+{
+	required uint32 user_id = 1; //用户id
+	required string user_uuid = 2; //用户uuid(EC同步使用)
+  required string avatar_url = 3; //头像
+  required uint32  flags = 4; //标志位(按从低位到高位顺序排列最后2位代表性别；第3和4位代表用户状态，第5位代表是否管理员(0：是，1:否);第6位代表管理员状态(0:禁用，1:启用);第7位代表是否超级管理员(0；否，1:是);8和9位代表员工状态，第10位代表激活状态；第11位代表通讯录状态位)
+  required string staff_uuid = 5; //staff uuid
+  required string user_real_name = 6; //用户姓名
+	required string staff_real_name = 7; //员工姓名
+	repeated DutyInfo duty_list = 8; //职责
+	required string mobile_phone = 9; //mobile phone
+}
+
+enum VipModifyType
+{
+	VIP_MODIFY_TYPE_ADD	= 0x01;//增加重要联系人
+	VIP_MODIFY_TYPE_DEL	= 0x02;//删除重要联系人
+	VIP_MODIFY_TYPE_SET = 0x03;//设置重要联系人
+}
+

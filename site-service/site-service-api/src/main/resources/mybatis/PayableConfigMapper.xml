@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.changchong.site.mapper.PayableConfigMapper">
+	<resultMap id="BaseResultMap" type="com.changchong.site.model.PayableConfig">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="charge_duration" property="chargeDuration" />
+		<result column="original_price" property="originalPrice" />
+		<result column="present_price" property="presentPrice" />
+		<result column="app_type" property="appType" />
+		<result column="opt_user_id" property="optUserId" />
+		<result column="status" property="status" />
+		<result column="create_time" property="createTime" />
+		<result column="typeName" property="typeName" />
+		<result column="userName" property="userName" />
+		<result column="auditResult" property="auditResult" />
+		<result column="is_default" property="is_default" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, charge_duration, original_price, present_price,
+		app_type, opt_user_id, status, is_default,create_time
+	</sql>
+
+	<select id="getPayableConfigList" resultMap="BaseResultMap"
+		parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from t_payable_config
+		where 1=1
+		<if test="app_type != null">
+			AND app_type = #{app_type}
+		</if>
+		<if test="status != null">
+			AND status IN
+			<foreach collection="status" separator="," index="index" close=")" open="(" item="item">
+				#{item}
+			</foreach>
+		</if>
+		<if test="ids != null">
+			AND id IN
+			<foreach collection="ids" separator="," index="index" close=")" open="(" item="item">
+				#{item}
+			</foreach>
+		</if>
+		<if test="isDefault != null">
+			AND is_default = #{isDefault}
+		</if>
+		<if test="id != null">
+			AND id = #{id}
+		</if>
+		<if test="charge_duration != null">
+			AND charge_duration = #{charge_duration}
+		</if>
+		<if test="is_default !=null">
+			AND is_default = #{is_default}
+		</if>
+		<if test="original_price !=null">
+			AND original_price = #{original_price}
+		</if>
+		<if test="present_price !=null">
+			AND present_price = #{present_price}
+		</if>
+		order by charge_duration asc
+	</select>
+
+	<select id="getEnablePayableConfigList" resultMap="BaseResultMap"
+			parameterType="map">
+		select
+		charge_duration,original_price,present_price,id
+		from t_payable_config
+		where
+		  app_type = #{appType} and is_default=#{isDefault}
+		and status in (4,6,7,8,10)
+		order by charge_duration asc
+	</select>
+
+	<insert id="savePayableConfig" parameterType="com.changchong.site.model.PayableConfig"
+		useGeneratedKeys="true" keyProperty="id">
+		insert ignore into
+		t_payable_config
+		(charge_duration, original_price,present_price,
+		app_type, opt_user_id, status, is_default, create_time)
+		values
+		(
+		#{chargeDuration},
+		#{originalPrice},
+		#{presentPrice},
+		#{appType},
+		#{optUserId},
+		#{status},
+		#{is_default},
+		#{createTime}
+		)
+	</insert>
+	<update id="updatePayableConfig" parameterType="map">
+		update t_payable_config
+		<set>
+			<if test="chargeDuration != null">
+				charge_duration = #{chargeDuration},
+			</if>
+			<if test="originalPrice != null">
+				original_price = #{originalPrice},
+			</if>
+			<if test="presentPrice != null">
+				present_price = #{presentPrice},
+			</if>
+			<if test="appType != null">
+				app_type = #{appType},
+			</if>
+			<if test="optUserId != null">
+				opt_user_id = #{optUserId},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="is_default != null">
+				is_default = #{is_default},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="getCount" parameterType="map" resultType="java.lang.Integer">
+		select
+		count(*) from t_payable_config
+		WHERE 1 = 1 and status != 9 
+	</select>
+	<select id="getAuditList" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT id,charge_duration, original_price,present_price, app_type,
+		opt_user_id, status, is_default,create_time,
+		case app_type
+		WHEN '1' THEN 'H5'
+		WHEN
+		'2' THEN 'APP'
+		END AS typeName,
+		case status
+		WHEN '0' THEN '未提交'
+		WHEN '1' THEN '一级审核中'
+		WHEN '2'
+		THEN '二级审核中'
+		WHEN '3' THEN '退回'
+		WHEN '4' THEN '完成'
+		WHEN '5' THEN '退回'
+		WHEN '6' THEN '一级审核中'
+		WHEN '7' THEN '二级审核中'
+		WHEN '8' THEN '完成'
+		WHEN '9' THEN '完成'
+		WHEN '10' THEN '完成'
+		END
+		AS auditResult
+		FROM t_payable_config
+		WHERE 1 = 1 and status != 9 ORDER BY create_time
+		DESC
+		<if test="startRow != null and endRow != null">
+			LIMIT #{startRow},#{endRow}
+		</if>
+	</select>
+</mapper>
