@@ -1,0 +1,7 @@
+---- config.h Matches (3 in 3 files) ----
+Cmdutils.cpp (z:\practice\android_share_screen\ffplayer\src):#include "config.h"
+Cmdutils.h (z:\practice\android_share_screen\ffplayer\src):#include "config.h"
+Ffplay.cpp (z:\practice\android_share_screen\ffplayer\src):#include "config.h"
+---- PRIx64 Matches (2 in 2 files) ----
+Cmdutils.h (z:\practice\android_share_screen\ffplayer\src):    snprintf(name, sizeof(name), "0x%" PRIx64, ch_layout);
+Ffplay.cpp (z:\practice\android_share_screen\ffplayer\src):                 ":channel_layout=0x%" PRIx64,  is->audio_filter_src.channel_layout);

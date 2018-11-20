@@ -1,0 +1,28 @@
+---- SOUNDTOUCH_INTEGER_SAMPLES Matches (27 in 11 files) ----
+AAFilter.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch)://#if SOUNDTOUCH_INTEGER_SAMPLES
+BPMDetect.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+BPMDetect.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#endif // SOUNDTOUCH_INTEGER_SAMPLES
+Config.h (z:\practice\android_share_screen\soundtouch):/* #undef SOUNDTOUCH_INTEGER_SAMPLES */
+FIRFilter.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+FIRFilter.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#endif // SOUNDTOUCH_INTEGER_SAMPLES
+FIRFilter.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+FIRFilter.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#endif // SOUNDTOUCH_INTEGER_SAMPLES
+FIRFilter.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+FIRFilter.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#endif // SOUNDTOUCH_INTEGER_SAMPLES
+Main.cpp (z:\practice\android_share_screen\soundtouch\source\soundstretch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+RateTransposer.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+README.html (z:\practice\android_share_screen\soundtouch):SOUNDTOUCH_INTEGER_SAMPLES</span> for 16bit signed integer</li>
+README.html (z:\practice\android_share_screen\soundtouch):SOUNDTOUCH_INTEGER_SAMPLES etc.<br>
+SoundTouchDLL.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouchdll):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+SoundTouchDLL.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouchdll):#endif // SOUNDTOUCH_INTEGER_SAMPLES
+Soundtouch_config.h (z:\practice\android_share_screen\soundtouch\include):/* #undef SOUNDTOUCH_INTEGER_SAMPLES */
+STTypes.h (z:\practice\android_share_screen\soundtouch\include):    //#undef SOUNDTOUCH_INTEGER_SAMPLES
+STTypes.h (z:\practice\android_share_screen\soundtouch\include):        #define SOUNDTOUCH_INTEGER_SAMPLES      1
+STTypes.h (z:\practice\android_share_screen\soundtouch\include):    #if !(SOUNDTOUCH_INTEGER_SAMPLES || SOUNDTOUCH_FLOAT_SAMPLES)
+STTypes.h (z:\practice\android_share_screen\soundtouch\include):        //#define SOUNDTOUCH_INTEGER_SAMPLES     1    //< 16bit integer samples
+STTypes.h (z:\practice\android_share_screen\soundtouch\include):    #ifdef SOUNDTOUCH_INTEGER_SAMPLES
+STTypes.h (z:\practice\android_share_screen\soundtouch\include):    #endif  // SOUNDTOUCH_INTEGER_SAMPLES
+TDStretch.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+TDStretch.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+TDStretch.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#ifdef SOUNDTOUCH_INTEGER_SAMPLES
+TDStretch.cpp (z:\practice\android_share_screen\soundtouch\source\soundtouch):#endif // SOUNDTOUCH_INTEGER_SAMPLES
